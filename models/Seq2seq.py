@@ -58,12 +58,10 @@ class Seq2seq(nn.Module):
 				loss = outputs.loss
 
 		"""
-
-		inputs_embeds = self.model.encoder.embed_tokens(src_ids)
-		embedding_dim = inputs_embeds.shape[2]
-		device = inputs_embeds.device
-
 		if noise_config['noise'] == 1:
+			inputs_embeds = self.model.encoder.embed_tokens(src_ids)
+			embedding_dim = inputs_embeds.shape[2]
+			device = inputs_embeds.device
 			noise = data_helpers.add_noise(src_ids, embedding_dim, random_type=noise_config['noise_type'], 
 						word_keep=noise_config['word_keep'], weight=noise_config['weight'], mean=noise_config['mean'],
 						replace_map=noise_config['replace_map'],grad_noise=grad_noise)
@@ -83,11 +81,12 @@ class Seq2seq(nn.Module):
 				inputs_embeds=new_embeds
 			)
 		else:
-			pdb.set_trace()
+			# pdb.set_trace()
+			new_ids, new_tgt = data_helpers.add_words(src_ids, tgt_ids, length=3)
 			outputs = self.model(
-				input_ids=src_ids,
+				input_ids=new_ids,
 				attention_mask=src_att_mask,
-				labels=tgt_ids
+				labels=new_tgt
 			)
 
 		return outputs

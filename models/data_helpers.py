@@ -57,3 +57,8 @@ def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weigh
                     x[bi][pi] = 0
             #x[bi] = np.random.choice(2, size=(seq_length), p=[1-word_keep, word_keep])#change x by shallow copy
     return noise
+
+def add_words(src_ids, tgt_ids, length=3, way='random'):
+    pdb.set_trace()
+    # return new_ids, new_tgt
+    return None
