@@ -85,7 +85,7 @@ print_every=2
 noise=0
 savedir=models/random_add/clean_${batch_size}_${minibatch_split}/
 # ===================================================================================
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/train.py \
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 	--train_path_src $train_path_src \
 	--train_path_tgt $train_path_tgt \
 	--dev_path_src $dev_path_src \
