@@ -100,6 +100,7 @@ class Trainer(object):
 
 		if noise == 0:
 			self.noise_flag = False
+			self.noise = None
 			print("Without using noise")
 		else:
 			self.noise_flag = True
