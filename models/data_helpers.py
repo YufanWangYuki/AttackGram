@@ -7,7 +7,7 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 from transformers import pipeline, set_seed
 
 tokenizer = T5Tokenizer.from_pretrained("t5-small")
-generator = pipeline('text-generation', model='gpt2')
+generator = pipeline('text-generation', model='distilgpt2')
 set_seed(42)
 
 
@@ -71,7 +71,7 @@ def add_words_seq(src_seq, tgt_seq, length=3, way='random'):
             continue
         elif way == 'generate':
             pdb.set_trace()
-            res = generator(item, max_length=length, num_return_sequences=1)
+            res = generator(item, max_length=10, num_return_sequences=1)[0]['generated_text']
             
         else:
             continue
