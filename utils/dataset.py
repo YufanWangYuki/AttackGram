@@ -59,7 +59,7 @@ class IterDataset(torch.utils.data.Dataset):
 
 		pdb.set_trace()
 		for seq in src_seqs:
-			src_seqs, tgt_seqs = add_words(src_seqs, tgt_seqs, length=3,self.word_way)
+			src_seqs, tgt_seqs = add_words(src_seqs, tgt_seqs, length=3, word_way=self.word_way)
 
 
 
