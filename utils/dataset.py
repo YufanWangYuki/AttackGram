@@ -16,7 +16,7 @@ from transformers import AutoTokenizer
 # customised
 from utils.misc import check_device
 from utils.align_preds import align_data_train, get_sentences_dict
-from models.data_helpers import add_words
+from models.data_helpers import add_words_seq
 
 import logging
 logging.basicConfig(level=logging.INFO)
@@ -59,7 +59,7 @@ class IterDataset(torch.utils.data.Dataset):
 
 		pdb.set_trace()
 		for seq in src_seqs:
-			src_seqs, tgt_seqs = add_words(src_seqs, tgt_seqs, length=3, word_way=self.word_way)
+			src_seqs, tgt_seqs = add_words_seq(src_seqs, tgt_seqs, length=3, way=self.word_way)
 
 
 
