@@ -75,7 +75,6 @@ def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
             res = generator(src, max_length=length, num_return_sequences=1)[0]['generated_text']
             new_src.append(res)
             new_tgt.append(tgt+res[len(src):])
-            pdb.set_trace()
         else:
             continue
     

@@ -58,11 +58,11 @@ class IterDataset(torch.utils.data.Dataset):
 		tgt_seqs = self.batches[index]['tgt_seqs'] # lis
 
 		# add noisy words
-		src_seqs, tgt_seqs = add_words_seq(src_seqs, tgt_seqs, length=10, way=self.word_way)
-
+		new_src, new_tgt = add_words_seq(src_seqs, tgt_seqs, length=10, way=self.word_way)
+		pdb.set_trace()
 		# src id + mask
 		src_encoding = self.tokenizer(
-			[self.task_prefix + seq for seq in src_seqs],
+			[self.task_prefix + seq for seq in new_src],
 			padding='longest',
 			max_length=self.max_src_len,
 			truncation=True,
@@ -72,7 +72,7 @@ class IterDataset(torch.utils.data.Dataset):
 
 		# tgt id
 		tgt_encoding = self.tokenizer(
-			[seq for seq in tgt_seqs], # tuple to list
+			[seq for seq in new_tgt], # tuple to list
 			padding='longest',
 			max_length=self.max_tgt_len,
 			truncation=True,
