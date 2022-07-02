@@ -66,16 +66,20 @@ def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weigh
     return noise
 
 def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
-    for item in src_seq:
+    new_src = []
+    new_tgt = []
+    for src, tgt in src_seq, tgt_seq:
         if way == 'random':
             continue
         elif way == 'generate':
-            res = generator(item, max_length=length, num_return_sequences=1)[0]['generated_text']
+            res = generator(src, max_length=length, num_return_sequences=1)[0]['generated_text']
+            new_src.append(res)
+            new_tgt.append(tgt+res[len(src):])
             pdb.set_trace()
         else:
             continue
     
-    return src_seq, tgt_seq
+    return new_src, new_tgt
 
 def add_words(src_ids, tgt_ids, length=10, way='random'):
     for item in src_ids:
