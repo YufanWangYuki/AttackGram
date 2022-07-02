@@ -71,4 +71,4 @@ def add_words(src_ids, tgt_ids, length=3, way='random'):
             continue
     pdb.set_trace()
     # return new_ids, new_tgt
-    return None
+    return src_ids

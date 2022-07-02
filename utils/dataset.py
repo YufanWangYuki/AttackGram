@@ -16,6 +16,7 @@ from transformers import AutoTokenizer
 # customised
 from utils.misc import check_device
 from utils.align_preds import align_data_train, get_sentences_dict
+from models.data_helpers import add_words
 
 import logging
 logging.basicConfig(level=logging.INFO)
@@ -55,6 +56,8 @@ class IterDataset(torch.utils.data.Dataset):
 
 		src_seqs = self.batches[index]['src_seqs'] # lis
 		tgt_seqs = self.batches[index]['tgt_seqs'] # lis
+
+		pdb.set_trace()
 
 		# src id + mask
 		src_encoding = self.tokenizer(
