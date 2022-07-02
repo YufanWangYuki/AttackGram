@@ -70,8 +70,9 @@ def add_words_seq(src_seq, tgt_seq, length=3, way='random'):
         if way == 'random':
             continue
         elif way == 'generate':
-            res = generator(item, max_length=length, num_return_sequences=1)
             pdb.set_trace()
+            res = generator(item, max_length=length, num_return_sequences=1)
+            
         else:
             continue
     

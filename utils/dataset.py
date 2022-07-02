@@ -57,11 +57,8 @@ class IterDataset(torch.utils.data.Dataset):
 		src_seqs = self.batches[index]['src_seqs'] # lis
 		tgt_seqs = self.batches[index]['tgt_seqs'] # lis
 
-		pdb.set_trace()
-		for seq in src_seqs:
-			src_seqs, tgt_seqs = add_words_seq(src_seqs, tgt_seqs, length=3, way=self.word_way)
-
-
+		# add noisy words
+		src_seqs, tgt_seqs = add_words_seq(src_seqs, tgt_seqs, length=3, way=self.word_way)
 
 		# src id + mask
 		src_encoding = self.tokenizer(
