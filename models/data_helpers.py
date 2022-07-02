@@ -78,7 +78,7 @@ def add_words_seq(src_seq, tgt_seq, length=3, way='random'):
     
     return src_seq, tgt_seq
 
-def add_words_seq(src_ids, tgt_ids, length=3, way='random'):
+def add_words(src_ids, tgt_ids, length=3, way='random'):
     for item in src_ids:
         orig_seq = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(item))
         if way == 'random':
