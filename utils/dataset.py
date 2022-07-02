@@ -32,7 +32,7 @@ class IterDataset(torch.utils.data.Dataset):
 		'tgt_seqs':tgt_seqs[i_start:i_end],
 	"""
 
-	def __init__(self, batches, max_src_len, max_tgt_len, device):
+	def __init__(self, batches, max_src_len, max_tgt_len, device,word_way):
 
 		super(Dataset).__init__()
 
@@ -43,8 +43,8 @@ class IterDataset(torch.utils.data.Dataset):
 		self.max_src_len = max_src_len
 		self.max_tgt_len = max_tgt_len
 		self.device = device
-
 		self.batches = batches
+		self.word_way = word_way
 
 	def __len__(self):
 
@@ -58,6 +58,10 @@ class IterDataset(torch.utils.data.Dataset):
 		tgt_seqs = self.batches[index]['tgt_seqs'] # lis
 
 		pdb.set_trace()
+		for seq in src_seqs:
+			src_seqs, tgt_seqs = add_words(src_seqs, tgt_seqs, length=3,self.word_way)
+
+
 
 		# src id + mask
 		src_encoding = self.tokenizer(
@@ -105,7 +109,8 @@ class Dataset(object):
 		max_tgt_len=32,
 		batch_size=64,
 		use_gpu=True,
-		logger=None
+		logger=None,
+		word_way='generate'
 		):
 
 		super(Dataset, self).__init__()
@@ -122,7 +127,7 @@ class Dataset(object):
 		self.logger = logger
 		if type(self.logger) == type(None):
 			self.logger = logging.getLogger(__name__)
-
+		self.word_way = word_way
 		self.load_sentences()
 
 
@@ -179,5 +184,5 @@ class Dataset(object):
 					'num_workers': 0}
 
 		self.iter_set = IterDataset(batches,
-			self.max_src_len, self.max_tgt_len, self.device)
+			self.max_src_len, self.max_tgt_len, self.device,self.word_way)
 		self.iter_loader = torch.utils.data.DataLoader(self.iter_set, **params)
