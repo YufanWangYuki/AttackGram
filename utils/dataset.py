@@ -59,7 +59,7 @@ class IterDataset(torch.utils.data.Dataset):
 
 		# add noisy words
 		new_src, new_tgt = add_words_seq(src_seqs, tgt_seqs, length=10, way=self.word_way)
-		pdb.set_trace()
+		# pdb.set_trace()
 		# src id + mask
 		src_encoding = self.tokenizer(
 			[self.task_prefix + seq for seq in new_src],
