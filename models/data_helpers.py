@@ -65,19 +65,19 @@ def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weigh
             #x[bi] = np.random.choice(2, size=(seq_length), p=[1-word_keep, word_keep])#change x by shallow copy
     return noise
 
-def add_words_seq(src_seq, tgt_seq, length=3, way='random'):
+def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
     for item in src_seq:
         if way == 'random':
             continue
         elif way == 'generate':
-            res = generator(item, max_length=10, num_return_sequences=1)[0]['generated_text']
+            res = generator(item, max_length=length, num_return_sequences=1)[0]['generated_text']
             pdb.set_trace()
         else:
             continue
     
     return src_seq, tgt_seq
 
-def add_words(src_ids, tgt_ids, length=3, way='random'):
+def add_words(src_ids, tgt_ids, length=10, way='random'):
     for item in src_ids:
         orig_seq = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(item))
         if way == 'random':

@@ -58,7 +58,7 @@ class IterDataset(torch.utils.data.Dataset):
 		tgt_seqs = self.batches[index]['tgt_seqs'] # lis
 
 		# add noisy words
-		src_seqs, tgt_seqs = add_words_seq(src_seqs, tgt_seqs, length=3, way=self.word_way)
+		src_seqs, tgt_seqs = add_words_seq(src_seqs, tgt_seqs, length=10, way=self.word_way)
 
 		# src id + mask
 		src_encoding = self.tokenizer(
