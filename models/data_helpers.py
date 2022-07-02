@@ -68,7 +68,7 @@ def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weigh
 def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
     new_src = []
     new_tgt = []
-    for src, tgt in src_seq, tgt_seq:
+    for src, tgt in zip(src_seq, tgt_seq):
         if way == 'random':
             continue
         elif way == 'generate':
