@@ -3,6 +3,8 @@ import re
 import itertools
 from collections import Counter
 import pdb
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+tokenizer = T5Tokenizer.from_pretrained("t5-small")
 
 def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weight=0.0, replace_map = None, grad_noise=None):
     seq_length = len(x[0])
@@ -59,6 +61,14 @@ def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weigh
     return noise
 
 def add_words(src_ids, tgt_ids, length=3, way='random'):
+    for item in src_ids:
+        orig_seq = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(item))
+        if way == 'random':
+            continue
+        elif way == 'generate':
+            pdb.set_trace()
+        else:
+            continue
     pdb.set_trace()
     # return new_ids, new_tgt
     return None

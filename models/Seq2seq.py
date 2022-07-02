@@ -82,8 +82,9 @@ class Seq2seq(nn.Module):
 			)
 		else:
 			pdb.set_trace()
-
-			new_ids, new_tgt = data_helpers.add_words(src_ids, tgt_ids, length=3)
+			
+			
+			new_ids, new_tgt = data_helpers.add_words(src_ids, tgt_ids, length=3,way=noise_config['word_way'])
 			outputs = self.model(
 				input_ids=new_ids,
 				attention_mask=src_att_mask,

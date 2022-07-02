@@ -49,7 +49,8 @@ class Trainer(object):
 		noise_way='mul',
 		seq_length=64,
 		embedding_dim=768,
-		alpha=10000000
+		alpha=10000000,
+		word_way='generate'
 		):
 
 		self.use_gpu = use_gpu
@@ -95,7 +96,8 @@ class Trainer(object):
 			'mean':mean,
 			'word_keep':word_keep,
 			'replace_map':replace_map,
-			'noise_way':noise_way
+			'noise_way':noise_way,
+			'word_way':word_way
 		}
 
 		if noise == 0:

@@ -83,6 +83,7 @@ print_every=2
 # decay=0.1
 # savedir=models/v005/volta_${ntype}_${nway}_${mean}_${weight}_${alpha}_${decay}_${batch_size}_${minibatch_split}/
 noise=0
+word_way='generate'
 savedir=models/random_add/clean_${batch_size}_${minibatch_split}/
 # ===================================================================================
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
@@ -115,7 +116,8 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 	--grab_memory $grab_memory \
 	--use_gpu True \
 	--gpu_id $CUDA_VISIBLE_DEVICES \
-	--noise $noise
+	--noise $noise \
+	--word_way $word_way
 	# --ntype $ntype \
 	# --nway $nway \
 	# --mean $mean \
