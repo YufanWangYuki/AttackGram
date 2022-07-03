@@ -84,7 +84,7 @@ load_mode='null' # 'resume' | 'restart' | 'null'
 # savedir=models/v005/volta_${ntype}_${nway}_${mean}_${weight}_${alpha}_${decay}_${batch_size}_${minibatch_split}/
 noise=0
 word_way=generate
-savedir=models/$word_way/${batch_size}_${minibatch_split}_v1/
+savedir=models/$word_way/${batch_size}_${minibatch_split}_v1_full/
 # ===================================================================================
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 	--train_path_src $train_path_src \
