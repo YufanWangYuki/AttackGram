@@ -72,7 +72,7 @@ def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
         if way == 'random':
             continue
         elif way == 'generate':
-            res = generator(src, max_length=length, num_return_sequences=1)[0]['generated_text']
+            res = generator(src, max_new_tokens=length, num_return_sequences=1)[0]['generated_text']
             new_src.append(res)
             new_tgt.append(tgt+res[len(src):])
         else:
