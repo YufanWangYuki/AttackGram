@@ -66,19 +66,19 @@ def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weigh
     return noise
 
 def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
-    new_src = []
-    new_tgt = []
-    for src, tgt in zip(src_seq, tgt_seq):
+    
+    for idx, src, tgt in enumerate(zip(src_seq, tgt_seq)):
         if way == 'random':
             continue
         elif way == 'generate':
             res = generator(src, max_new_tokens=length, num_return_sequences=1)[0]['generated_text']
-            new_src.append(res+'.')
-            new_tgt.append(tgt+res[len(src):]+'.')
+            src[idx] = res+'.'
+            tgt[idx] = tgt+res[len(src):]+'.'
         else:
             continue
+        print(idx)
     
-    return new_src, new_tgt
+    return src, tgt
 
 def add_words(src_ids, tgt_ids, length=10, way='random'):
     for item in src_ids:
