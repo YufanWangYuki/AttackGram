@@ -67,7 +67,7 @@ def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weigh
 
 def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
     
-    for idx, src, tgt in enumerate(zip(src_seq, tgt_seq)):
+    for idx, (src, tgt) in enumerate(zip(src_seq, tgt_seq)):
         pdb.set_trace()
         if way == 'random':
             continue
