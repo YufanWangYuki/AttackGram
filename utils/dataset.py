@@ -63,7 +63,7 @@ class IterDataset(torch.utils.data.Dataset):
 		# pdb.set_trace()
 		# src id + mask
 		src_encoding = self.tokenizer(
-			[self.task_prefix + seq for seq in new_src],
+			[self.task_prefix + seq for seq in src_seqs],
 			padding='longest',
 			max_length=self.max_src_len,
 			truncation=True,
@@ -73,7 +73,7 @@ class IterDataset(torch.utils.data.Dataset):
 
 		# tgt id
 		tgt_encoding = self.tokenizer(
-			[seq for seq in new_tgt], # tuple to list
+			[seq for seq in tgt_seqs], # tuple to list
 			padding='longest',
 			max_length=self.max_tgt_len,
 			truncation=True,
