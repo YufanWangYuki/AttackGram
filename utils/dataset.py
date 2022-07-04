@@ -8,6 +8,7 @@ import codecs
 import numpy as np
 import random
 import os
+import time
 
 # huggingface api
 from transformers import T5Tokenizer
@@ -58,7 +59,10 @@ class IterDataset(torch.utils.data.Dataset):
 		tgt_seqs = self.batches[index]['tgt_seqs'] # lis
 
 		# add noisy words
+		start = time.time()
 		new_src, new_tgt = add_words_seq(src_seqs, tgt_seqs, length=10, way=self.word_way)
+		end = time.time()
+		print(end - start)
 		# pdb.set_trace()
 		# src id + mask
 		src_encoding = self.tokenizer(
