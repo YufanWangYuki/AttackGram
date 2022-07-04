@@ -72,7 +72,7 @@ def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
             continue
         elif way == 'generate':
             res = generator(src, max_new_tokens=length, num_return_sequences=1)[0]['generated_text']
-            pdb.set_trace()
+            # pdb.set_trace()
             src_seq[idx] = res+'.'
             tgt_seq[idx] = tgt+res[len(src):]+'.'
         else:
