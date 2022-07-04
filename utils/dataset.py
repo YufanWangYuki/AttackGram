@@ -149,7 +149,7 @@ class Dataset(object):
 		self.src_seqs = [sentence.strip() for sentence in self.src_sentences]
 		self.tgt_seqs = [sentence.strip() for sentence in self.tgt_sentences]
 
-		pdb.set_trace()
+		# pdb.set_trace()
 		start = time.time()
 		self.src_seqs, self.tgt_seqs = add_words_seq(self.src_seqs, self.tgt_seqs, length=10, way=self.word_way)
 		end = time.time()
