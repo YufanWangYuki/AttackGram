@@ -75,8 +75,6 @@ def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
             tgt_seq[idx] = (tgt+res[len(src):]+'.').replace("\n","")
         else:
             continue
-        print(idx)
-    
     return src_seq, tgt_seq
 
 def add_words(src_ids, tgt_ids, length=10, way='random'):
