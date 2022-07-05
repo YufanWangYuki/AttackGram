@@ -74,7 +74,7 @@ if __name__ == "__main__":
 	# Initialise empty log file
 	with open(args.log, 'w') as f:
 		f.write("Logged on "+ str(date.today()))
-	
+	pdb.set_trace()
 	with open(args.log, 'a') as f:
 		for seq in src_seqs:
 			f.write(seq)
