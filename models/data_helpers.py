@@ -78,7 +78,7 @@ def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
             continue
         print(idx)
     
-    return src, tgt
+    return src_seq, tgt_seq
 
 def add_words(src_ids, tgt_ids, length=10, way='random'):
     for item in src_ids:
