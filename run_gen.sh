@@ -5,6 +5,7 @@
 echo export PATH=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/bin/:$PATH
 source activate /home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37
 export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/python3
+export PYTHONPATH="${PYTHONPATH}:/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/"
 
 export OMP_NUM_THREADS=1 # export OMP_NUM_THREADS=1
 export OPENBLAS_NUM_THREADS=1 # export OPENBLAS_NUM_THREADS=1
