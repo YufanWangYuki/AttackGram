@@ -75,8 +75,8 @@ if __name__ == "__main__":
 	with open(args.log, 'w') as f:
 		f.write("Logged on "+ str(date.today()))
 	
-	for seq in src_seqs:
-		with open(args.log, 'a') as f:
+	with open(args.log, 'a') as f:
+		for seq in src_seqs:
 			f.write(seq)
 
 
