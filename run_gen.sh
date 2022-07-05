@@ -29,8 +29,8 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generat
     --train_path_src $train_path_src \
 	--train_path_tgt $train_path_tgt \
     --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/tmp_words$SGE_TASK_ID \
-    --start 100 \
-    --search_size 1000 \
+    --start $SGE_TASK_ID \
+    --search_size 7800 \
     --word_way $word_way
 
 # Run below command to submit this script as an array job

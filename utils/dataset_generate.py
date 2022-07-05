@@ -58,7 +58,7 @@ def load_sentences(path_src, path_tgt, word_way='generate',start_idx=0, search_s
 
 	# pdb.set_trace()
 	start = time.time()
-	src_seqs, tgt_seqs = add_words_seq(src_seqs, tgt_seqs, length=1, way=word_way)
+	src_seqs, tgt_seqs = add_words_seq(src_seqs, tgt_seqs, length=10, way=word_way)
 	end = time.time()
 	print(end - start)
 	return src_seqs, tgt_seqs
