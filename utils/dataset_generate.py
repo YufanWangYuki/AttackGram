@@ -61,20 +61,19 @@ def load_sentences(path_src, path_tgt, word_way='generate',start_idx=0, search_s
 if __name__ == "__main__":
 	# Get command line arguments
 	commandLineParser = argparse.ArgumentParser()
-
-    commandLineParser.add_argument('--train_path_src', type=str, required=True, help='train src dir')
+	commandLineParser.add_argument('--train_path_src', type=str, required=True, help='train src dir')
 	commandLineParser.add_argument('--train_path_tgt', type=str, required=True, help='train tgt dir')
-    commandLineParser.add_argument('--log', type=str, help='Specify txt file to log iteratively better words')
-    commandLineParser.add_argument('--search_size', type=int, default=400, help='Number of words to check')
-    commandLineParser.add_argument('--start', type=int, default=0, help='Vocab batch number')
+	commandLineParser.add_argument('--log', type=str, help='Specify txt file to log iteratively better words')
+	commandLineParser.add_argument('--search_size', type=int, default=400, help='Number of words to check')
+	commandLineParser.add_argument('--start', type=int, default=0, help='Vocab batch number')
 	commandLineParser.add_argument('--word_way', type=str, default='generate',help='way to generate words')
-    args = commandLineParser.parse_args()
+	args = commandLineParser.parse_args()
 
 	src_seqs, tgt_seqs = load_sentences(args.train_path_src, args.train_path_tgt, args.word_way, args.start, args.search_size)
 
 	# Initialise empty log file
-    with open(args.LOG, 'w') as f:
-        f.write("Logged on "+ str(date.today()))
+	with open(args.LOG, 'w') as f:
+		f.write("Logged on "+ str(date.today()))
 	
 	for seq in src_seqs:
 		with open(args.LOG, 'a') as f:
