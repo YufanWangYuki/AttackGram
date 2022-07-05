@@ -59,9 +59,8 @@ def load_sentences(path_src, path_tgt, word_way='generate',start_idx=0, search_s
 	return src_seqs, tgt_seqs
 
 if __name__ == "__main__":
-
-    # Get command line arguments
-    commandLineParser = argparse.ArgumentParser()
+	# Get command line arguments
+	commandLineParser = argparse.ArgumentParser()
 
     commandLineParser.add_argument('--train_path_src', type=str, required=True, help='train src dir')
 	commandLineParser.add_argument('--train_path_tgt', type=str, required=True, help='train tgt dir')
