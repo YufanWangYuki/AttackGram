@@ -44,6 +44,10 @@ def load_sentences(path_src, path_tgt, word_way='generate',start_idx=0, search_s
 
 	num_sentences = len(src_sentences)
 	start_index = start_idx*search_size
+
+	if start_index >= num_sentences:
+		return None, None
+
 	end_index = min(start_index+search_size, num_sentences)
 	# pdb.set_trace()
 	test_src = src_sentences[start_index:end_index]

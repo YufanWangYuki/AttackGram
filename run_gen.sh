@@ -24,14 +24,14 @@ train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
 
 # ===================================================================================
 word_way=generate
-
+# mkdir /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generate.py \
     --train_path_src $train_path_src \
 	--train_path_tgt $train_path_tgt \
-    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/words$SGE_TASK_ID \
+    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/words$SGE_TASK_ID \
     --start 0 \
-    --search_size 100 \
+    --search_size 10 \
     --word_way $word_way
 
 # Run below command to submit this script as an array job
-# qsub -cwd -j yes -P esol -l qp=low -o LOGs/run-array-optimal.txt -t 1-20 -l not_host="air113|air112" run_gen.sh
+# qsub -cwd -j yes -P esol -l qp=low -o LOGs/run-array-optimal.txt -t 1-400 -l not_host="air113|air112" run_gen.sh
