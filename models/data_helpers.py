@@ -5,9 +5,11 @@ from collections import Counter
 import pdb
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 from transformers import pipeline, set_seed
+import torch
 
 tokenizer = T5Tokenizer.from_pretrained("t5-small")
 generator = pipeline('text-generation', model='distilgpt2')
+generator.device = torch.device('cpu')
 set_seed(42)
 
 
