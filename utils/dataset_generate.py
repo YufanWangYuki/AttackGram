@@ -72,7 +72,7 @@ if __name__ == "__main__":
 	src_seqs, tgt_seqs = load_sentences(args.train_path_src, args.train_path_tgt, args.word_way, args.start, args.search_size)
 
 	# Initialise empty log file
-	with open(args.LOG, 'w') as f:
+	with open(args.log, 'w') as f:
 		f.write("Logged on "+ str(date.today()))
 	
 	for seq in src_seqs:
