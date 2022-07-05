@@ -79,12 +79,14 @@ if __name__ == "__main__":
 	with open(args.log+"_src.txt", 'w') as f:
 		for seq in src_seqs:
 			f.write(seq)
+			f.write('\n')
 	f.close()
 
 
 	with open(args.log+"_tgt.txt", 'w') as f:
 		for seq in tgt_seqs:
 			f.write(seq)
+			f.write('\n')
 	f.close()
 
 
