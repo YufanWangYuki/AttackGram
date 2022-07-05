@@ -18,7 +18,7 @@ from transformers import AutoTokenizer
 
 # customised
 # from utils.misc import check_device
-from utils.align_preds import align_data_train, get_sentences_dict
+from align_preds import align_data_train, get_sentences_dict
 from models.data_helpers import add_words_seq
 
 import logging
