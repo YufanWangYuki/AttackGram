@@ -7,11 +7,6 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 from transformers import pipeline, set_seed
 import torch
 
-tokenizer = T5Tokenizer.from_pretrained("t5-small")
-generator = pipeline('text-generation', model='distilgpt2')
-generator.device = torch.device('cpu')
-set_seed(42)
-
 
 def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weight=0.0, replace_map = None, grad_noise=None):
     seq_length = len(x[0])
@@ -68,7 +63,9 @@ def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weigh
     return noise
 
 def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
-    
+    generator = pipeline('text-generation', model='distilgpt2')
+    generator.device = torch.device('cpu')
+    set_seed(42)
     for idx, (src, tgt) in enumerate(zip(src_seq, tgt_seq)):
         if way == 'random':
             continue
@@ -83,6 +80,7 @@ def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
     return src_seq, tgt_seq
 
 def add_words(src_ids, tgt_ids, length=10, way='random'):
+    tokenizer = T5Tokenizer.from_pretrained("t5-small")
     for item in src_ids:
         orig_seq = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(item))
         if way == 'random':
