@@ -72,13 +72,20 @@ if __name__ == "__main__":
 
 	src_seqs, tgt_seqs = load_sentences(args.train_path_src, args.train_path_tgt, args.word_way, args.start, args.search_size)
 
-	# Initialise empty log file
-	with open(args.log, 'w') as f:
-		f.write("Logged on "+ str(date.today()))
-	pdb.set_trace()
-	with open(args.log, 'a') as f:
+	# # Initialise empty log file
+	# with open(args.log+"_src.txt", 'w') as f:
+	# 	f.write("Logged on "+ str(date.today()))
+	# pdb.set_trace()
+	with open(args.log+"_src.txt", 'w') as f:
 		for seq in src_seqs:
 			f.write(seq)
+	f.close()
+
+
+	with open(args.log+"_tgt.txt", 'w') as f:
+		for seq in tgt_seqs:
+			f.write(seq)
+	f.close()
 
 
 
