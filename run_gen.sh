@@ -28,7 +28,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generat
     --train_path_src $train_path_src \
 	--train_path_tgt $train_path_tgt \
     --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/words$SGE_TASK_ID.txt \
-    --start $SGE_TASK_ID \
+    --start 0 \
     --search_size 10 \
     --word_way $word_way
 
