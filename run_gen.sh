@@ -30,8 +30,8 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generat
 	--train_path_tgt $train_path_tgt \
     --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/words$SGE_TASK_ID \
     --start $SGE_TASK_ID \
-    --search_size 5 \
+    --search_size 7800 \
     --word_way $word_way
 
 # Run below command to submit this script as an array job
-# qsub -cwd -j yes -P esol -l qp=low -o LOGs/run-array-optimal.txt -t 1-25 -l not_host="air113|air112" run_gen.sh
+# qsub -cwd -j yes -P esol -l qp=low -o LOGs/run-array-optimal.txt -t 1-400 -l not_host="air113|air112" run_gen.sh
