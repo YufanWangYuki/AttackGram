@@ -55,8 +55,11 @@ def count_sentences(path_src, path_tgt, word_way='generate',start_idx=0, search_
 	comma_num = 0
 	colon_num = 0
 	others = {}
+	others['Empty'] = 0
 	for seq in tqdm(src_seqs):
-		if seq[-1] == '.':
+		if len(seq) == 0:
+			others['Empty'] += 1
+		elif seq[-1] == '.':
 			full_num += 1
 		elif seq[-1].isalpha():
 			alpha_num += 1
