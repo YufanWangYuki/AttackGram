@@ -18,21 +18,26 @@ export CUDA_VISIBLE_DEVICES=0
 echo $CUDA_VISIBLE_DEVICES
 
 # ------------------------ DIR --------------------------
-orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
-train_path_src=$orig_path/lib/gec-train-bpe-written/prep/train.src #3101262
-train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
+# orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
+# train_path_src=$orig_path/lib/gec-train-bpe-written/prep/train.src #3101262
+# train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
+
+orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/lib/gec-train-bpe-written/prep-v2
+train_path_src=$orig_path/train.src #2115141
+train_path_tgt=$orig_path/train.tgt
+
 
 # ----------------------- [debug] ---------------------------
 # train_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src #1929 
 # train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
-SGE_TASK_ID=6
+SGE_TASK_ID=0
 # ===================================================================================
 word_way=generate
 # mkdir /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generate.py \
     --train_path_src $train_path_src \
 	--train_path_tgt $train_path_tgt \
-    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/job_words$SGE_TASK_ID \
+    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/new_job_words$SGE_TASK_ID \
     --start $SGE_TASK_ID \
     --search_size 500000 \
     --word_way $word_way
@@ -51,4 +56,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generat
 # 5 6199193 qsub -cwd -j yes -o 'LOGs/job5.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
 # 6 6199194 qsub -cwd -j yes -o 'LOGs/job6.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
 
+
+# 0 floral
+# 1 million
 
