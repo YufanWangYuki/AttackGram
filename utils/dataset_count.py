@@ -74,7 +74,7 @@ def count_sentences(path_src, path_tgt, word_way='generate',start_idx=0, search_
 				others[seq[-1]] = 1
 			else:
 				others[seq[-1]] += 1
-	others['full stop'] == full_num
+	others['full stop'] = full_num
 	others['alpha'] == alpha_num
 	others['digit'] = digit_num
 	others['comma'] = comma_num
