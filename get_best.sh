@@ -1,1 +1,1 @@
-get_best.py /home/alta/BLTSpeaking/exp-vr313/GEC/TunedGramformerAttack/universal_attack_logs/evade_perp_beam1/k1/
+get_best.py /home/alta/BLTSpeaking/exp-vr313/GEC/TunedGramformerAttack/universal_attack_logs/evade_perp_beam1/k1/ /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/LOGs/best_words.txt

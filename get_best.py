@@ -69,4 +69,4 @@ if __name__ == "__main__":
     for item in best.words:
         word = item[0]
         with open(output_file, 'a') as f:
-            f.write('\n'+word)
+            f.write('\n'+word+":"+str(item[1]))
