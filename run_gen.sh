@@ -28,9 +28,9 @@ word_way=generate
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generate.py \
     --train_path_src $train_path_src \
 	--train_path_tgt $train_path_tgt \
-    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/tmp_words$SGE_TASK_ID \
-    --start $SGE_TASK_ID \
-    --search_size 7800 \
+    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/total_words$SGE_TASK_ID \
+    --start 0 \
+    --search_size 3101265 \
     --word_way $word_way
 
 # Run below command to submit this script as an array job
