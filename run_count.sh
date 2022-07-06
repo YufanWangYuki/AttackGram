@@ -12,9 +12,12 @@ export CUDA_VISIBLE_DEVICES=0
 echo $CUDA_VISIBLE_DEVICES
 
 # ------------------------ DIR --------------------------
-orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
-train_path_src=$orig_path/lib/gec-train-bpe-written/prep/train.src #3101262
-train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
+# orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
+# train_path_src=$orig_path/lib/gec-train-bpe-written/prep/train.src #3101262
+# train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
+orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/lib/gec-train-bpe-written/prep-v2
+train_path_src=train.src
+train_path_tgt=train.tgt
 
 # ----------------------- [debug] ---------------------------
 # train_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src #1929 
