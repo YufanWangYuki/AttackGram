@@ -30,7 +30,7 @@ train_path_tgt=$orig_path/train.tgt
 # ----------------------- [debug] ---------------------------
 # train_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src #1929 
 # train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
-SGE_TASK_ID=2
+SGE_TASK_ID=3
 # ===================================================================================
 word_way=generate
 # mkdir /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way
@@ -59,5 +59,5 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generat
 
 # 0 floral
 # 1 million
-#  qsub -cwd -j yes -o 'LOGs/job2.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
+# 6199200 qsub -cwd -j yes -o 'LOGs/new_job2.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
 
