@@ -31,7 +31,7 @@ if __name__ == "__main__":
     commandLineParser = argparse.ArgumentParser()
     commandLineParser.add_argument('DIR', type=str, help='Specify directory with all word log files')
     commandLineParser.add_argument('OUTPUT', type=str, help='Specify output file')
-    commandLineParser.add_argument('--k', type=int, default=100, help="Specify num_words to keep")
+    commandLineParser.add_argument('--k', type=int, default=2000, help="Specify num_words to keep")
 
     args = commandLineParser.parse_args()
     words_dir = args.DIR
@@ -69,4 +69,4 @@ if __name__ == "__main__":
     for item in best.words:
         word = item[0]
         with open(output_file, 'a') as f:
-            f.write('\n'+word+":"+str(item[1]))
+            f.write('\n'+word+":"+str(item))
