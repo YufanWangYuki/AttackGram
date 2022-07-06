@@ -21,7 +21,7 @@ train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
 # ----------------------- [debug] ---------------------------
 # train_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src #1929 
 # train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
-SGE_TASK_ID=0
+SGE_TASK_ID=1
 # ===================================================================================
 word_way=generate
 # mkdir /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way
@@ -30,10 +30,14 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generat
 	--train_path_tgt $train_path_tgt \
     --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/job_words$SGE_TASK_ID \
     --start $SGE_TASK_ID \
-    --search_size 50000 \
+    --search_size 500000 \
     --word_way $word_way
 
 # Run below command to submit this script as an array job
 # qsub -cwd -j yes -P esol -l qp=low -o LOGs/run-array-optimal.txt -t 1-400 -l not_host="air113|air112" run_gen.sh
 
 # qsub -cwd -j yes -P esol -l qp=low -o LOGs/run-array-optimal-2.txt -t 101-200 -l not_host="air113|air112" run_gen.sh
+
+
+# 0 floral
+# 1 million
