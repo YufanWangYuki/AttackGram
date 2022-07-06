@@ -6,7 +6,7 @@ import pdb
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 from transformers import pipeline, set_seed
 import torch
-import tqdm
+from tqdm import tqdm
 
 def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weight=0.0, replace_map = None, grad_noise=None):
     seq_length = len(x[0])
@@ -66,7 +66,7 @@ def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
     generator = pipeline('text-generation', model='distilgpt2')
     generator.device = torch.device('cpu')
     set_seed(42)
-    for idx, (src, tgt) in tqdm(enumerate(zip(src_seq, tgt_seq))):
+    for idx, (src, tgt) in enumerate(tqdm(zip(src_seq, tgt_seq))):
         print(idx)
         if way == 'random':
             continue
