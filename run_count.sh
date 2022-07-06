@@ -16,8 +16,8 @@ echo $CUDA_VISIBLE_DEVICES
 # train_path_src=$orig_path/lib/gec-train-bpe-written/prep/train.src #3101262
 # train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
 orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/lib/gec-train-bpe-written/prep-v2
-train_path_src=train.src
-train_path_tgt=train.tgt
+train_path_src=$orig_path/train.src
+train_path_tgt=$orig_path/train.tgt
 
 # ----------------------- [debug] ---------------------------
 # train_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src #1929 
