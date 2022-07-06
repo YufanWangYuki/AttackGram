@@ -13,8 +13,8 @@ export PYTHONPATH="${PYTHONPATH}:/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram
 # export VECLIB_MAXIMUM_THREADS=1 # export VECLIB_MAXIMUM_THREADS=1
 # export NUMEXPR_NUM_THREADS=1 # export NUMEXPR_NUM_THREADS=1
 
-# export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
+# export CUDA_VISIBLE_DEVICES=0
 echo $CUDA_VISIBLE_DEVICES
 
 # ------------------------ DIR --------------------------
@@ -49,14 +49,15 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generat
 
 
 # 0 floral
-# 1 million
+# 1 million stop
 # 2 6199190 qsub -cwd -j yes -o 'LOGs/job2.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
 # 3 6199191 qsub -cwd -j yes -o 'LOGs/job3.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
 # 4 6199192 qsub -cwd -j yes -o 'LOGs/job4.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
 # 5 6199193 qsub -cwd -j yes -o 'LOGs/job5.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
-# 6 6199194 qsub -cwd -j yes -o 'LOGs/job6.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
+# 6 6199194 stop qsub -cwd -j yes -o 'LOGs/job6.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
 
 
 # 0 floral
 # 1 million
+#  qsub -cwd -j yes -o 'LOGs/job2.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
 
