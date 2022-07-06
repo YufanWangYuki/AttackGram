@@ -13,16 +13,16 @@ echo $CUDA_VISIBLE_DEVICES
 
 # ------------------------ DIR --------------------------
 orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
-train_path_src=$orig_path/lib/gec-train-bpe-written/prep/train.src #3101262
-train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
+# train_path_src=$orig_path/lib/gec-train-bpe-written/prep/train.src #3101262
+# train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
 
 # ----------------------- [debug] ---------------------------
-# train_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src #1929 
-# train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
+train_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src #1929 
+train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
 # ===================================================================================
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generate.py \
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_count.py \
     --train_path_src $train_path_src \
 	--train_path_tgt $train_path_tgt \
-    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/LOGs/count
+    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/LOGs/count_test
 
 
