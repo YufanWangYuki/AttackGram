@@ -7,11 +7,15 @@ source activate /home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37
 export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/python3
 export PYTHONPATH="${PYTHONPATH}:/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/"
 
-export OMP_NUM_THREADS=1 # export OMP_NUM_THREADS=1
-export OPENBLAS_NUM_THREADS=1 # export OPENBLAS_NUM_THREADS=1
-export MKL_NUM_THREADS=1 # export MKL_NUM_THREADS=1
-export VECLIB_MAXIMUM_THREADS=1 # export VECLIB_MAXIMUM_THREADS=1
-export NUMEXPR_NUM_THREADS=1 # export NUMEXPR_NUM_THREADS=1
+# export OMP_NUM_THREADS=1 # export OMP_NUM_THREADS=1
+# export OPENBLAS_NUM_THREADS=1 # export OPENBLAS_NUM_THREADS=1
+# export MKL_NUM_THREADS=1 # export MKL_NUM_THREADS=1
+# export VECLIB_MAXIMUM_THREADS=1 # export VECLIB_MAXIMUM_THREADS=1
+# export NUMEXPR_NUM_THREADS=1 # export NUMEXPR_NUM_THREADS=1
+
+export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
+# export CUDA_VISIBLE_DEVICES=0
+echo $CUDA_VISIBLE_DEVICES
 
 # ------------------------ DIR --------------------------
 orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
@@ -41,3 +45,4 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generat
 
 # 0 floral
 # 1 million
+# 2 qsub -cwd -j yes -o 'LOGs/job2.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
