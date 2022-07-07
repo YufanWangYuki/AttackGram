@@ -13,8 +13,8 @@ export PYTHONPATH="${PYTHONPATH}:/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram
 # export VECLIB_MAXIMUM_THREADS=1 # export VECLIB_MAXIMUM_THREADS=1
 # export NUMEXPR_NUM_THREADS=1 # export NUMEXPR_NUM_THREADS=1
 
-export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
-# export CUDA_VISIBLE_DEVICES=0
+# export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
+export CUDA_VISIBLE_DEVICES=0
 echo $CUDA_VISIBLE_DEVICES
 
 # ------------------------ DIR --------------------------
@@ -30,14 +30,14 @@ train_path_tgt=$orig_path/train.tgt
 # ----------------------- [debug] ---------------------------
 # train_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src #1929 
 # train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
-SGE_TASK_ID=4
+SGE_TASK_ID=2
 # ===================================================================================
 word_way=generate
 # mkdir /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generate.py \
     --train_path_src $train_path_src \
 	--train_path_tgt $train_path_tgt \
-    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/new_job_words$SGE_TASK_ID \
+    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/new_job_million_words$SGE_TASK_ID \
     --start $SGE_TASK_ID \
     --search_size 500000 \
     --word_way $word_way
@@ -57,9 +57,9 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generat
 # 6 6199194 stop qsub -cwd -j yes -o 'LOGs/job6.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
 
 
-# 0 floral
-# 1 million
+# 0 floral over
+# 1 million over
 # 6199200 qsub -cwd -j yes -o 'LOGs/new_job2.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
 # 6199201 qsub -cwd -j yes -o 'LOGs/new_job3.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
-# 6199201 qsub -cwd -j yes -o 'LOGs/new_job4.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
+# 6199202 qsub -cwd -j yes -o 'LOGs/new_job4.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen.sh 1 1
 
