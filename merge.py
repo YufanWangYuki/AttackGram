@@ -74,5 +74,5 @@ def sample(file1, file2):
 
 src="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_src.txt"
 tgt="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_tgt.txt"
-sample(src, tgt, 0, 200)
+load_sentences(src, tgt, 0, 200)
 
