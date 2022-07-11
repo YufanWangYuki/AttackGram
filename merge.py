@@ -21,17 +21,10 @@ logging.basicConfig(level=logging.INFO)
 import pdb
 
 def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000):
-	if 'fce' in path_src:
-		# FCE
-		inc_id2text = get_sentences_dict(path_src)
-		corr_id2text = get_sentences_dict(path_tgt)
-		src_sentences, tgt_sentences = align_data_train(inc_id2text, corr_id2text)
-		# pdb.set_trace()
-	else:
-		with codecs.open(path_src, encoding='UTF-8') as f:
-			src_sentences = f.readlines()
-		with codecs.open(path_tgt, encoding='UTF-8') as f:
-			tgt_sentences = f.readlines()
+	with codecs.open(path_src, encoding='UTF-8') as f:
+		src_sentences = f.readlines()
+	with codecs.open(path_tgt, encoding='UTF-8') as f:
+		tgt_sentences = f.readlines()
 	
 	assert len(src_sentences) == len(tgt_sentences), \
 		'Mismatch src:tgt - {}:{}'.format(len(src_sentences),len(tgt_sentences))
