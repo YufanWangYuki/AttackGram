@@ -1,8 +1,8 @@
 #!/bin/bash
 #$ -S /bin/bash
 
-
-echo export PATH=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/bin/:$PATH
+source ~/.bashrc
+export PATH=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/bin/:$PATH
 source activate /home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37
 export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/python3
 export PYTHONPATH="${PYTHONPATH}:/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/"
@@ -30,7 +30,7 @@ train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
 # ----------------------- [debug] ---------------------------
 # train_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src #1929 
 # train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
-SGE_TASK_ID=1
+SGE_TASK_ID=2
 # ===================================================================================
 word_way=generate
 # mkdir /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way
