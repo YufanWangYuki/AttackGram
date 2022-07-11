@@ -104,6 +104,7 @@ if __name__ == "__main__":
 
     # Save to output files
     filename = f'{args.BASE}.inc'
+    
     with open(filename, 'w') as f:
         f.writelines(inc_sens)
     filename = f'{args.BASE}.pred'
