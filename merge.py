@@ -2,8 +2,6 @@
 # file2 = '/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/job_million_words1_tgt.txt'
 from __future__ import unicode_literals
 
-import torch
-import torch.utils.data
 import collections
 import codecs
 import numpy as np
@@ -13,14 +11,9 @@ import time
 import argparse
 from datetime import date
 
-# huggingface api
-from transformers import T5Tokenizer
-from transformers import AutoTokenizer
-
 # customised
 # from utils.misc import check_device
 from utils.align_preds import align_data_train, get_sentences_dict
-from models.data_helpers import add_words_seq
 
 import logging
 logging.basicConfig(level=logging.INFO)
