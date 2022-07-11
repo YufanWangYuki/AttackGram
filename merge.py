@@ -36,15 +36,14 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000):
 		return None, None
 
 	end_index = min(start_index+search_size, num_sentences)
-	pdb.set_trace()
+	# pdb.set_trace()
 	test_src = src_sentences[start_index:end_index]
 	test_tgt = tgt_sentences[start_index:end_index]
 
 	src_seqs = [sentence.strip() for sentence in test_src]
 	tgt_seqs = [sentence.strip() for sentence in test_tgt]
+	pdb.set_trace()
     
-    
-
 	return src_seqs, tgt_seqs
 
 
@@ -62,6 +61,12 @@ def sample(file1, file2):
         for i in f1[:200]:
             f2.write(i)
             f2.write('\n')
+
+def clean(file):
+    with open(file, 'r') as f2:
+        if f2:
+            print("None")
+
 
 # merge(file1, file2)
 
