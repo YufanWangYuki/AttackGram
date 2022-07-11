@@ -20,9 +20,12 @@ export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/p
 
 # ===================================================================================
 # ------------------------ DIR --------------------------
-orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
-train_path_src=$orig_path/lib/gec-train-bpe-written/prep/train.src #3101262
-train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
+# orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
+# train_path_src=$orig_path/lib/gec-train-bpe-written/prep/train.src #3101262
+# train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
+orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
+train_path_src=$orig_path/old_len5_src.txt
+train_path_tgt=$orig_path/old_len5_tgt.txt
 dev_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src
 dev_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
 
@@ -68,6 +71,10 @@ load_mode='null' # 'resume' | 'restart' | 'null'
 # train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
 # dev_path_src=$orig_path/lib/gec-train-bpe-written/prep/toy.src
 # dev_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/toy.tgt
+
+
+
+
 # # # num_epochs=2
 # minibatch_split=2
 # batch_size=4
