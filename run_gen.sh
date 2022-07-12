@@ -30,16 +30,16 @@ train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
 # ----------------------- [debug] ---------------------------
 # train_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src #1929 
 # train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
-SGE_TASK_ID=2
+SGE_TASK_ID=0
 # ===================================================================================
 word_way=generate
 # mkdir /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generate.py \
     --train_path_src $train_path_src \
 	--train_path_tgt $train_path_tgt \
-    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/job_million_words$SGE_TASK_ID \
+    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/old_million_words$SGE_TASK_ID \
     --start $SGE_TASK_ID \
-    --search_size 1600000 \
+    --search_size 80000 \
     --word_way $word_way
 
 # Run below command to submit this script as an array job
@@ -66,6 +66,8 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generat
 # 2 million
 # 3 floral
 # 4 million
+
+
 
 
 

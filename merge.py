@@ -11,16 +11,12 @@ import time
 import argparse
 from datetime import date
 
-# customised
-# from utils.misc import check_device
-# from utils.align_preds import align_data_train, get_sentences_dict
-
 import logging
 logging.basicConfig(level=logging.INFO)
 
 import pdb
 
-def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000):
+def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean"):
 	with codecs.open(path_src, encoding='UTF-8') as f:
 		src_sentences = f.readlines()
 	with codecs.open(path_tgt, encoding='UTF-8') as f:
@@ -30,19 +26,29 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000):
 		'Mismatch src:tgt - {}:{}'.format(len(src_sentences),len(tgt_sentences))
 
 	num_sentences = len(src_sentences)
-	start_index = start_idx*search_size
 
-	if start_index >= num_sentences:
-		return None, None
+	if mode=="clean":
+		test_src = src_sentences
+		test_tgt = tgt_sentences
 
-	end_index = min(start_index+search_size, num_sentences)
-	# pdb.set_trace()
-	test_src = src_sentences[start_index:end_index]
-	test_tgt = tgt_sentences[start_index:end_index]
+		src_seqs = [sentence.strip() for sentence in test_src]
+		tgt_seqs = [sentence.strip() for sentence in test_tgt]
+		for (src,tgt) in zip(src_seqs,tgt_seqs):
+			if src == "hhh":
+				print("None")
+    
+	elif mode=="sample":
+		start_index = start_idx*search_size
+		if start_index >= num_sentences:
+			return None, None        
+		end_index = min(start_index+search_size, num_sentences)
+        # pdb.set_trace()
+		test_src = src_sentences[start_index:end_index]
+		test_tgt = tgt_sentences[start_index:end_index]
 
-	src_seqs = [sentence.strip() for sentence in test_src]
-	tgt_seqs = [sentence.strip() for sentence in test_tgt]
-	pdb.set_trace()
+		src_seqs = [sentence.strip() for sentence in test_src]
+		tgt_seqs = [sentence.strip() for sentence in test_tgt]
+		pdb.set_trace()
     
 	return src_seqs, tgt_seqs
 
@@ -72,8 +78,9 @@ def clean(file):
 
 src="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_src.txt"
 tgt="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_tgt.txt"
-src_seqs, tgt_seqs = load_sentences(src, tgt, 0, 200)
+src_seqs, tgt_seqs = load_sentences(src, tgt, 0, 200,"clean")
 outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_toy"
+
 with open(outdir+"_src.txt", 'w') as f:
     for seq in src_seqs:
         f.write(seq)

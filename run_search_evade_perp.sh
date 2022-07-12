@@ -29,3 +29,5 @@ python /home/alta/BLTSpeaking/exp-vr313/GEC/TunedGramformerAttack/uni_attack_eva
 
 # Run below command to submit this script as an array job
 # qsub -cwd -j yes -P esol -l qp=low -o LOGs/v003/run-array-evade_perp.txt -t 1-224 -l not_host="air113|air112" run_search_evade_perp.sh
+
+# qsub -R y -cwd -j yes -P esol -l qp=low -o LOGs/v003/run-array-evade_perp.txt -t 1-224 -l not_host="air113|air112" run_search_evade_perp.sh

@@ -7,6 +7,7 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 from transformers import pipeline, set_seed
 import torch
 from tqdm import tqdm
+import re
 
 def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weight=0.0, replace_map = None, grad_noise=None):
     seq_length = len(x[0])
@@ -72,8 +73,11 @@ def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
             continue
         elif way == 'generate':
             res = generator(src, max_new_tokens=length, num_return_sequences=1)[0]['generated_text']
-            src_seq[idx] = (res+'.').replace("\n","")
-            tgt_seq[idx] = (tgt+res[len(src):]+'.').replace("\n","")
+            gen = res[len(src):].replace("\n","")
+            if not bool(re.search(r"[a-zA-Z]", gen)):
+                gen = ""
+            src_seq[idx] = (src+gen+' .')
+            tgt_seq[idx] = (tgt+gen+' .')
         else:
             continue
     return src_seq, tgt_seq
