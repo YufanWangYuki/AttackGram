@@ -28,14 +28,17 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 	num_sentences = len(src_sentences)
 
 	if mode=="clean":
-		test_src = src_sentences
-		test_tgt = tgt_sentences
+		# test_src = src_sentences
+		# test_tgt = tgt_sentences
 
-		src_seqs = [sentence.strip() for sentence in test_src]
-		tgt_seqs = [sentence.strip() for sentence in test_tgt]
-		for (src,tgt) in zip(src_seqs,tgt_seqs):
-			if src == "hhh":
-				print("None")
+		# src_seqs = [sentence.strip() for sentence in test_src]
+		# tgt_seqs = [sentence.strip() for sentence in test_tgt]
+
+		print(num_sentences)
+
+		# for (src,tgt) in zip(src_seqs,tgt_seqs):
+		# 	if src == "hhh":
+		# 		print("None")
     
 	elif mode=="sample":
 		start_index = start_idx*search_size
@@ -74,23 +77,40 @@ def clean(file):
             print("None")
 
 
-# merge(file1, file2)
+dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
+file0 = dir+"old_million_words0_src.txt"
+file1 = dir+"old_million_words1_src.txt"
+file2 = dir+"old_million_words2_src.txt"
+file3 = dir+"old_million_words3_src.txt"
+merge(file0, file1)
+merge(file0, file2)
+merge(file0, file3)
 
-src="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_src.txt"
-tgt="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_tgt.txt"
+file0 = dir+"old_million_words0_tgt.txt"
+file1 = dir+"old_million_words1_tgt.txt"
+file2 = dir+"old_million_words2_tgt.txt"
+file3 = dir+"old_million_words3_tgt.txt"
+merge(file0, file1)
+merge(file0, file2)
+merge(file0, file3)
+
+
+
+src=dir+"old_million_words0_src.txt"
+tgt=dir+"old_million_words0_tgt.txt"
 src_seqs, tgt_seqs = load_sentences(src, tgt, 0, 200,"clean")
-outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_toy"
+# outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_toy"
 
-with open(outdir+"_src.txt", 'w') as f:
-    for seq in src_seqs:
-        f.write(seq)
-        f.write('\n')
-f.close()
+# with open(outdir+"_src.txt", 'w') as f:
+#     for seq in src_seqs:
+#         f.write(seq)
+#         f.write('\n')
+# f.close()
 
 
-with open(outdir+"_tgt.txt", 'w') as f:
-    for seq in tgt_seqs:
-        f.write(seq)
-        f.write('\n')
-f.close()
+# with open(outdir+"_tgt.txt", 'w') as f:
+#     for seq in tgt_seqs:
+#         f.write(seq)
+#         f.write('\n')
+# f.close()
 
