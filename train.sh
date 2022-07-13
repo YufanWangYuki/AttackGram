@@ -25,11 +25,9 @@ set=old
 orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
 train_path_src=$orig_path/${set}_len5_final_src.txt
 train_path_tgt=$orig_path/${set}_len5_final_tgt.txt
-# train_path_src=$orig_path/new_len5_final_src.txt
-# train_path_tgt=$orig_path/new_len5_final_tgt.txt
-orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
-dev_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src
-dev_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
+dev_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
+dev_path_src=$dev_path/lib/gec-train-bpe-written/prep/dev.src
+dev_path_tgt=$dev_path/lib/gec-train-bpe-written/prep/dev.tgt
 
 max_src_len=64
 max_tgt_len=64

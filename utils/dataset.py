@@ -151,8 +151,6 @@ class Dataset(object):
 
 		assert len(self.src_sentences) == len(self.tgt_sentences), \
 			'Mismatch src:tgt - {}:{}'.format(len(self.src_sentences),len(self.tgt_sentences))
-		
-		
 
 		self.num_sentences = len(self.src_sentences)
 		print(self.num_sentences)

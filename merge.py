@@ -64,6 +64,7 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 				pdb.set_trace()
 			gen = src[len(src_orig):]
 			if not bool(re.search(r"[a-zA-Z]", gen)):
+				pdb.set_trace()
 				values.add(gen)
 				gen = ""
 				count += 1
@@ -101,7 +102,7 @@ def merge(file1, file2):
 
 
 
-dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
+dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/"
 # file0 = dir+"job_million_words0_src.txt"
 # file1 = dir+"job_million_words1_src.txt"
 # merge(file0, file1)
@@ -114,7 +115,7 @@ src=dir+"job_million_words0_src.txt"
 tgt=dir+"job_million_words0_tgt.txt"
 outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
 
-# src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"clean")
+src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"clean")
 # with open(outdir+"old_len5_final_src.txt", 'w+') as f:
 #     for seq in src_seqs:
 #         f.write(seq)
@@ -132,21 +133,21 @@ outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
 #         f.write('\n')
 # f.close()
 
-src=dir+"old_len5_final_src.txt"
-tgt=dir+"old_len5_final_tgt.txt"
-src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"sample")
-with open(outdir+"old_len5_toy_src.txt", 'w+') as f:
-    for seq in src_seqs:
-        f.write(seq)
-        f.write('\n')
-f.close()
+# src=dir+"old_len5_final_src.txt"
+# tgt=dir+"old_len5_final_tgt.txt"
+# src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"sample")
+# with open(outdir+"old_len5_toy_src.txt", 'w+') as f:
+#     for seq in src_seqs:
+#         f.write(seq)
+#         f.write('\n')
+# f.close()
 
 
-with open(outdir+"old_len5_toy_tgt.txt", 'w+') as f:
-    for seq in tgt_seqs:
-        f.write(seq)
-        f.write('\n')
-f.close()
+# with open(outdir+"old_len5_toy_tgt.txt", 'w+') as f:
+#     for seq in tgt_seqs:
+#         f.write(seq)
+#         f.write('\n')
+# f.close()
 
 
 
