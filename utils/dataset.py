@@ -137,9 +137,9 @@ class Dataset(object):
 			self.src_sentences, self.tgt_sentences = align_data_train(inc_id2text, corr_id2text)
 			# pdb.set_trace()
 		else:
-			with codecs.open(self.path_src, encoding='UTF-8') as f:
+			with open(self.path_src, encoding='UTF-8') as f:
 				self.src_sentences = f.readlines()
-			with codecs.open(self.path_tgt, encoding='UTF-8') as f:
+			with open(self.path_tgt, encoding='UTF-8') as f:
 				self.tgt_sentences = f.readlines()
 		
 		assert len(self.src_sentences) == len(self.tgt_sentences), \
