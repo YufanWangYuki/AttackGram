@@ -67,9 +67,10 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 			gen = src[len(src_orig):]
 			if not bool(re.search(r"[a-zA-Z]", gen)):
 				gen = ""
+				pdb.set_trace()
 			else:
 				gen = gen[:-1] + ' .'
-				pdb.set_trace()
+				# pdb.set_trace()
 			res_src.append(src_orig+gen)
 			res_tgt.append(tgt_orig+gen)
 			
