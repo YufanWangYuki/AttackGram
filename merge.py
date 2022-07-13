@@ -102,24 +102,16 @@ def merge(file1, file2):
 
 
 dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
-file0 = dir+"old_million_words0_src.txt"
-file1 = dir+"old_million_words1_src.txt"
-file2 = dir+"old_million_words2_src.txt"
-file3 = dir+"old_million_words3_src.txt"
+file0 = dir+"job_million_words0_src.txt"
+file1 = dir+"job_million_words1_src.txt"
 merge(file0, file1)
-merge(file0, file2)
-merge(file0, file3)
 
-file0 = dir+"old_million_words0_tgt.txt"
-file1 = dir+"old_million_words1_tgt.txt"
-file2 = dir+"old_million_words2_tgt.txt"
-file3 = dir+"old_million_words3_tgt.txt"
+file0 = dir+"job_million_words0_tgt.txt"
+file1 = dir+"job_million_words1_tgt.txt"
 merge(file0, file1)
-merge(file0, file2)
-merge(file0, file3)
 
-# src=dir+"old_million_words0_src.txt"
-# tgt=dir+"old_million_words0_tgt.txt"
+# src=dir+"job_million_words0_src.txt"
+# tgt=dir+"job_million_words0_tgt.txt"
 # outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
 
 # src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"clean")
