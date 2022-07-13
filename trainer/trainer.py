@@ -332,7 +332,7 @@ class Trainer(object):
 			for idx, batch_items in enumerate(trainiter):
 				# load batch items
 				# pdb.set_trace()
-				batch_items = trainiter.next()
+				# batch_items = trainiter.next()
 				pdb.set_trace()
 
 				# update macro count
