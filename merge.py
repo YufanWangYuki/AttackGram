@@ -78,7 +78,7 @@ def clean(file):
             print("None")
 
 
-# dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
+dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
 # file0 = dir+"old_million_words0_src.txt"
 # file1 = dir+"old_million_words1_src.txt"
 # file2 = dir+"old_million_words2_src.txt"
