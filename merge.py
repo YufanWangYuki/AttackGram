@@ -95,49 +95,66 @@ def merge(file1, file2):
 
 
 dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
-file0 = dir+"new_job_words0_src.txt"
-file1 = dir+"new_job_words1_src.txt"
-file2 = dir+"new_job_million_words2_src.txt"
-file3 = dir+"new_job_million_words3_src.txt"
-file4 = dir+"new_job_million_words4_src.txt"
-merge(file0, file1)
-merge(file0, file2)
-merge(file0, file3)
-merge(file0, file4)
+# file0 = dir+"new_job_words0_src.txt"
+# file1 = dir+"new_job_words1_src.txt"
+# file2 = dir+"new_job_million_words2_src.txt"
+# file3 = dir+"new_job_million_words3_src.txt"
+# file4 = dir+"new_job_million_words4_src.txt"
+# merge(file0, file1)
+# merge(file0, file2)
+# merge(file0, file3)
+# merge(file0, file4)
 
-file0 = dir+"new_job_words0_tgt.txt"
-file1 = dir+"new_job_words1_tgt.txt"
-file2 = dir+"new_job_million_words2_tgt.txt"
-file3 = dir+"new_job_million_words3_tgt.txt"
-file4 = dir+"new_job_million_words4_tgt.txt"
-merge(file0, file1)
-merge(file0, file2)
-merge(file0, file3)
-merge(file0, file4)
+# file0 = dir+"new_job_words0_tgt.txt"
+# file1 = dir+"new_job_words1_tgt.txt"
+# file2 = dir+"new_job_million_words2_tgt.txt"
+# file3 = dir+"new_job_million_words3_tgt.txt"
+# file4 = dir+"new_job_million_words4_tgt.txt"
+# merge(file0, file1)
+# merge(file0, file2)
+# merge(file0, file3)
+# merge(file0, file4)
 
 
 
-# src=dir+"old_len5_src.txt"
-# tgt=dir+"old_len5_tgt.txt"
+
+src=dir+"new_job_words0_src.txt"
+tgt=dir+"new_job_words0_tgt.txt"
+outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
+
+src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"clean")
+with open(outdir+"new_len5_final_src.txt", 'w+') as f:
+    for seq in src_seqs:
+        f.write(seq)
+        f.write('\n')
+f.close()
+with open(outdir+"new_len5_final_tgt.txt", 'w+') as f:
+    for seq in tgt_seqs:
+        f.write(seq)
+        f.write('\n')
+f.close()
+
+with open(outdir+"new_len5_final_gens.txt", 'w+') as f:
+    for seq in gens:
+        f.write(seq)
+        f.write('\n')
+f.close()
+
+# src=dir+"new_len5_final_src.txt"
+# tgt=dir+"new_len5_final_tgt.txt"
 # src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"sample")
-# outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
-
-# with open(outdir+"old_len5_toy_src.txt", 'w+') as f:
+# with open(outdir+"new_len5_toy_src.txt", 'w+') as f:
 #     for seq in src_seqs:
 #         f.write(seq)
 #         f.write('\n')
 # f.close()
 
 
-# with open(outdir+"old_len5_toy_tgt.txt", 'w+') as f:
+# with open(outdir+"new_len5_toy_tgt.txt", 'w+') as f:
 #     for seq in tgt_seqs:
 #         f.write(seq)
 #         f.write('\n')
 # f.close()
 
-# with open(outdir+"old_len5_final_gens.txt", 'w+') as f:
-#     for seq in gens:
-#         f.write(seq)
-#         f.write('\n')
-# f.close()
+
 
