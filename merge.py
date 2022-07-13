@@ -25,9 +25,14 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 
 	
 	orig_path="/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written"
-	with codecs.open(orig_path+"/lib/gec-train-bpe-written/prep/train.src", encoding='UTF-8') as f:
+	# with codecs.open(orig_path+"/lib/gec-train-bpe-written/prep/train.src", encoding='UTF-8') as f:
+	# 	src_sentences_orig = f.readlines()
+	# with codecs.open(orig_path+"/lib/gec-train-bpe-written/prep/train.tgt", encoding='UTF-8') as f:
+	# 	tgt_sentences_orig = f.readlines()
+	
+	with codecs.open("/home/alta/BLTSpeaking/exp-ytl28/projects/lib/gec-train-bpe-written/prep-v2/train.src", encoding='UTF-8') as f:
 		src_sentences_orig = f.readlines()
-	with codecs.open(orig_path+"/lib/gec-train-bpe-written/prep/train.tgt", encoding='UTF-8') as f:
+	with codecs.open("/home/alta/BLTSpeaking/exp-ytl28/projects/lib/gec-train-bpe-written/prep-v2/train.tgt", encoding='UTF-8') as f:
 		tgt_sentences_orig = f.readlines()
 	
 	assert len(src_sentences) == len(tgt_sentences), \
@@ -88,57 +93,58 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 def merge(file1, file2):
     f1 = open(file1, 'a+')
     with open(file2, 'r') as f2:
-        f1.write('\n')
-        for i in f2:
+        for i in f2[:-1]:
             f1.write(i)
+            f1.write('\n')
+        f1.write(f2[-1])
 
 
 
 dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
-# file0 = dir+"new_job_words0_src.txt"
-# file1 = dir+"new_job_words1_src.txt"
-# file2 = dir+"new_job_million_words2_src.txt"
-# file3 = dir+"new_job_million_words3_src.txt"
-# file4 = dir+"new_job_million_words4_src.txt"
-# merge(file0, file1)
-# merge(file0, file2)
-# merge(file0, file3)
-# merge(file0, file4)
+file0 = dir+"new_job_words0_src.txt"
+file1 = dir+"new_job_words1_src.txt"
+file2 = dir+"new_job_million_words2_src.txt"
+file3 = dir+"new_job_million_words3_src.txt"
+file4 = dir+"new_job_million_words4_src.txt"
+merge(file0, file1)
+merge(file0, file2)
+merge(file0, file3)
+merge(file0, file4)
 
-# file0 = dir+"new_job_words0_tgt.txt"
-# file1 = dir+"new_job_words1_tgt.txt"
-# file2 = dir+"new_job_million_words2_tgt.txt"
-# file3 = dir+"new_job_million_words3_tgt.txt"
-# file4 = dir+"new_job_million_words4_tgt.txt"
-# merge(file0, file1)
-# merge(file0, file2)
-# merge(file0, file3)
-# merge(file0, file4)
-
-
+file0 = dir+"new_job_words0_tgt.txt"
+file1 = dir+"new_job_words1_tgt.txt"
+file2 = dir+"new_job_million_words2_tgt.txt"
+file3 = dir+"new_job_million_words3_tgt.txt"
+file4 = dir+"new_job_million_words4_tgt.txt"
+merge(file0, file1)
+merge(file0, file2)
+merge(file0, file3)
+merge(file0, file4)
 
 
-src=dir+"new_job_words0_src.txt"
-tgt=dir+"new_job_words0_tgt.txt"
-outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
 
-src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"clean")
-with open(outdir+"new_len5_final_src.txt", 'w+') as f:
-    for seq in src_seqs:
-        f.write(seq)
-        f.write('\n')
-f.close()
-with open(outdir+"new_len5_final_tgt.txt", 'w+') as f:
-    for seq in tgt_seqs:
-        f.write(seq)
-        f.write('\n')
-f.close()
 
-with open(outdir+"new_len5_final_gens.txt", 'w+') as f:
-    for seq in gens:
-        f.write(seq)
-        f.write('\n')
-f.close()
+# src=dir+"new_job_words0_src.txt"
+# tgt=dir+"new_job_words0_tgt.txt"
+# outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
+
+# src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"clean")
+# with open(outdir+"new_len5_final_src.txt", 'w+') as f:
+#     for seq in src_seqs:
+#         f.write(seq)
+#         f.write('\n')
+# f.close()
+# with open(outdir+"new_len5_final_tgt.txt", 'w+') as f:
+#     for seq in tgt_seqs:
+#         f.write(seq)
+#         f.write('\n')
+# f.close()
+
+# with open(outdir+"new_len5_final_gens.txt", 'w+') as f:
+#     for seq in gens:
+#         f.write(seq)
+#         f.write('\n')
+# f.close()
 
 # src=dir+"new_len5_final_src.txt"
 # tgt=dir+"new_len5_final_tgt.txt"
