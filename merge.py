@@ -154,7 +154,7 @@ with open(outdir+"old_len5_final_tgt.txt", 'w+') as f:
 f.close()
 
 with open(outdir+"old_len5_final_gens.txt", 'w+') as f:
-    for seq in tgt_seqs:
+    for seq in gens:
         f.write(seq)
         f.write('\n')
 f.close()
