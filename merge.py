@@ -30,9 +30,10 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 	if mode=="clean":
 		test_src = src_sentences
 		test_tgt = tgt_sentences
+		pdb.set_trace()
 
-		src_seqs = [sentence.strip() for sentence in test_src]
-		tgt_seqs = [sentence.strip() for sentence in test_tgt]
+		# src_seqs = [sentence.strip() for sentence in test_src]
+		# tgt_seqs = [sentence.strip() for sentence in test_tgt]
 
 		print(num_sentences)
 
@@ -77,27 +78,27 @@ def clean(file):
             print("None")
 
 
-dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
-file0 = dir+"old_million_words0_src.txt"
-file1 = dir+"old_million_words1_src.txt"
-file2 = dir+"old_million_words2_src.txt"
-file3 = dir+"old_million_words3_src.txt"
-merge(file0, file1)
-merge(file0, file2)
-merge(file0, file3)
+# dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
+# file0 = dir+"old_million_words0_src.txt"
+# file1 = dir+"old_million_words1_src.txt"
+# file2 = dir+"old_million_words2_src.txt"
+# file3 = dir+"old_million_words3_src.txt"
+# merge(file0, file1)
+# merge(file0, file2)
+# merge(file0, file3)
 
-file0 = dir+"old_million_words0_tgt.txt"
-file1 = dir+"old_million_words1_tgt.txt"
-file2 = dir+"old_million_words2_tgt.txt"
-file3 = dir+"old_million_words3_tgt.txt"
-merge(file0, file1)
-merge(file0, file2)
-merge(file0, file3)
+# file0 = dir+"old_million_words0_tgt.txt"
+# file1 = dir+"old_million_words1_tgt.txt"
+# file2 = dir+"old_million_words2_tgt.txt"
+# file3 = dir+"old_million_words3_tgt.txt"
+# merge(file0, file1)
+# merge(file0, file2)
+# merge(file0, file3)
 
 
 
-src=dir+"old_million_words0_src.txt"
-tgt=dir+"old_million_words0_tgt.txt"
+src=dir+"old_len5_src.txt"
+tgt=dir+"old_len5_tgt.txt"
 src_seqs, tgt_seqs = load_sentences(src, tgt, 0, 200,"clean")
 # outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_toy"
 
