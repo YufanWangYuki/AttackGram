@@ -102,29 +102,29 @@ def merge(file1, file2):
 
 
 dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
-file0 = dir+"job_million_words0_src.txt"
-file1 = dir+"job_million_words1_src.txt"
-merge(file0, file1)
+# file0 = dir+"job_million_words0_src.txt"
+# file1 = dir+"job_million_words1_src.txt"
+# merge(file0, file1)
 
-file0 = dir+"job_million_words0_tgt.txt"
-file1 = dir+"job_million_words1_tgt.txt"
-merge(file0, file1)
+# file0 = dir+"job_million_words0_tgt.txt"
+# file1 = dir+"job_million_words1_tgt.txt"
+# merge(file0, file1)
 
-# src=dir+"job_million_words0_src.txt"
-# tgt=dir+"job_million_words0_tgt.txt"
-# outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
+src=dir+"job_million_words0_src.txt"
+tgt=dir+"job_million_words0_tgt.txt"
+outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
 
-# src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"clean")
-# with open(outdir+"old_len5_final_src.txt", 'w+') as f:
-#     for seq in src_seqs:
-#         f.write(seq)
-#         f.write('\n')
-# f.close()
-# with open(outdir+"old_len5_final_tgt.txt", 'w+') as f:
-#     for seq in tgt_seqs:
-#         f.write(seq)
-#         f.write('\n')
-# f.close()
+src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"clean")
+with open(outdir+"old_len5_final_src.txt", 'w+') as f:
+    for seq in src_seqs:
+        f.write(seq)
+        f.write('\n')
+f.close()
+with open(outdir+"old_len5_final_tgt.txt", 'w+') as f:
+    for seq in tgt_seqs:
+        f.write(seq)
+        f.write('\n')
+f.close()
 
 # with open(outdir+"old_len5_final_gens.txt", 'w+') as f:
 #     for seq in gens:
