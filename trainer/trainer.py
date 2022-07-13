@@ -319,7 +319,7 @@ class Trainer(object):
 			model.train(True)
 			trainiter = iter(train_set.iter_loader)
 			print(steps_per_epoch)
-			pdb.set_trace()
+			pdb.set_trace() # 1039
 			for idx in range(steps_per_epoch):
 				# print(idx)
 
