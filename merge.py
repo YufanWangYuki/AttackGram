@@ -80,8 +80,8 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 			return None, None        
 		end_index = min(start_index+search_size, num_sentences)
         # pdb.set_trace()
-		test_src = src_sentences[start_index:end_index]
-		test_tgt = tgt_sentences[start_index:end_index]
+		res_src = src_sentences[start_index:end_index]
+		res_tgt = tgt_sentences[start_index:end_index]
 
 		
     
