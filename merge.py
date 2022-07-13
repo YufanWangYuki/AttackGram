@@ -42,10 +42,11 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 
 		# print(num_sentences)
 
-		for (src,src_orig) in zip(test_src,src_sentences_orig):
+		for idx, (src,src_orig) in enumerate(zip(test_src,src_sentences_orig)):
 			src = src.replace("\n","")
 			src_orig = src_orig.replace("\n","")
 			if src.find(src_orig) == -1:
+				print(idx)
 				pdb.set_trace()
 
     
