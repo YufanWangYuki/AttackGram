@@ -96,7 +96,7 @@ def merge(file1, file2):
         lines = f2.readlines()
         for i in lines[:-1]:
             f1.write(i)
-            f1.write('\n')
+            # f1.write('\n')
         f1.write(lines[-1])
 
 
