@@ -7,8 +7,8 @@ unset LD_PRELOAD
 echo export PATH=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/bin/:$PATH
 
 
-# export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
+# export CUDA_VISIBLE_DEVICES=0
 echo $CUDA_VISIBLE_DEVICES
 
 # python 3.7
@@ -20,9 +20,6 @@ export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/p
 
 # ===================================================================================
 # ------------------------ DIR --------------------------
-# orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
-# train_path_src=$orig_path/lib/gec-train-bpe-written/prep/train.src #3101262
-# train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
 orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
 train_path_src=$orig_path/old_len5_final_src.txt
 train_path_tgt=$orig_path/old_len5_final_tgt.txt
@@ -68,21 +65,17 @@ loaddir='None'
 load_mode='null' # 'resume' | 'restart' | 'null'
 
 # ----------------------- [debug] ---------------------------
-orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
-train_path_src=$orig_path/old_len5_toy_src.txt #1929 
-train_path_tgt=$orig_path/old_len5_toy_tgt.txt
-orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
-dev_path_src=$orig_path/lib/gec-train-bpe-written/prep/toy.src
-dev_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/toy.tgt
-
-
-
-
-# # num_epochs=2
-minibatch_split=2
-batch_size=4
-checkpoint_every=100
-print_every=2
+# orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
+# train_path_src=$orig_path/old_len5_toy_src.txt #1929 
+# train_path_tgt=$orig_path/old_len5_toy_tgt.txt
+# orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
+# dev_path_src=$orig_path/lib/gec-train-bpe-written/prep/toy.src
+# dev_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/toy.tgt
+# # # num_epochs=2
+# minibatch_split=2
+# batch_size=4
+# checkpoint_every=100
+# print_every=2
 
 # ----------------------- [noise] ---------------------------
 # ntype=Gaussian-adversarial #Gaussian, Bernoulli, Gaussian-adversarial, Adversarial

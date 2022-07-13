@@ -153,6 +153,7 @@ class Dataset(object):
 				self.tgt_sentences.remove(tgt)
 
 		self.num_sentences = len(self.src_sentences)
+		print(self.num_sentences)
 		self.src_seqs = [sentence.strip() for sentence in self.src_sentences]
 		self.tgt_seqs = [sentence.strip() for sentence in self.tgt_sentences]
 
