@@ -333,7 +333,8 @@ class Trainer(object):
 				# load batch items
 				# pdb.set_trace()
 				# batch_items = trainiter.next()
-				pdb.set_trace()
+				if idx == 1039:
+					pdb.set_trace()
 
 				# update macro count
 				step += 1
