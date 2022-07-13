@@ -28,7 +28,7 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 	
 	for tgt in tgt_sentences:
 		if tgt == "\n":
-			tgt_sentences.remove(src)
+			tgt_sentences.remove(tgt)
 
 	
 	orig_path="/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written"
@@ -60,6 +60,8 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 			if tgt.find(tgt_orig) == -1:
 				print(idx)
 				pdb.set_trace()
+			gen = src[len(src_orig):]
+
 			
 
     
