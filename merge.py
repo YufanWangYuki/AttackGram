@@ -126,27 +126,27 @@ with open(outdir+"old_len5_final_tgt.txt", 'w+') as f:
         f.write('\n')
 f.close()
 
-# with open(outdir+"old_len5_final_gens.txt", 'w+') as f:
-#     for seq in gens:
-#         f.write(seq)
-#         f.write('\n')
-# f.close()
+with open(outdir+"old_len5_final_gens.txt", 'w+') as f:
+    for seq in gens:
+        f.write(seq)
+        f.write('\n')
+f.close()
 
-# src=dir+"old_len5_final_src.txt"
-# tgt=dir+"old_len5_final_tgt.txt"
-# src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"sample")
-# with open(outdir+"new_len5_toy_src.txt", 'w+') as f:
-#     for seq in src_seqs:
-#         f.write(seq)
-#         f.write('\n')
-# f.close()
+src=dir+"old_len5_final_src.txt"
+tgt=dir+"old_len5_final_tgt.txt"
+src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"sample")
+with open(outdir+"new_len5_toy_src.txt", 'w+') as f:
+    for seq in src_seqs:
+        f.write(seq)
+        f.write('\n')
+f.close()
 
 
-# with open(outdir+"new_len5_toy_tgt.txt", 'w+') as f:
-#     for seq in tgt_seqs:
-#         f.write(seq)
-#         f.write('\n')
-# f.close()
+with open(outdir+"new_len5_toy_tgt.txt", 'w+') as f:
+    for seq in tgt_seqs:
+        f.write(seq)
+        f.write('\n')
+f.close()
 
 
 
