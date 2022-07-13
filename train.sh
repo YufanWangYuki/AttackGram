@@ -68,8 +68,8 @@ load_mode='null' # 'resume' | 'restart' | 'null'
 
 # ----------------------- [debug] ---------------------------
 orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
-# train_path_src=$orig_path/old_len5_toy_src.txt #1929 
-# train_path_tgt=$orig_path/old_len5_toy_tgt.txt
+train_path_src=$orig_path/old_len5_toy_src.txt #1929 
+train_path_tgt=$orig_path/old_len5_toy_tgt.txt
 orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
 dev_path_src=$orig_path/lib/gec-train-bpe-written/prep/toy.src
 dev_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/toy.tgt
