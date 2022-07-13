@@ -142,15 +142,17 @@ class Dataset(object):
 			with open(self.path_tgt, encoding='UTF-8') as f:
 				self.tgt_sentences = f.readlines()
 		
+		# for src in self.src_sentences:
+		# 	if src == "\n":
+		# 		self.src_sentences.remove(src)
+		# for tgt in self.tgt_sentences:
+		# 	if tgt == "\n":
+		# 		self.tgt_sentences.remove(tgt)
+
 		assert len(self.src_sentences) == len(self.tgt_sentences), \
 			'Mismatch src:tgt - {}:{}'.format(len(self.src_sentences),len(self.tgt_sentences))
 		
-		for src in self.src_sentences:
-			if src == "\n":
-				self.src_sentences.remove(src)
-		for tgt in self.tgt_sentences:
-			if tgt == "\n":
-				self.tgt_sentences.remove(tgt)
+		
 
 		self.num_sentences = len(self.src_sentences)
 		print(self.num_sentences)
