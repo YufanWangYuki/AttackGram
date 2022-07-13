@@ -21,8 +21,10 @@ export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/p
 # ===================================================================================
 # ------------------------ DIR --------------------------
 orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
-train_path_src=$orig_path/old_len5_final_src.txt
-train_path_tgt=$orig_path/old_len5_final_tgt.txt
+# train_path_src=$orig_path/old_len5_final_src.txt
+# train_path_tgt=$orig_path/old_len5_final_tgt.txt
+train_path_src=$orig_path/new_len5_final_src.txt
+train_path_tgt=$orig_path/new_len5_final_tgt.txt
 orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
 dev_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src
 dev_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
@@ -87,7 +89,7 @@ load_mode='null' # 'resume' | 'restart' | 'null'
 # savedir=models/v005/volta_${ntype}_${nway}_${mean}_${weight}_${alpha}_${decay}_${batch_size}_${minibatch_split}/
 noise=0
 word_way=generate
-savedir=models/$word_way/${batch_size}_${minibatch_split}_v2_full/
+savedir=models/$word_way/new_${batch_size}_${minibatch_split}_v2_full/
 # ===================================================================================
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 	--train_path_src $train_path_src \
