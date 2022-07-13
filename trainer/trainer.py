@@ -329,12 +329,12 @@ class Trainer(object):
 			# 	# batch_items = trainiter.next()
 			# pdb.set_trace()
 
-			for idx, batch_items in enumerate(trainiter):
+			for idx in range(steps_per_epoch):
 				# load batch items
 				# pdb.set_trace()
-				# batch_items = trainiter.next()
 				if idx == 1039:
 					pdb.set_trace()
+				batch_items = trainiter.next()
 
 				# update macro count
 				step += 1
