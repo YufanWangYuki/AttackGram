@@ -92,7 +92,7 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 		tgt_seqs = [sentence.strip() for sentence in test_tgt]
 		pdb.set_trace()
     
-	return res_src, res_tgt
+	return res_src, res_tgt, values
 
 
 
@@ -137,17 +137,23 @@ dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
 
 src=dir+"old_len5_src.txt"
 tgt=dir+"old_len5_tgt.txt"
-src_seqs, tgt_seqs = load_sentences(src, tgt, 0, 200,"clean")
-outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_final"
+src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"clean")
+outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
 
-with open(outdir+"_src.txt", 'w') as f:
+with open(outdir+"old_len5_final_src.txt", 'w+') as f:
     for seq in src_seqs:
         f.write(seq)
         f.write('\n')
 f.close()
 
 
-with open(outdir+"_tgt.txt", 'w') as f:
+with open(outdir+"old_len5_final_tgt.txt", 'w+') as f:
+    for seq in tgt_seqs:
+        f.write(seq)
+        f.write('\n')
+f.close()
+
+with open(outdir+"old_len5_final_gens.txt", 'w+') as f:
     for seq in tgt_seqs:
         f.write(seq)
         f.write('\n')
