@@ -15,6 +15,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 import pdb
+import re
 
 def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean"):
 	with open(path_src, encoding='UTF-8') as f:
@@ -50,6 +51,9 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 		src_sentences_orig = [sentence.replace("\n","") for sentence in src_sentences_orig]
 		tgt_sentences_orig = [sentence.replace("\n","") for sentence in tgt_sentences_orig]
 
+		res_src = []
+		res_tgt = []
+
 
 		# print(num_sentences)
 
@@ -61,10 +65,15 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 				print(idx)
 				pdb.set_trace()
 			gen = src[len(src_orig):]
-
+			if not bool(re.search(r"[a-zA-Z]", gen)):
+				gen = ""
+			else:
+				gen = gen[:-1] + ' .'
+				pdb.set_trace()
+			res_src.append(src_orig+gen)
+			res_tgt.append(tgt_orig+gen)
 			
 
-    
 	elif mode=="sample":
 		start_index = start_idx*search_size
 		if start_index >= num_sentences:
@@ -78,7 +87,7 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 		tgt_seqs = [sentence.strip() for sentence in test_tgt]
 		pdb.set_trace()
     
-	return src_seqs, tgt_seqs
+	return res_src, res_tgt
 
 
 
