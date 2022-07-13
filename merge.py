@@ -18,17 +18,17 @@ import pdb
 import re
 
 def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean"):
-	with open(path_src, encoding='UTF-8') as f:
+	with codecs.open(path_src, encoding='UTF-8') as f:
 		src_sentences = f.readlines()
-	with open(path_tgt, encoding='UTF-8') as f:
+	with codecs.open(path_tgt, encoding='UTF-8') as f:
 		tgt_sentences = f.readlines()
 	
 	for src in src_sentences:
-		if src == "\n":
+		if bool(re.search(r"[a-zA-Z]", src)):
 			src_sentences.remove(src)
 	
 	for tgt in tgt_sentences:
-		if tgt == "\n":
+		if bool(re.search(r"[a-zA-Z]", tgt)):
 			tgt_sentences.remove(tgt)
 
 	
