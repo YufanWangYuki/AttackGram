@@ -10,7 +10,7 @@ import os
 import time
 import argparse
 from datetime import date
-from tqdm import tqdm
+
 import logging
 logging.basicConfig(level=logging.INFO)
 
@@ -22,13 +22,13 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 		src_sentences = f.readlines()
 	with codecs.open(path_tgt, encoding='UTF-8') as f:
 		tgt_sentences = f.readlines()
-	
-	for src in tqdm(src_sentences):
-		if bool(re.search(r"[a-zA-Z]", src)):
+	rubbish = ['\n','\u202e','\u202d','\u202f']
+	for src in src_sentences:
+		if src in rubbish:
 			src_sentences.remove(src)
 	
-	for tgt in tqdm(tgt_sentences):
-		if bool(re.search(r"[a-zA-Z]", tgt)):
+	for tgt in tgt_sentences:
+		if tgt in rubbish:
 			tgt_sentences.remove(tgt)
 
 	
