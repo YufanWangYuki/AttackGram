@@ -322,11 +322,11 @@ class Trainer(object):
 			# pdb.set_trace() # 1039
 
 
-			for idx in range(steps_per_epoch):
+			for idx, item in enumerate(trainiter):
 				print(idx)
 				if idx == 1039:
 					pdb.set_trace()
-				batch_items = trainiter.next()
+				# batch_items = trainiter.next()
 			pdb.set_trace()
 			for idx in range(steps_per_epoch):
 				# print(idx)
