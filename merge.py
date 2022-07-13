@@ -43,21 +43,24 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 	num_sentences = len(src_sentences)
 
 	if mode=="clean":
-		test_src = src_sentences
-		test_tgt = tgt_sentences
 		# pdb.set_trace()
 
-		src_seqs = [sentence.strip() for sentence in test_src]
-		tgt_seqs = [sentence.strip() for sentence in test_tgt]
+		src_sentences = [sentence.replace("\n","") for sentence in src_sentences]
+		tgt_sentences = [sentence.replace("\n","") for sentence in tgt_sentences]
+		src_sentences_orig = [sentence.replace("\n","") for sentence in src_sentences_orig]
+		tgt_sentences_orig = [sentence.replace("\n","") for sentence in tgt_sentences_orig]
+
 
 		# print(num_sentences)
 
-		for idx, (src,src_orig) in enumerate(zip(test_src,src_sentences_orig)):
-			src = src.replace("\n","")
-			src_orig = src_orig.replace("\n","")
+		for idx, (src,src_orig, tgt, tgt_orig) in enumerate(zip(src_sentences,src_sentences_orig, tgt_sentences, tgt_sentences_orig)):
 			if src.find(src_orig) == -1:
 				print(idx)
 				pdb.set_trace()
+			if tgt.find(tgt_orig) == -1:
+				print(idx)
+				pdb.set_trace()
+			
 
     
 	elif mode=="sample":
