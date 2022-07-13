@@ -41,16 +41,12 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 	values = set()
 	if mode=="clean":
 		# pdb.set_trace()
-
-		
 		src_sentences_orig = [sentence.replace("\n","") for sentence in src_sentences_orig]
 		tgt_sentences_orig = [sentence.replace("\n","") for sentence in tgt_sentences_orig]
 
 		res_src = []
 		res_tgt = []
 		count = 0
-		
-
 
 		# print(num_sentences)
 
