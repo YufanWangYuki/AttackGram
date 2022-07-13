@@ -53,6 +53,8 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 
 		res_src = []
 		res_tgt = []
+		count = 0
+		values = set()
 
 
 		# print(num_sentences)
@@ -66,13 +68,15 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 				pdb.set_trace()
 			gen = src[len(src_orig):]
 			if not bool(re.search(r"[a-zA-Z]", gen)):
+				values.add(gen)
 				gen = ""
-				pdb.set_trace()
+				count += 1
 			else:
 				gen = gen[:-1] + ' .'
-				# pdb.set_trace()
 			res_src.append(src_orig+gen)
 			res_tgt.append(tgt_orig+gen)
+		print(values)
+		print(count)
 			
 
 	elif mode=="sample":
