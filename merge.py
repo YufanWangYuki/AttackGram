@@ -22,7 +22,7 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 		src_sentences = f.readlines()
 	with codecs.open(path_tgt, encoding='UTF-8') as f:
 		tgt_sentences = f.readlines()
-	rubbish = ['\n','\u202e','\u202d','\u202f']
+	rubbish = ['\n','\u202e','\u202d','\u202f','\u2028']
 	for src in src_sentences:
 		if src in rubbish:
 			src_sentences.remove(src)
