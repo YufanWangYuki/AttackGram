@@ -11,6 +11,7 @@ from utils.misc import set_global_seeds, save_config, validate_config, check_dev
 from utils.dataset import Dataset
 from models.Seq2seq import Seq2seq
 from trainer.trainer import Trainer
+import pdb
 
 def load_arguments(parser):
 
@@ -139,6 +140,8 @@ def main():
 		batch_size=config['batch_size'],
 		use_gpu=config['use_gpu'],
 		logger=t.logger)
+	
+	pdb.set_trace()
 
 	# load dev set
 	if config['dev_path_src'] and config['dev_path_tgt']:

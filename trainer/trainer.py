@@ -319,20 +319,21 @@ class Trainer(object):
 			model.train(True)
 			trainiter = iter(train_set.iter_loader)
 			# print(steps_per_epoch)
-			pdb.set_trace() # 1039
+			# pdb.set_trace() # 1039
 
 
-			for idx, item in enumerate(trainiter):
-				print(idx)
-				if idx == 1039:
-					pdb.set_trace()
-				# batch_items = trainiter.next()
-			pdb.set_trace()
+			# for idx, item in enumerate(trainiter):
+			# 	print(idx)
+			# 	if idx == 1039:
+			# 		pdb.set_trace()
+			# 	# batch_items = trainiter.next()
+			# pdb.set_trace()
 
 			for idx, batch_items in enumerate(trainiter):
 				# load batch items
 				# pdb.set_trace()
-				# batch_items = trainiter.next()
+				batch_items = trainiter.next()
+				pdb.set_trace()
 
 				# update macro count
 				step += 1
