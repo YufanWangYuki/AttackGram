@@ -20,8 +20,7 @@ export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/p
 
 # ===================================================================================
 # ------------------------ DIR --------------------------
-
-set=old
+set=new
 orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
 train_path_src=$orig_path/${set}_len5_final_src.txt
 train_path_tgt=$orig_path/${set}_len5_final_tgt.txt
