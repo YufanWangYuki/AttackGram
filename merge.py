@@ -28,11 +28,11 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 	num_sentences = len(src_sentences)
 
 	if mode=="clean":
-		# test_src = src_sentences
-		# test_tgt = tgt_sentences
+		test_src = src_sentences
+		test_tgt = tgt_sentences
 
-		# src_seqs = [sentence.strip() for sentence in test_src]
-		# tgt_seqs = [sentence.strip() for sentence in test_tgt]
+		src_seqs = [sentence.strip() for sentence in test_src]
+		tgt_seqs = [sentence.strip() for sentence in test_tgt]
 
 		print(num_sentences)
 
