@@ -21,6 +21,11 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 		src_sentences = f.readlines()
 	with codecs.open(path_tgt, encoding='UTF-8') as f:
 		tgt_sentences = f.readlines()
+	orig_path="/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written"
+	with codecs.open(orig_path+"/lib/gec-train-bpe-written/prep/train.src", encoding='UTF-8') as f:
+		src_sentences_orig = f.readlines()
+	with codecs.open(orig_path+"/lib/gec-train-bpe-written/prep/train.tgt", encoding='UTF-8') as f:
+		tgt_sentences_orig = f.readlines()
 	
 	assert len(src_sentences) == len(tgt_sentences), \
 		'Mismatch src:tgt - {}:{}'.format(len(src_sentences),len(tgt_sentences))
@@ -35,11 +40,11 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 		# src_seqs = [sentence.strip() for sentence in test_src]
 		# tgt_seqs = [sentence.strip() for sentence in test_tgt]
 
-		print(num_sentences)
+		# print(num_sentences)
 
-		# for (src,tgt) in zip(src_seqs,tgt_seqs):
-		# 	if src == "hhh":
-		# 		print("None")
+		for (src,tgt) in zip(test_src,src_sentences_orig):
+			if src == "hhh":
+				print("None")
     
 	elif mode=="sample":
 		start_index = start_idx*search_size
