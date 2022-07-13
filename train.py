@@ -140,8 +140,6 @@ def main():
 		batch_size=config['batch_size'],
 		use_gpu=config['use_gpu'],
 		logger=t.logger)
-	
-	pdb.set_trace()
 
 	# load dev set
 	if config['dev_path_src'] and config['dev_path_tgt']:
