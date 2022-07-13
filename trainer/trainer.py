@@ -321,6 +321,7 @@ class Trainer(object):
 			for idx in range(steps_per_epoch):
 
 				# load batch items
+				pdb.set_trace()
 				batch_items = trainiter.next()
 
 				# update macro count
