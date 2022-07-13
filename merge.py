@@ -138,18 +138,18 @@ dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
 src=dir+"old_len5_src.txt"
 tgt=dir+"old_len5_tgt.txt"
 src_seqs, tgt_seqs = load_sentences(src, tgt, 0, 200,"clean")
-# outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_toy"
+outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/old_len5_final"
 
-# with open(outdir+"_src.txt", 'w') as f:
-#     for seq in src_seqs:
-#         f.write(seq)
-#         f.write('\n')
-# f.close()
+with open(outdir+"_src.txt", 'w') as f:
+    for seq in src_seqs:
+        f.write(seq)
+        f.write('\n')
+f.close()
 
 
-# with open(outdir+"_tgt.txt", 'w') as f:
-#     for seq in tgt_seqs:
-#         f.write(seq)
-#         f.write('\n')
-# f.close()
+with open(outdir+"_tgt.txt", 'w') as f:
+    for seq in tgt_seqs:
+        f.write(seq)
+        f.write('\n')
+f.close()
 
