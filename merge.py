@@ -92,11 +92,12 @@ def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean
 
 def merge(file1, file2):
     f1 = open(file1, 'a+')
-    with open(file2, 'r') as f2:
-        for i in f2[:-1]:
+    with open(file2, 'r', encoding='utf-8') as f2:
+        lines = f2.readlines()
+        for i in lines[:-1]:
             f1.write(i)
             f1.write('\n')
-        f1.write(f2[-1])
+        f1.write(lines[-1])
 
 
 
