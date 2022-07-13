@@ -318,8 +318,9 @@ class Trainer(object):
 			# loop over batches
 			model.train(True)
 			trainiter = iter(train_set.iter_loader)
+			print(steps_per_epoch)
 			for idx in range(steps_per_epoch):
-				print(idx)
+				# print(idx)
 
 				# load batch items
 				# pdb.set_trace()
