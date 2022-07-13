@@ -17,9 +17,9 @@ logging.basicConfig(level=logging.INFO)
 import pdb
 
 def load_sentences(path_src, path_tgt, start_idx=0, search_size=8000,mode="clean"):
-	with codecs.open(path_src, encoding='UTF-8') as f:
+	with open(path_src, encoding='UTF-8') as f:
 		src_sentences = f.readlines()
-	with codecs.open(path_tgt, encoding='UTF-8') as f:
+	with open(path_tgt, encoding='UTF-8') as f:
 		tgt_sentences = f.readlines()
 	orig_path="/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written"
 	with codecs.open(orig_path+"/lib/gec-train-bpe-written/prep/train.src", encoding='UTF-8') as f:
