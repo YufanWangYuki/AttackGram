@@ -156,7 +156,7 @@ do
     corr=$dir/combine_seed_1.corr
     errant_parallel -orig $input -cor $pred -out $outdir/${exp}_combine_edits-pred.m2
     errant_parallel -orig $input -cor $corr -out $outdir/${exp}_combine_edits-corr.m2
-    echo ${exp}_${checkpoint} >> results/Fscore/v005_Fscore.txt
+    echo ${exp}_${checkpoint} >> results/Fscore/v001_Fscore.txt
     errant_compare -hyp $outdir/${exp}_${checkpoint}_edits-pred.m2 -ref $outdir/${exp}_${checkpoint}_edits-corr.m2 >> results/Fscore/v001_Fscore.txt
     echo ${exp}_${checkpoint}
 done
