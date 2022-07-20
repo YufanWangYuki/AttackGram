@@ -153,10 +153,11 @@ seed=1
 for exp in new_256_8_v2_full old_256_8_v2_full
 do
     preddir=prediction_files
-    mkdir $outdir/${exp}
+    mkdir $outdir/v001
+    mkdir $outdir/v001/${exp}
     checkpoint=combine
     pred=$preddir/$exp.pred
-    output=$outdir/${exp}/${exp}_${checkpoint}_seed_${seed}
+    output=$outdir/v001/${exp}/${checkpoint}_seed_${seed}
     echo $pred
     $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/utils/align_preds.py \
         --INC $input \
