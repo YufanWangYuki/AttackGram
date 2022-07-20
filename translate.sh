@@ -5,8 +5,8 @@ echo $HOSTNAME
 unset LD_PRELOAD
 echo export PATH=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/bin/:$PATH
 
-# export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
+# export CUDA_VISIBLE_DEVICES=0
 echo $CUDA_VISIBLE_DEVICES
 
 # python 3.7
@@ -45,7 +45,7 @@ mode='beam-1'
 # mode='combine'
 
 # ----------------------- [noise] ---------------------------
-# noise=1 #2 is for using the noise
+noise=0 #2 is for using the noise
 # ntype=Gaussian #Gaussian, Bernoulli, Gaussian-adversarial
 # nway=mul
 # mean=1.0
