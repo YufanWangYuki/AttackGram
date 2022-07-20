@@ -150,7 +150,7 @@ mkdir prediction_files/m2/v001
 for exp in new_256_8_v2_full old_256_8_v2_full
 do
     checkpoint=combine
-    dir=/home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/prediction_files/for_errant/v001/$exp
+    dir=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/prediction_files/for_errant/v001/$exp
     input=$dir/combine_seed_1.inc
     pred=$dir/combine_seed_1.pred
     corr=$dir/combine_seed_1.corr
