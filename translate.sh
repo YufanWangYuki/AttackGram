@@ -46,11 +46,11 @@ mode='beam-1'
 
 # ----------------------- [noise] ---------------------------
 noise=0 #2 is for using the noise
-# ntype=Gaussian #Gaussian, Bernoulli, Gaussian-adversarial
-# nway=mul
-# mean=1.0
-# weight=0.0
-# word_keep=1.0
+ntype=Gaussian #Gaussian, Bernoulli, Gaussian-adversarial
+nway=mul
+mean=1.0
+weight=0.0
+word_keep=1.0
 
 # # ----- [dir names] -----
 # loaddir=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/models/v001/checkpoints-combine/combine
