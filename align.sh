@@ -152,7 +152,7 @@ seed=1
 # mkdir $outdir/orig
 for exp in new_256_8_v2_full old_256_8_v2_full
 do
-    preddir=prediction_files/
+    preddir=prediction_files
     mkdir $outdir/${exp}
     checkpoint=combine
     pred=$preddir/$exp.pred
