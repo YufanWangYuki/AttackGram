@@ -15,8 +15,7 @@ source activate /home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37
 export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/python3
 
 # ===================================================================================
-model=models/v002/Gaussian_mul_1.0_0.1_256_2_002
-
+model=models/generate/old_256_8_v2_full
 # ckpt=2022_02_01_15_37_10
 ckpt=combine
 
@@ -46,36 +45,36 @@ mode='beam-1'
 # mode='combine'
 
 # ----------------------- [noise] ---------------------------
-noise=1 #2 is for using the noise
-ntype=Gaussian #Gaussian, Bernoulli, Gaussian-adversarial
-nway=mul
-mean=1.0
-weight=0.0
-word_keep=1.0
+# noise=1 #2 is for using the noise
+# ntype=Gaussian #Gaussian, Bernoulli, Gaussian-adversarial
+# nway=mul
+# mean=1.0
+# weight=0.0
+# word_keep=1.0
 
-# ----- [dir names] -----
-loaddir=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/models/v001/checkpoints-combine/combine
-echo 'MODE '$eval_mode
+# # ----- [dir names] -----
+# loaddir=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/models/v001/checkpoints-combine/combine
+# echo 'MODE '$eval_mode
 
-if [[ $eval_mode -eq 1 ]]
-    then
+# if [[ $eval_mode -eq 1 ]]
+#     then
     
-    outdir=$model/$fname-"$mode"/combine/
-    combine_path=$model/checkpoints/
-    echo 'COMBINE: '$loaddir
-else
-    if [[ $ckpt == 'combine' ]] # [combined ckpt]
-        then
-        # outdir=$model/$fname-"$mode"/combine/${noise}_${ntype}_${nway}_${mean}_${weight}
-        outdir=$model/$fname-"$mode"/combine
-        # loaddir=$model/checkpoints-combine/combine
-    else # [single ckpt]
-        outdir=$model/$fname-"$mode"/$ckpt/${noise}_${ntype}_${nway}_${mean}_${weight}
-        # loaddir=$model/checkpoints/$ckpt
-    fi
-    combine_path='None'
-    echo 'LOAD: '$loaddir
-fi
+#     outdir=$model/$fname-"$mode"/combine/
+#     combine_path=$model/checkpoints/
+#     echo 'COMBINE: '$loaddir
+# else
+#     if [[ $ckpt == 'combine' ]] # [combined ckpt]
+#         then
+#         # outdir=$model/$fname-"$mode"/combine/${noise}_${ntype}_${nway}_${mean}_${weight}
+#         outdir=$model/$fname-"$mode"/combine
+#         # loaddir=$model/checkpoints-combine/combine
+#     else # [single ckpt]
+#         outdir=$model/$fname-"$mode"/$ckpt/${noise}_${ntype}_${nway}_${mean}_${weight}
+#         # loaddir=$model/checkpoints/$ckpt
+#     fi
+#     combine_path='None'
+#     echo 'LOAD: '$loaddir
+# fi
 
 
 # loaddir=/home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/models/v002/Gaussian_mul_1.0_1.5_256_2_002/checkpoints-combine/combine
@@ -153,10 +152,10 @@ fi
 
 # ------- Combine ---------------
 eval_mode=1
-model=models/v005
+model=models/generate
 fname=checkpoints
 mode='combine'
-for exp in volta_Gaussian-adversarial_add_0.0_1000_256_8 volta_Gaussian-adversarial_add_0.0_100_256_8 volta_Gaussian-adversarial-norm_add_0.0_100_256_8 volta_Gaussian-adversarial-norm_add_0.0_10_256_8 
+for exp in new_256_8_v2_full old_256_8_v2_full
 do
 combine_path=$model/$exp/checkpoints/
 outdir=$model/$exp/checkpoints-combine/combine/
