@@ -20,7 +20,7 @@ export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/p
 
 # ===================================================================================
 # ------------------------ DIR --------------------------
-set=new
+set=old
 orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
 train_path_src=$orig_path/${set}_len5_final_src.txt
 train_path_tgt=$orig_path/${set}_len5_final_tgt.txt
@@ -139,3 +139,6 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 
 # qsub -cwd -j yes -o 'LOGs/generate_v3_new.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
 # qsub -cwd -j yes -o 'LOGs/generate_v3_old.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
+
+# qsub -cwd -j yes -o 'LOGs/generate_v3_new_con.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
+# qsub -cwd -j yes -o 'LOGs/generate_v3_old_con.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
