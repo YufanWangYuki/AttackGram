@@ -89,7 +89,7 @@ load_mode='null' # 'resume' | 'restart' | 'null'
 noise=0
 word_way=generate
 savedir=models/$word_way/${set}_${batch_size}_${minibatch_split}_v2_full_con/
-loaddir=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/new_256_8_v2_full/checkpoints/2022_07_14_16_32_08
+loaddir=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/old_256_8_v2_full/checkpoints/2022_07_15_11_08_11
 load_mode='resume' # 'resume' | 'restart' | 'null'
 # ===================================================================================
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
