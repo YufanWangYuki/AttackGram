@@ -316,3 +316,5 @@ done
 #         --seed $seed \
 #         --use_attack 0
 # done
+
+# qsub -cwd -j yes -o 'LOGs/combine.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' predict.sh 1 1
