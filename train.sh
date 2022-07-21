@@ -21,9 +21,16 @@ export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/p
 # ===================================================================================
 # ------------------------ DIR --------------------------
 set=old
-orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
-train_path_src=$orig_path/${set}_len5_final_src.txt
-train_path_tgt=$orig_path/${set}_len5_final_tgt.txt
+# generate
+# orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
+# train_path_src=$orig_path/${set}_len5_final_src.txt
+# train_path_tgt=$orig_path/${set}_len5_final_tgt.txt
+
+# random add
+orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random
+train_path_src=$orig_path/words0_src.txt
+train_path_tgt=$orig_path/words0_tgt.txt
+
 dev_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
 dev_path_src=$dev_path/lib/gec-train-bpe-written/prep/dev.src
 dev_path_tgt=$dev_path/lib/gec-train-bpe-written/prep/dev.tgt
@@ -87,10 +94,12 @@ load_mode='null' # 'resume' | 'restart' | 'null'
 # decay=0.1
 # savedir=models/v005/volta_${ntype}_${nway}_${mean}_${weight}_${alpha}_${decay}_${batch_size}_${minibatch_split}/
 noise=0
-word_way=generate
-savedir=models/$word_way/${set}_${batch_size}_${minibatch_split}_v2_full_con/
-loaddir=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/old_256_8_v2_full/checkpoints/2022_07_15_11_08_11
-load_mode='resume' # 'resume' | 'restart' | 'null'
+word_way=random
+savedir=models/$word_way/${set}_${batch_size}_${minibatch_split}/
+# loaddir=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/old_256_8_v2_full/checkpoints/2022_07_15_11_08_11
+# load_mode='resume' # 'resume' | 'restart' | 'null'
+load_mode='null'
+loaddir='None'
 # ===================================================================================
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 	--train_path_src $train_path_src \
@@ -142,3 +151,5 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 
 # qsub -cwd -j yes -o 'LOGs/generate_v3_new_con.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
 # qsub -cwd -j yes -o 'LOGs/generate_v3_old_con.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
+
+# qsub -cwd -j yes -o 'LOGs/random.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
