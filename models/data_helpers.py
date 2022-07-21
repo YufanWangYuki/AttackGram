@@ -74,7 +74,7 @@ def add_words_seq(src_seq, tgt_seq, length=10, way='random',word_vocab=None):
         if way == 'random':
             gen = []
             for i in range(length):
-                w_id = random.randint(0, len(word_vocab))
+                w_id = random.randint(0, len(word_vocab)-1)
                 gen.append(word_vocab[w_id])
             gen = (" ").join(gen)
             src_seq[idx] = (src+" "+gen+' .')
