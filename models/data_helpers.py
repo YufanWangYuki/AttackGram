@@ -8,6 +8,7 @@ from transformers import pipeline, set_seed
 import torch
 from tqdm import tqdm
 import re
+import random
 
 def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weight=0.0, replace_map = None, grad_noise=None):
     seq_length = len(x[0])
@@ -63,13 +64,23 @@ def add_noise(x, embedding_dim, random_type=None, word_keep=1.0, mean=1.0, weigh
             #x[bi] = np.random.choice(2, size=(seq_length), p=[1-word_keep, word_keep])#change x by shallow copy
     return noise
 
-def add_words_seq(src_seq, tgt_seq, length=10, way='random'):
-    generator = pipeline('text-generation', model='distilgpt2')
-    generator.device = torch.device('cpu')
+def add_words_seq(src_seq, tgt_seq, length=10, way='random',word_vocab=None):
+    if way == 'generate':
+        generator = pipeline('text-generation', model='distilgpt2')
+        generator.device = torch.device('cpu')
     set_seed(42)
     for idx, (src, tgt) in enumerate(tqdm(zip(src_seq, tgt_seq))):
-        print(idx)
+        # print(idx)
         if way == 'random':
+            gen = []
+            for i in range(length):
+                w_id = random.randint(0, len(word_vocab))
+                gen.append(word_vocab[w_id])
+            gen = (" ").join(gen)
+            src_seq[idx] = (src+gen+' .')
+            tgt_seq[idx] = (tgt+gen+' .')
+            pdb.set_trace()
+        elif way == 'random-threshold':
             continue
         elif way == 'generate':
             res = generator(src, max_new_tokens=length, num_return_sequences=1)[0]['generated_text']

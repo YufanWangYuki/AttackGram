@@ -56,9 +56,20 @@ def load_sentences(path_src, path_tgt, word_way='generate',start_idx=0, search_s
 	src_seqs = [sentence.strip() for sentence in test_src]
 	tgt_seqs = [sentence.strip() for sentence in test_tgt]
 
-	# pdb.set_trace()
+	word_vocab = []
+	if "random" in word_way:
+		vocab_file="/home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/LOGs/best_words/perp_vocab.txt"
+		with open(vocab_file, 'r') as f:
+			lines = f.readlines()
+		for line in lines[2:]:
+			word = line.strip()
+			word_vocab.append(word)
+
+		
+
+	pdb.set_trace()
 	start = time.time()
-	src_seqs, tgt_seqs = add_words_seq(src_seqs, tgt_seqs, length=5, way=word_way)
+	src_seqs, tgt_seqs = add_words_seq(src_seqs, tgt_seqs, length=5, way=word_way,word_vocab=word_vocab)
 	end = time.time()
 	print(end - start)
 	return src_seqs, tgt_seqs
