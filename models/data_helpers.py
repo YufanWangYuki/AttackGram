@@ -79,7 +79,7 @@ def add_words_seq(src_seq, tgt_seq, length=10, way='random',word_vocab=None):
             gen = (" ").join(gen)
             src_seq[idx] = (src+" "+gen+' .')
             tgt_seq[idx] = (tgt+" "+gen+' .')
-            pdb.set_trace()
+            # pdb.set_trace()
         elif way == 'random-threshold':
             continue
         elif way == 'generate':
