@@ -64,10 +64,7 @@ def load_sentences(path_src, path_tgt, word_way='generate',start_idx=0, search_s
 		for line in lines[2:]:
 			word = line.strip()
 			word_vocab.append(word)
-
-		
-
-	pdb.set_trace()
+	# pdb.set_trace()
 	start = time.time()
 	src_seqs, tgt_seqs = add_words_seq(src_seqs, tgt_seqs, length=5, way=word_way,word_vocab=word_vocab)
 	end = time.time()
