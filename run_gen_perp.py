@@ -54,7 +54,7 @@ if __name__ == "__main__":
     commandLineParser.add_argument('LOG', type=str, help='Specify txt file to log iteratively better words')
     commandLineParser.add_argument('--length', type=int, default='', help='attack phrase length')
     commandLineParser.add_argument('--num_points', type=int, default=1000, help='Number of training data points to consider')
-    # commandLineParser.add_argument('--search_size', type=int, default=400, help='Number of words to check')
+    commandLineParser.add_argument('--search_size', type=int, default=400, help='Number of words to check')
     # commandLineParser.add_argument('--start', type=int, default=0, help='Vocab batch number')
     commandLineParser.add_argument('--perp_thresh', type=float, default=0, help='Perplexity Detector threshold')
     commandLineParser.add_argument('--seed', type=int, default=1, help='reproducibility')

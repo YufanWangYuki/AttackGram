@@ -32,3 +32,4 @@ python /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/run_gen_perp.py \
     --length=5 \
     --num_points=500 \
     --perp_thresh=243 \
+    --search_size=20
