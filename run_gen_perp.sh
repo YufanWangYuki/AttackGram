@@ -29,7 +29,7 @@ python /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/run_gen_perp.py \
     /home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/models/v001/checkpoints-combine/combine/ \
     /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/LOGs/best_words/perp_vocab.txt \
     /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/text.txt \
-    --length=5 \
-    --num_points=200 \
+    --length=3 \
+    --num_points=100 \
     --perp_thresh=243 \
     --search_size=20
