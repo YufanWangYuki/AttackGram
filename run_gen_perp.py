@@ -92,16 +92,22 @@ if __name__ == "__main__":
 
     cnt = 0
     res = []
+    tries = []
     while cnt < args.search_size:
         gen = []
         for i in range(args.length):
             w_id = random.randint(0, len(test_words)-1)
             gen.append(test_words[w_id])
         attack_phrase = (" ").join(gen)
+        if attack_phrase in tries:
+            continue
+        tries.append(attack_phrase)
         if not is_perp_less_than_thresh(sentences, attack_phrase, args.perp_thresh):
             continue
         else:
+            print("-----------------check average edits-----------------")
             edits_avg = get_avg(model, sentences, attack_phrase)
+            print(edits_avg)
             if edits_avg < 1:
                 pdb.set_trace()
                 res.append(gen)
