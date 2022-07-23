@@ -1,6 +1,8 @@
 #!/bin/bash
 #$ -S /bin/bash
-
+export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
+# export CUDA_VISIBLE_DEVICES=0
+echo $CUDA_VISIBLE_DEVICES
 
 # export PATH=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/bin/:$PATH
 source ~/.bashrc
@@ -23,7 +25,7 @@ export NUMEXPR_NUM_THREADS=1 # export NUMEXPR_NUM_THREADS=1
 # chutzpah vb ditka 0.4290416971470373
 # chutzpah ii bibb en 
 SGE_TASK_ID=0
-length=5
+length=4
 num_points=100
 python /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/run_gen_perp.py \
     /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.train16.inc \
@@ -34,3 +36,4 @@ python /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/run_gen_perp.py \
     --num_points=100 \
     --perp_thresh=243 \
     --search_size=200
+# qsub -cwd -j yes -o 'LOGs/valid_perp_k4.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' train.sh 1 1
