@@ -81,7 +81,16 @@ def add_words_seq(src_seq, tgt_seq, length=10, way='random',word_vocab=None):
             tgt_seq[idx] = (tgt+" "+gen+' .')
             # pdb.set_trace()
         elif way == 'random-threshold':
-            continue
+            gen = []
+            flag = True
+            while flag:
+                for i in range(length):
+                    w_id = random.randint(0, len(word_vocab)-1)
+                    gen.append(word_vocab[w_id])
+                gen = (" ").join(gen)
+                # if 
+            src_seq[idx] = (src+" "+gen+' .')
+            tgt_seq[idx] = (tgt+" "+gen+' .')
         elif way == 'generate':
             res = generator(src, max_new_tokens=length, num_return_sequences=1)[0]['generated_text']
             gen = res[len(src):].replace("\n","")
