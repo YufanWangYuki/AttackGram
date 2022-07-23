@@ -109,10 +109,13 @@ if __name__ == "__main__":
             print("-----------------check average edits-----------------")
             edits_avg = get_avg(model, sentences, attack_phrase)
             print(edits_avg)
-            if edits_avg < 1:
-                pdb.set_trace()
-                res.append(gen)
+            pdb.set_trace()
+            if edits_avg < args.length:
                 cnt += 1
                 with open(args.LOG, 'a') as f:
-                    out = '\n'+res+" "+str(edits_avg)
+                    out = '\n'+attack_phrase+" "+str(edits_avg)
                     f.write(out)
+            # cnt += 1
+            # with open(args.LOG, 'a') as f:
+            #     out = '\n'+attack_phrase+" "+str(edits_avg)
+            #     f.write(out)
