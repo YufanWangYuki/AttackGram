@@ -95,6 +95,7 @@ def merge(file1, file2):
     f1 = open(file1, 'a+')
     with open(file2, 'r', encoding='utf-8') as f2:
         lines = f2.readlines()[1:]
+        pdb.set_trace()
         for i in lines[:-1]:
             f1.write(i)
             # f1.write('\n')
@@ -135,11 +136,11 @@ file0 = dir+"4_100_1.txt"
 file1 = dir+"5_100_0.txt"
 merge(file0, file1)
 
-file0 = dir+"4_100_1.txt"
-file1 = dir+"5_100_r.txt"
-merge(file0, file1)
+# file0 = dir+"4_100_1.txt"
+# file1 = dir+"5_100_r.txt"
+# merge(file0, file1)
 
-remove_duplicates(file0, file1)
+# remove_duplicates(file0, file1)
 
 
 # src=dir+"4_100_1.txt"
