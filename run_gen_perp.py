@@ -94,6 +94,13 @@ if __name__ == "__main__":
     cnt = 0
     res = []
     tries = []
+    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/2_100_2.txt", 'r') as f:
+        lines = f.readlines()[1:]
+        for line in lines:
+            temp = line.split(" ")[:-1]
+            tries.append(temp)
+    pdb.set_trace()
+
     while cnt < args.search_size:
         gen = []
         for i in range(args.length):

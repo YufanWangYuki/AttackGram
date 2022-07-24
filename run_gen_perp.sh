@@ -24,7 +24,7 @@ export NUMEXPR_NUM_THREADS=1 # export NUMEXPR_NUM_THREADS=1
 # 44928 chutzpah ii bibb en fyi
 # chutzpah vb ditka 0.4290416971470373
 # chutzpah ii bibb en 
-SGE_TASK_ID=2
+SGE_TASK_ID=3
 length=2
 num_points=100
 python /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/run_gen_perp.py \
@@ -35,7 +35,8 @@ python /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/run_gen_perp.py \
     --length=${length} \
     --num_points=100 \
     --perp_thresh=243 \
-    --search_size=200
+    --search_size=200 \
+    --seed=2
 # qsub -cwd -j yes -o 'LOGs/valid_perp_k6.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen_perp.sh 1 1
 
 # florence 4 & 5
