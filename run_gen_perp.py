@@ -97,11 +97,10 @@ if __name__ == "__main__":
     tries = []
     founded = 0
     with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/2_100_2.txt", 'r') as f2:
-        pdb.set_trace()
         lines = f2.readlines()[1:]
         for line in lines:
             temp = line.split(" ")[:-1]
-            tries.append(temp)
+            tries.append((" ").join(temp))
     f2.close()
     founded = len(tries)   
     pdb.set_trace()
