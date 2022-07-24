@@ -102,20 +102,20 @@ def merge(file1, file2):
 
 
 
-dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/"
-# file0 = dir+"job_million_words0_src.txt"
-# file1 = dir+"job_million_words1_src.txt"
-# merge(file0, file1)
+dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/"
+file0 = dir+"4_100_1.txt"
+file1 = dir+"2_100_1.txt"
+merge(file0, file1)
 
-# file0 = dir+"job_million_words0_tgt.txt"
-# file1 = dir+"job_million_words1_tgt.txt"
-# merge(file0, file1)
+file0 = dir+"4_100_1.txt"
+file1 = dir+"5_100_0.txt"
+merge(file0, file1)
 
-src=dir+"job_million_words0_src.txt"
-tgt=dir+"job_million_words0_tgt.txt"
-outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge/"
+# src=dir+"4_100_1.txt"
+# tgt=dir+"2_100_1.txt"
+# outdir="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/"
 
-src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"clean")
+# src_seqs, tgt_seqs, gens = load_sentences(src, tgt, 0, 200,"clean")
 # with open(outdir+"old_len5_final_src.txt", 'w+') as f:
 #     for seq in src_seqs:
 #         f.write(seq)
