@@ -94,14 +94,16 @@ if __name__ == "__main__":
     cnt = 0
     res = []
     tries = []
+    founded = 0
     with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/2_100_2.txt", 'r') as f:
         lines = f.readlines()[1:]
         for line in lines:
             temp = line.split(" ")[:-1]
             tries.append(temp)
+    founded = len(tries)   
     pdb.set_trace()
 
-    while cnt < args.search_size:
+    while cnt < args.search_size-founded:
         gen = []
         for i in range(args.length):
             w_id = random.randint(0, len(test_words)-1)
