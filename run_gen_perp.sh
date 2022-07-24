@@ -24,7 +24,7 @@ export NUMEXPR_NUM_THREADS=1 # export NUMEXPR_NUM_THREADS=1
 # 44928 chutzpah ii bibb en fyi
 # chutzpah vb ditka 0.4290416971470373
 # chutzpah ii bibb en 
-SGE_TASK_ID=1
+SGE_TASK_ID=2
 length=4
 num_points=100
 python /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/run_gen_perp.py \
@@ -32,7 +32,7 @@ python /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/run_gen_perp.py \
     /home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/models/v001/checkpoints-combine/combine/ \
     /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/LOGs/best_words/perp_vocab.txt \
     /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/${length}_${num_points}_${SGE_TASK_ID}.txt \
-    --length=5 \
+    --length=${length} \
     --num_points=100 \
     --perp_thresh=243 \
     --search_size=200
