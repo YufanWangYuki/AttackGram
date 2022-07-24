@@ -82,6 +82,7 @@ if __name__ == "__main__":
     test_words = []
     with open(args.VOCAB, 'r') as f:
         lines = f.readlines()
+    f.close()
     for line in lines[2:]:
         word = line.strip()
         test_words.append(word)
@@ -90,12 +91,13 @@ if __name__ == "__main__":
     # Initialise empty log file
     with open(args.LOG, 'w') as f:
         f.write("Logged on "+ str(date.today()))
-
+    f.close()
     cnt = 0
     res = []
     tries = []
     founded = 0
     with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/2_100_2.txt", 'r') as f2:
+        pdb.set_trace()
         lines = f2.readlines()[1:]
         for line in lines:
             temp = line.split(" ")[:-1]
