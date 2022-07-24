@@ -102,17 +102,18 @@ def merge(file1, file2):
 def remove_duplicates(file1, file2):
 	result = []
 	f2 = open(file2, 'w+')
-	pdb.set_trace()
+	# pdb.set_trace()
 	with open(file1, 'r', encoding='utf-8') as f1:
 		lines = f1.readlines()[1:]
 		for i in lines[1:]:
-			pdb.set_trace()
+			# pdb.set_trace()
 			res = i.split(" ")
 			if len(res) != 6:
 				pdb.set_trace()
 			s = (" ").join(res[:-1])
 			result.append(s)
 		result = set(result)
+		pdb.set_trace()
 		print(len(result))
 		for res in result[:-1]:
 			f2.write(res+"\n")
