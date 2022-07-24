@@ -37,3 +37,5 @@ python /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/run_gen_perp.py \
     --perp_thresh=243 \
     --search_size=200
 # qsub -cwd -j yes -o 'LOGs/valid_perp_k6.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' run_gen_perp.sh 1 1
+
+# florence 4 & 5
