@@ -115,14 +115,12 @@ if __name__ == "__main__":
             continue
         tries.append(attack_phrase)
         if not is_perp_less_than_thresh(sentences, attack_phrase, args.perp_thresh):
-            # print("pass")
             continue
         else:
             print("-----------------check average edits-----------------")
             edits_avg = get_avg(model, sentences, attack_phrase)
             print(edits_avg)
             print(cnt)
-            # pdb.set_trace()
             if edits_avg < args.length:
                 cnt += 1
                 with open(args.LOG, 'a') as f:
