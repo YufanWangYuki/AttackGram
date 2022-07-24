@@ -25,7 +25,7 @@ export NUMEXPR_NUM_THREADS=1 # export NUMEXPR_NUM_THREADS=1
 # chutzpah vb ditka 0.4290416971470373
 # chutzpah ii bibb en 
 SGE_TASK_ID=2
-length=4
+length=2
 num_points=100
 python /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/run_gen_perp.py \
     /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.train16.inc \
