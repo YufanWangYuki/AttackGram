@@ -654,7 +654,7 @@ def main():
 		model = resume_checkpoint.model.to(device)
 		print('Model dir: {}'.format(latest_checkpoint_path))
 		print('Model loaded')
-	else:
+	elif MODE != 1:
 		
 		# model_name = "zuu/grammar-error-correcter"
 		# tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -669,7 +669,7 @@ def main():
 		# 1 src -> N tgt
 		test_set = Dataset_1toN(test_path_src, test_path_tgt,
 					batch_size=batch_size, use_gpu=use_gpu)
-	else:
+	elif MODE != 1:
 		test_set = Dataset_EVAL(test_path_src,
 					max_src_len=900, batch_size=batch_size, use_gpu=use_gpu)
 
