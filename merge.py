@@ -10,6 +10,7 @@ import os
 import time
 import argparse
 from datetime import date
+from random import sample
 
 import logging
 logging.basicConfig(level=logging.INFO)
@@ -101,6 +102,21 @@ def merge(file1, file2):
             # f1.write('\n')
         f1.write(lines[-1])
 
+def merge_and_new(file1, file2, sample_size,file3):
+    with open(file1, 'r', encoding='utf-8') as f1:
+        f1_lines = f1.readlines()[1:]
+    f1.close()
+    with open(file2, 'r', encoding='utf-8') as f2:
+        f2_lines = f2.readlines()[1:]
+    f2_selected = sample(f2_lines, sample_size)
+    f1_lines.append(f2_selected)
+    # f1_lines = random.shuffle(f1_lines)
+    pdb.set_trace()
+    with open(file3,'w+',encoding='utf-8') as f3:
+        for item in f1_lines:
+            f3.write(item)
+    
+
 def remove_duplicates(file1, file2):
 	result = []
 	f2 = open(file2, 'w+')
@@ -128,13 +144,17 @@ def remove_duplicates(file1, file2):
 
 
 dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/"
-file0 = dir+"4_100_1.txt"
-file1 = dir+"2_100_1.txt"
-merge(file0, file1)
+file1="/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/lib/gec-train-bpe-written/prep/train.src"
+file2="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/words0_src.txt"
+file3="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/train_src.txt"
+merge_and_new(file1,file2,file3,100000)
+# file0 = dir+"4_100_1.txt"
+# file1 = dir+"2_100_1.txt"
+# merge(file0, file1)
 
-file0 = dir+"4_100_1.txt"
-file1 = dir+"5_100_0.txt"
-merge(file0, file1)
+# file0 = dir+"4_100_1.txt"
+# file1 = dir+"5_100_0.txt"
+# merge(file0, file1)
 
 # file0 = dir+"4_100_1.txt"
 # file1 = dir+"5_100_r.txt"
