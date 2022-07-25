@@ -79,14 +79,20 @@ if __name__ == "__main__":
     _, sentences = get_sentences(args.IN, num=args.num_points)
 
     # Get list of words to try
-    test_words = []
-    with open(args.VOCAB, 'r') as f:
-        lines = f.readlines()
-    f.close()
-    for line in lines[2:]:
-        word = line.strip()
-        test_words.append(word)
-    print(len(test_words))
+    if 'vr313' in args.VOCAB:
+        with open(args.VOCAB, 'r') as f:
+            test_words = json.loads(f.read())
+        test_words = [str(word).lower() for word in test_words]
+        print(len(test_words))
+    else:
+        test_words = []
+        with open(args.VOCAB, 'r') as f:
+            lines = f.readlines()
+        f.close()
+        for line in lines[2:]:
+            word = line.strip()
+            test_words.append(word)
+        print(len(test_words))
 
     # Initialise empty log file
     with open(args.LOG, 'w') as f:
@@ -103,7 +109,7 @@ if __name__ == "__main__":
             tries.append((" ").join(temp))
     f2.close()
     founded = len(tries)   
-    pdb.set_trace()
+    # pdb.set_trace()
 
     while cnt < args.search_size-founded:
         gen = []
