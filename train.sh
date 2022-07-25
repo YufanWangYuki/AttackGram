@@ -7,8 +7,8 @@ unset LD_PRELOAD
 echo export PATH=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/bin/:$PATH
 
 
-export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
-# export CUDA_VISIBLE_DEVICES=0
+# export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
+export CUDA_VISIBLE_DEVICES=0
 echo $CUDA_VISIBLE_DEVICES
 
 # python 3.7
@@ -27,9 +27,14 @@ set=old
 # train_path_tgt=$orig_path/${set}_len5_final_tgt.txt
 
 # random add
-orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random
-train_path_src=$orig_path/words0_src.txt
-train_path_tgt=$orig_path/words0_tgt.txt
+# orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random
+# train_path_src=$orig_path/words0_src.txt
+# train_path_tgt=$orig_path/words0_tgt.txt
+
+# random valid attack
+orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid
+train_path_src=$orig_path/train_src.txt
+train_path_tgt=$orig_path/train_tgt.txt
 
 dev_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
 dev_path_src=$dev_path/lib/gec-train-bpe-written/prep/dev.src
@@ -94,7 +99,7 @@ load_mode='null' # 'resume' | 'restart' | 'null'
 # decay=0.1
 # savedir=models/v005/volta_${ntype}_${nway}_${mean}_${weight}_${alpha}_${decay}_${batch_size}_${minibatch_split}/
 noise=0
-word_way=random
+word_way=random_valid
 savedir=models/$word_way/${set}_${batch_size}_${minibatch_split}/
 # loaddir=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/old_256_8_v2_full/checkpoints/2022_07_15_11_08_11
 # load_mode='resume' # 'resume' | 'restart' | 'null'
