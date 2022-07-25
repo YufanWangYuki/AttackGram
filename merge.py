@@ -103,22 +103,54 @@ def merge(file1, file2):
         f1.write(lines[-1])
 
 def merge_and_new(file1, file2, sample_size,file3):
-    with open(file1, 'r', encoding='utf-8') as f1:
-        f1_lines = f1.readlines()[1:]
+    with open("/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/lib/gec-train-bpe-written/prep/train.src", 'r', encoding='utf-8') as f1:
+        f1_lines_src = f1.readlines()[1:]
     f1.close()
-    print(len(f1_lines))
-    with open(file2, 'r', encoding='utf-8') as f2:
-        f2_lines = f2.readlines()[1:]
-    f2_selected = []
+    with open("/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/lib/gec-train-bpe-written/prep/train.tgt", 'r', encoding='utf-8') as f1:
+        f1_lines_tgt = f1.readlines()[1:]
+    f1.close()
+
+    print(len(f1_lines_src))
+    print(len(f1_lines_tgt))
+    print(f1_lines_src[:5])
+    print(f1_lines_tgt[:5])
+    pdb.set_trace()
+    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/words0_src.txt", 'r', encoding='utf-8') as f2:
+        f2_lines_src = f2.readlines()[1:]
+    f2.close()
+    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/words0_tgt.txt", 'r', encoding='utf-8') as f2:
+        f2_lines_tgt = f2.readlines()[1:]
+    f2.close()
+    print(len(f2_lines_src))
+    print(len(f2_lines_tgt))
+    print(f2_lines_src[:5])
+    print(f2_lines_tgt[:5])
+    pdb.set_trace()
+
+    f2_selected_src = []
+    f2_selected_tgt = []
     for i in range(sample_size):
-        s_id = random.randint(0, len(f2_lines)-1)
-        f2_selected.append(f2_lines[s_id])
-    f1_lines = f1_lines + f2_selected
-    print(len(f1_lines))
-    with open(file3,'w+',encoding='utf-8') as f3:
-        for item in f1_lines:
+        s_id = random.randint(0, len(f2_lines_src)-1)
+        f2_selected_src.append(f2_lines_src[s_id])
+        f2_selected_tgt.append(f2_lines_tgt[s_id])
+    f1_lines_src = f1_lines_src + f2_selected_src
+    f1_lines_tgt = f1_lines_tgt + f2_selected_tgt
+    print(f1_lines_src[:5])
+    print(f1_lines_src[-5:])
+    print(f1_lines_tgt[-5:])
+    print(f1_lines_tgt[:5])
+    print(len(f1_lines_src))
+    print(len(f1_lines_tgt))
+    pdb.set_trace()
+	
+    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/train_src.txt",'w+',encoding='utf-8') as f3:
+        for item in f1_lines_src:
             f3.write(item)
-    
+    f3.close()
+    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/train_tgt.txt",'w+',encoding='utf-8') as f3:
+        for item in f1_lines_tgt:
+            f3.write(item)
+    f3.close()
 
 def remove_duplicates(file1, file2):
 	result = []
@@ -147,9 +179,9 @@ def remove_duplicates(file1, file2):
 
 
 dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/"
-file1="/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/lib/gec-train-bpe-written/prep/train.src"
-file2="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/words0_src.txt"
-file3="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/train_src.txt"
+file1="/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/lib/gec-train-bpe-written/prep/train.tgt"
+file2="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/words0_tgt.txt"
+file3="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/train_tgt.txt"
 merge_and_new(file1,file2,1000000,file3)
 # file0 = dir+"4_100_1.txt"
 # file1 = dir+"2_100_1.txt"
