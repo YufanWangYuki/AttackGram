@@ -113,7 +113,7 @@ do
 mkdir edit_dist_files/generate/$exp
 mkdir edit_dist_files/generate/$exp/attacks
 name=full_N1
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
@@ -122,7 +122,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
     --delim '.'
 
 name=full_N2
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
@@ -131,7 +131,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
     --delim '.'
 
 name=full_N3
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
@@ -140,7 +140,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
     --delim '.'
 
 name=full_N4
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
@@ -149,7 +149,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
     --delim '.'
 
 name=full_N5
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
@@ -158,7 +158,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
     --delim '.'
 
 name=full_N6
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
@@ -167,7 +167,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
     --delim '.'
 
 name=full_N7
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
@@ -176,7 +176,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
     --delim '.'
 
 name=full_N8
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
@@ -185,7 +185,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
     --delim '.'
 
 name=full_N9
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
@@ -195,7 +195,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
 
 
 name=orig
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/eval_error.py \
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
     --PRED prediction_files/${exp}.pred \
