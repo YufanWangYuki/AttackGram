@@ -108,9 +108,11 @@ def merge_and_new(file1, file2, sample_size,file3):
     f1.close()
     with open(file2, 'r', encoding='utf-8') as f2:
         f2_lines = f2.readlines()[1:]
-    f2_selected = sample(f2_lines, sample_size)
+    f2_selected = []
+    for i in range(sample_size):
+        s_id = random.randint(0, len(f2_lines)-1)
+        f2_selected.append(f2_lines[s_id])
     f1_lines.append(f2_selected)
-    # f1_lines = random.shuffle(f1_lines)
     pdb.set_trace()
     with open(file3,'w+',encoding='utf-8') as f3:
         for item in f1_lines:
