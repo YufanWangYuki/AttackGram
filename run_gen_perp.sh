@@ -20,10 +20,6 @@ export MKL_NUM_THREADS=1 # export MKL_NUM_THREADS=1
 export VECLIB_MAXIMUM_THREADS=1 # export VECLIB_MAXIMUM_THREADS=1
 export NUMEXPR_NUM_THREADS=1 # export NUMEXPR_NUM_THREADS=1
 
-
-# 44928 chutzpah ii bibb en fyi
-# chutzpah vb ditka 0.4290416971470373
-# chutzpah ii bibb en 
 SGE_TASK_ID=4
 length=2
 num_points=100

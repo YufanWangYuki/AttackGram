@@ -109,7 +109,6 @@ if __name__ == "__main__":
             tries.append((" ").join(temp))
     f2.close()
     founded = len(tries)   
-    # pdb.set_trace()
 
     while cnt < args.search_size-founded:
         gen = []

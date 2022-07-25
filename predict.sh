@@ -102,31 +102,31 @@ seed=1
 # done
 
 # ------------------------------------Attack
-for exp in old_256_8_v2_full
-do
-model=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/$exp/checkpoints-combine/combine
-mkdir prediction_files/generate/$exp
-mkdir prediction_files/generate/$exp/attacks
-outdir=prediction_files/generate/$exp/attacks
-# output=$outdir/full_N1
+# for exp in old_256_8_v2_full
+# do
+# model=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/$exp/checkpoints-combine/combine
+# mkdir prediction_files/generate/$exp
+# mkdir prediction_files/generate/$exp/attacks
+# outdir=prediction_files/generate/$exp/attacks
+# # output=$outdir/full_N1
+# # $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+# #         --IN $input \
+# #         --MODEL $model \
+# #         --OUT_BASE $output \
+# #         --seed $seed \
+# #         --use_attack 1 \
+# #         --phrase 'ink' \
+# #         --delim '.'
+
+# output=$outdir/full_N2
 # $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
 #         --IN $input \
 #         --MODEL $model \
 #         --OUT_BASE $output \
 #         --seed $seed \
 #         --use_attack 1 \
-#         --phrase 'ink' \
+#         --phrase 'ink l' \
 #         --delim '.'
-
-output=$outdir/full_N2
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 1 \
-        --phrase 'ink l' \
-        --delim '.'
 
 # output=$outdir/full_N3
 # $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
@@ -138,15 +138,15 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
 #         --phrase 'ink l xml' \
 #         --delim '.'
 
-output=$outdir/full_N4
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 1 \
-        --phrase 'ink l xml mv' \
-        --delim '.'   
+# output=$outdir/full_N4
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+#         --IN $input \
+#         --MODEL $model \
+#         --OUT_BASE $output \
+#         --seed $seed \
+#         --use_attack 1 \
+#         --phrase 'ink l xml mv' \
+#         --delim '.'   
 
 # output=$outdir/full_N5
 # $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
@@ -158,15 +158,15 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
 #         --phrase 'ink l xml mv sub' \
 #         --delim '.'    
 
-output=$outdir/full_N6
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 1 \
-        --phrase 'ink l xml mv sub xu' \
-        --delim '.'    
+# output=$outdir/full_N6
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+#         --IN $input \
+#         --MODEL $model \
+#         --OUT_BASE $output \
+#         --seed $seed \
+#         --use_attack 1 \
+#         --phrase 'ink l xml mv sub xu' \
+#         --delim '.'    
 
 # output=$outdir/full_N7
 # $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
@@ -178,15 +178,15 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
 #         --phrase 'ink l xml mv sub xu bec' \
 #         --delim '.'   
 
-output=$outdir/full_N8
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 1 \
-        --phrase 'ink l xml mv sub xu bec l' \
-        --delim '.'   
+# output=$outdir/full_N8
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+#         --IN $input \
+#         --MODEL $model \
+#         --OUT_BASE $output \
+#         --seed $seed \
+#         --use_attack 1 \
+#         --phrase 'ink l xml mv sub xu bec l' \
+#         --delim '.'   
 
 # output=$outdir/full_N9
 # $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
@@ -197,99 +197,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
 #         --use_attack 1 \
 #         --phrase 'ink l xml mv sub xu bec l sub' \
 #         --delim '.'     
-done
-
-
-
-# output=prediction_files/$exp/comma_N1
-# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-#         --IN $input \
-#         --MODEL $model \
-#         --OUT_BASE $output \
-#         --seed $seed \
-#         --use_attack 1 \
-#         --phrase 'xl' \
-#         --delim ','
-
-# output=prediction_files/$exp/comma_N2
-# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-#         --IN $input \
-#         --MODEL $model \
-#         --OUT_BASE $output \
-#         --seed $seed \
-#         --use_attack 1 \
-#         --phrase 'xl ii' \
-#         --delim ','
-
-# output=prediction_files/$exp/comma_N3
-# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-#         --IN $input \
-#         --MODEL $model \
-#         --OUT_BASE $output \
-#         --seed $seed \
-#         --use_attack 1 \
-#         --phrase 'xl ii xl' \
-#         --delim ','
-
-# output=prediction_files/$exp/comma_N4
-# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-#         --IN $input \
-#         --MODEL $model \
-#         --OUT_BASE $output \
-#         --seed $seed \
-#         --use_attack 1 \
-#         --phrase 'xl ii xl lbs' \
-#         --delim ','
-
-# output=prediction_files/$exp/comma_N5
-# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-#         --IN $input \
-#         --MODEL $model \
-#         --OUT_BASE $output \
-#         --seed $seed \
-#         --use_attack 1 \
-#         --phrase 'xl ii xl lbs sub' \
-#         --delim ','
-
-# output=prediction_files/$exp/comma_N6
-# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-#         --IN $input \
-#         --MODEL $model \
-#         --OUT_BASE $output \
-#         --seed $seed \
-#         --use_attack 1 \
-#         --phrase 'xl ii xl lbs sub xl' \
-#         --delim ','
-
-# output=prediction_files/$exp/comma_N7
-# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-#         --IN $input \
-#         --MODEL $model \
-#         --OUT_BASE $output \
-#         --seed $seed \
-#         --use_attack 1 \
-#         --phrase 'xl ii xl lbs sub xl dp' \
-#         --delim ','
-
-# output=prediction_files/$exp/comma_N8
-# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-#         --IN $input \
-#         --MODEL $model \
-#         --OUT_BASE $output \
-#         --seed $seed \
-#         --use_attack 1 \
-#         --phrase 'xl ii xl lbs sub xl dp lbs' \
-#         --delim ','
-
-# output=prediction_files/$exp/comma_N9
-# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-#         --IN $input \
-#         --MODEL $model \
-#         --OUT_BASE $output \
-#         --seed $seed \
-#         --use_attack 1 \
-#         --phrase 'xl ii xl lbs sub xl dp lbs lc' \
-#         --delim ','
+# done
 
 # model=/home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/models/v002/adv_fine
 # checkpoint=combine
@@ -319,3 +227,89 @@ done
 # done
 
 # qsub -cwd -j yes -o 'LOGs/combine.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' predict.sh 1 1
+
+# ------------------------------------Perp Attack
+for exp in old_256_8_v2_full
+do
+model=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/$exp/checkpoints-combine/combine
+mkdir prediction_files/generate/$exp
+mkdir prediction_files/generate/$exp/perp_old
+output=$outdir/full_N1
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+        --IN $input \
+        --MODEL $model \
+        --OUT_BASE $output \
+        --seed $seed \
+        --use_attack 1 \
+        --phrase 'trifecta' \
+        --delim '.'
+
+output=$outdir/full_N2
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+        --IN $input \
+        --MODEL $model \
+        --OUT_BASE $output \
+        --seed $seed \
+        --use_attack 1 \
+        --phrase 'trifecta haiku' \
+        --delim '.'
+output=$outdir/full_N3
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+        --IN $input \
+        --MODEL $model \
+        --OUT_BASE $output \
+        --seed $seed \
+        --use_attack 1 \
+        --phrase 'trifecta haiku utah' \
+        --delim '.'
+
+output=$outdir/full_N4
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+        --IN $input \
+        --MODEL $model \
+        --OUT_BASE $output \
+        --seed $seed \
+        --use_attack 1 \
+        --phrase 'trifecta haiku utah intransigent' \
+        --delim '.'   
+
+output=$outdir/full_N5
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+        --IN $input \
+        --MODEL $model \
+        --OUT_BASE $output \
+        --seed $seed \
+        --use_attack 1 \
+        --phrase 'trifecta haiku utah intransigent penicillin' \
+        --delim '.'    
+
+output=$outdir/full_N6
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+        --IN $input \
+        --MODEL $model \
+        --OUT_BASE $output \
+        --seed $seed \
+        --use_attack 1 \
+        --phrase 'trifecta haiku utah intransigent penicillin baseline' \
+        --delim '.'    
+
+output=$outdir/full_N7
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+        --IN $input \
+        --MODEL $model \
+        --OUT_BASE $output \
+        --seed $seed \
+        --use_attack 1 \
+        --phrase 'trifecta haiku utah intransigent penicillin baseline exploratory' \
+        --delim '.'   
+
+output=$outdir/full_N8
+$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+        --IN $input \
+        --MODEL $model \
+        --OUT_BASE $output \
+        --seed $seed \
+        --use_attack 1 \
+        --phrase 'trifecta haiku utah intransigent penicillin baseline exploratory bioengineering' \
+        --delim '.'       
+done
