@@ -85,7 +85,7 @@ def add_words_seq(src_seq, tgt_seq, length=10, way='random',word_vocab=None):
             gen = word_vocab[w_id]
             src_seq[idx] = (src+" "+gen+' .')
             tgt_seq[idx] = (tgt+" "+gen+' .')
-            pdb.set_trace()
+            # pdb.set_trace()
         elif way == 'generate':
             res = generator(src, max_new_tokens=length, num_return_sequences=1)[0]['generated_text']
             gen = res[len(src):].replace("\n","")
