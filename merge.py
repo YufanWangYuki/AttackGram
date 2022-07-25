@@ -150,7 +150,7 @@ dir = "/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/"
 file1="/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/lib/gec-train-bpe-written/prep/train.src"
 file2="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/words0_src.txt"
 file3="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/train_src.txt"
-merge_and_new(file1,file2,100000,file3)
+merge_and_new(file1,file2,1000000,file3)
 # file0 = dir+"4_100_1.txt"
 # file1 = dir+"2_100_1.txt"
 # merge(file0, file1)
