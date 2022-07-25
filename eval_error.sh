@@ -157,49 +157,49 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --phrase 'ink l xml mv sub' \
     --delim '.'
 
-name=full_N6
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
-    --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
-    --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
-    --OUT edit_dist_files/generate/$exp/attacks/${name}_with_adv_not_removed.txt \
-    --phrase 'ink l xml mv sub xu' \
-    --delim '.'
+# name=full_N6
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
+#     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
+#     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
+#     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
+#     --OUT edit_dist_files/generate/$exp/attacks/${name}_with_adv_not_removed.txt \
+#     --phrase 'ink l xml mv sub xu' \
+#     --delim '.'
 
-name=full_N7
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
-    --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
-    --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
-    --OUT edit_dist_files/generate/$exp/attacks/${name}_with_adv_not_removed.txt \
-    --phrase 'ink l xml mv sub xu bec' \
-    --delim '.'
+# name=full_N7
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
+#     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
+#     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
+#     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
+#     --OUT edit_dist_files/generate/$exp/attacks/${name}_with_adv_not_removed.txt \
+#     --phrase 'ink l xml mv sub xu bec' \
+#     --delim '.'
 
-name=full_N8
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
-    --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
-    --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
-    --OUT edit_dist_files/generate/$exp/attacks/${name}_with_adv_not_removed.txt \
-    --phrase 'ink l xml mv sub xu bec l' \
-    --delim '.'
+# name=full_N8
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
+#     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
+#     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
+#     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
+#     --OUT edit_dist_files/generate/$exp/attacks/${name}_with_adv_not_removed.txt \
+#     --phrase 'ink l xml mv sub xu bec l' \
+#     --delim '.'
 
-name=full_N9
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
-    --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
-    --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
-    --OUT edit_dist_files/generate/$exp/attacks/${name}_with_adv_not_removed.txt \
-    --phrase 'ink l xml mv sub xu bec l sub' \
-    --delim '.'
+# name=full_N9
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
+#     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
+#     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
+#     --PRED prediction_files/generate/$exp/attacks/${name}_with_adv_not_removed.pred \
+#     --OUT edit_dist_files/generate/$exp/attacks/${name}_with_adv_not_removed.txt \
+#     --phrase 'ink l xml mv sub xu bec l sub' \
+#     --delim '.'
 
 
-name=orig
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
-    --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
-    --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/${exp}.pred \
-    --OUT edit_dist_files/generate/$exp/attacks/${name}_with_adv_not_removed.txt
+# name=orig
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
+#     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
+#     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
+#     --PRED prediction_files/${exp}.pred \
+#     --OUT edit_dist_files/generate/$exp/attacks/${name}_with_adv_not_removed.txt
 done
 
 # name=orig
