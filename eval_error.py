@@ -105,8 +105,6 @@ if __name__ == "__main__":
     adv_part_count = [] # for adv phrase, count of edits in adv-part
 
     for i, (s, r, p) in enumerate(zip(inc_sens, corr_sens, pred_sens)):
-        print("sleep")
-        time.sleep(600)
         print(f'On {i}/{len(inc_sens)}')
         ref_edits = return_edits(s, r)
 
