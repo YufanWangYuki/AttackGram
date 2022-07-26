@@ -45,7 +45,7 @@ class Seq2seq(nn.Module):
 		voc_encoding = self.tokenizer(
 		[word for word in self.word_vocab], # tuple to list
 		padding='longest',
-		max_length=self.max_tgt_len,
+		max_length=64,
 		truncation=True,
 		return_tensors="pt")
 		self.voc_ids = voc_encoding.input_ids # b x len
