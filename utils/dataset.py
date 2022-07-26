@@ -57,7 +57,7 @@ class IterDataset(torch.utils.data.Dataset):
 			truncation=True,
 			return_tensors="pt")
 			self.voc_ids = voc_encoding.input_ids # b x len
-			pdb.set_trace()
+			# pdb.set_trace()
 
 			# voc_encoding = self.tokenizer(
 			# [self.task_prefix + word for word in self.word_vocab], # tuple to list

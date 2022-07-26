@@ -431,8 +431,8 @@ class Seq2seq(nn.Module):
 				new_embeds = inputs_embeds + noise[:len(inputs_embeds),:len(inputs_embeds[0]),:]
 			# for word in word_vocab:
 			w_embeddings=[]
-			pdb.set_trace()
-			for w_id in word_ids:
+			# pdb.set_trace()
+			for w_id in word_ids[0]:
 				inputs_embeds=self.model.encoder.embed_tokens(w_id)
 				w_embeddings.append(inputs_embeds)
 			pdb.set_trace()
