@@ -63,10 +63,11 @@ class Seq2seq(nn.Module):
 					self.id_2_embeds[pos_num] = self.model.encoder.embed_tokens(pos).detach().numpy()
 				else:
 					continue
-
+		self.id_2_embeds = sorted(self.id_2_embeds)
+		pdb.set_trace()
 		with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl", "wb") as tf:
 			pickle.dump(self.id_2_embeds,tf)
-		pdb.set_trace()
+		# pdb.set_trace()
 		# with open('/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl', 'rb') as f:
 		# 	self.tokenId_2_embed = pickle.load(f)
 		# 	pdb.set_trace()
@@ -416,12 +417,12 @@ class Seq2seq(nn.Module):
 		return corrected
 
 	def find_nearest_token(self,token,tokenId_2_embed):
-		pdb.set_trace()
-		min_distance = cosine(token.cpu(),tokenId_2_embed[0])
+		token_np = token.cpu().detach().numpy()
+		min_distance = cosine(token.cpu().detach().numpy(),tokenId_2_embed[0].detach().numpy())
 		
 		for id, embed in tokenId_2_embed.items():
 			pdb.set_trace()
-			dist = cosine(token,embed)
+			dist = cosine(token_np,embed)
 
 
 		return token
