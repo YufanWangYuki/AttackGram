@@ -53,22 +53,22 @@ class Seq2seq(nn.Module):
 		return_tensors="pt")
 		self.voc_ids = voc_encoding.input_ids # b x len
 		
-		id_list = []
-		self.id_2_embeds = {}
-		output = {}
-		for id in tqdm(self.voc_ids):
-			for pos in id:
-				pos_num = pos.item()
-				if pos_num not in id_list:
-					id_list.append(pos_num)
-					self.id_2_embeds[pos_num] = self.model.encoder.embed_tokens(pos).detach().numpy()
-				else:
-					continue
-		for id in sorted(id_list):
-			output[id] = self.id_2_embeds[id]
-		pdb.set_trace()
-		with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl", "wb") as tf:
-			pickle.dump(output,tf)
+		# id_list = []
+		# self.id_2_embeds = {}
+		# output = {}
+		# for id in tqdm(self.voc_ids):
+		# 	for pos in id:
+		# 		pos_num = pos.item()
+		# 		if pos_num not in id_list:
+		# 			id_list.append(pos_num)
+		# 			self.id_2_embeds[pos_num] = self.model.encoder.embed_tokens(pos).detach().numpy()
+		# 		else:
+		# 			continue
+		# for id in sorted(id_list):
+		# 	output[id] = self.id_2_embeds[id]
+		# pdb.set_trace()
+		# with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl", "wb") as tf:
+		# 	pickle.dump(output,tf)
 		# pdb.set_trace()
 		# with open('/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl', 'rb') as f:
 		# 	self.tokenId_2_embed = pickle.load(f)
@@ -420,11 +420,11 @@ class Seq2seq(nn.Module):
 
 	def find_nearest_token(self,token,tokenId_2_embed):
 		token_np = token.cpu().detach().numpy()
-		min_distance = cosine(token.cpu().detach().numpy(),tokenId_2_embed[0].detach().numpy())
-		
+		min_distance = cosine(token_np,tokenId_2_embed[0])
+		pdb.set_trace()
 		for id, embed in tokenId_2_embed.items():
-			pdb.set_trace()
 			dist = cosine(token_np,embed)
+			pdb.set_trace()
 
 
 		return token
