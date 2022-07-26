@@ -265,10 +265,10 @@ class Trainer(object):
 				pred = model.tokenizer.decode(torch.tensor(sentence, dtype=torch.int).to(self.device), skip_special_tokens=True).strip()
 				preds.append(pred)
 				srcs.append(model.tokenizer.decode(src_ids[i], skip_special_tokens=True).strip())
-				pdb.set_trace()
+				tgt_ids = [[(tgt_id if tgt_id != -100 else torch.tensor(0).to(torch.device('cuda'))) for tgt_id in tgt_ids_example] for tgt_ids_example in tgt_ids]
 				tgts.append(model.tokenizer.decode(tgt_ids[i], skip_special_tokens=True).strip())
 			
-			with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/dev_pred.txt","a") as f:
+			with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/dev_pred.txt","a+") as f:
 				for i in range(len(preds)):
 					f.write(preds[i]+"\n")
 				f.close()
@@ -280,6 +280,7 @@ class Trainer(object):
 				for i in range(len(tgts)):
 					f.write(tgts[i]+"\n")
 				f.close()
+			pdb.set_trace()
 		return resloss
 
 
