@@ -1,3 +1,4 @@
+from zmq import device
 import torch
 torch.cuda.empty_cache()
 import torch.utils.tensorboard
@@ -257,9 +258,12 @@ class Trainer(object):
 			
 			model.eval()
 			outputs = model.find_nearest_seq(src_ids, src_att_mask, tgt_ids, noise_configs, self.noise,self.tokenId_2_embed)
-			pdb.set_trace()
-			preds = model.generate(outputs,do_sample=True, max_length=128, top_k=50, top_p=0.95, early_stopping=True,num_return_sequences=1)
+			preds = []
 			
+			for sentence in outputs:
+				pred = model.tokenizer.decode(torch.tensor(sentence, dtype=torch.int).to(self.device), skip_special_tokens=True).strip()
+				preds.append(pred)
+			pdb.set_trace()
 		return resloss
 
 
