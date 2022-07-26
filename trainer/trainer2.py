@@ -49,7 +49,8 @@ class Trainer(object):
 		replace_map=None,
 		noise_way='mul',
 		seq_length=64,
-		embedding_dim=768
+		embedding_dim=768,
+        word_way='generate'
 		):
 
 		self.use_gpu = use_gpu
