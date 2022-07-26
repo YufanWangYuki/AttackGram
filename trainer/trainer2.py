@@ -1,4 +1,3 @@
-# getting nearest cosine distance words
 import torch
 torch.cuda.empty_cache()
 import torch.utils.tensorboard
@@ -17,7 +16,6 @@ from modules.checkpoint import Checkpoint
 from models.Seq2seq import Seq2seq
 
 logging.basicConfig(level=logging.DEBUG)
-torch.cuda.empty_cache()
 # logging.basicConfig(level=logging.INFO)
 
 import pdb
@@ -42,7 +40,7 @@ class Trainer(object):
 		max_count_num_rollback=2,
 		keep_num=1,
 		minibatch_split=1,
-		noise=0,
+		noise=1,
 		noise_type='Gaussian',
 		weight=0.0,
 		mean=1.0,
@@ -92,7 +90,7 @@ class Trainer(object):
 		self.minibatch_size = int(self.batch_size / self.minibatch_split) # to be changed if OOM
 		self.seq_length = seq_length
 		self.embedding_dim = embedding_dim
-
+		pdb.set_trace()
 		self.noise_configs = {
 			'noise':noise,
 			'noise_type':noise_type,
