@@ -53,14 +53,14 @@ class Seq2seq(nn.Module):
 		
 		id_list = []
 		self.id_2_embeds = {}
-		for id in tqdm(self.voc_ids[:10]):
+		for id in tqdm(self.voc_ids):
 			for pos in id:
 				if pos not in id_list:
 					id_list.append(pos)
 					self.id_2_embeds[pos] = self.model.encoder.embed_tokens(pos)
 				else:
 					continue
-		pdb.set_trace()
+
 		with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl", "wb") as tf:
 			pickle.dump(self.id_2_embeds,tf)
 		pdb.set_trace()
