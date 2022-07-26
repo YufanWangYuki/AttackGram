@@ -38,8 +38,8 @@ class IterDataset(torch.utils.data.Dataset):
 
 		super(Dataset).__init__()
 
-		self.task_prefix = ""
-		# self.task_prefix = "gec: "
+		# self.task_prefix = ""
+		self.task_prefix = "gec: "
 		# model_name = "prithivida/grammar_error_correcter_v1"
 		model_name = "zuu/grammar-error-correcter"
 		self.tokenizer = AutoTokenizer.from_pretrained(model_name)

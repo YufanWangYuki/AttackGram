@@ -262,7 +262,8 @@ class Trainer(object):
 			srcs = []
 			tgts = []
 			for i, sentence in enumerate(outputs):
-				pred = model.tokenizer.decode(torch.tensor(sentence, dtype=torch.int).to(self.device), skip_special_tokens=True).strip()
+				pdb.set_trace()
+				pred = model.tokenizer.decode(torch.tensor(sentence[2:], dtype=torch.int).to(self.device), skip_special_tokens=True).strip()
 				preds.append(pred)
 				srcs.append(model.tokenizer.decode(src_ids[i], skip_special_tokens=True).strip())
 				tgt_ids = [[(tgt_id if tgt_id != -100 else torch.tensor(0).to(torch.device('cuda'))) for tgt_id in tgt_ids_example] for tgt_ids_example in tgt_ids]
@@ -281,6 +282,7 @@ class Trainer(object):
 					f.write(tgts[i]+"\n")
 				f.close()
 			pdb.set_trace()
+			src_ids[0]
 		return resloss
 
 
