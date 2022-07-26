@@ -41,7 +41,7 @@ do
     model=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/$exp/checkpoints-combine/combine
     output=$outdir/$exp
     mkdir output
-    $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+    $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/predict.py \
         --IN $input \
         --MODEL $model \
         --OUT_BASE $output \

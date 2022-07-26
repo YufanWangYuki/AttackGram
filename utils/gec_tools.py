@@ -22,8 +22,6 @@ def get_sentences(data_path, num=-1):
 def correct(model, sentence):
 
     '''Gramformer decoding'''
-    pdb.set_trace()
-
     result = model.correct(sentence, max_candidates=1)[0]
     return result
 
