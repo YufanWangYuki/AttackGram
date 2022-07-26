@@ -415,18 +415,18 @@ class Seq2seq(nn.Module):
 		corrected = list(corrected)
 		return corrected
 
-	def find_nearest_token(self,token):
+	def find_nearest_token(self,token,tokenId_2_embed):
 		pdb.set_trace()
-		min_distance = cosine(token,self.tokenId_2_embed[torch.tensor(0)])
+		min_distance = cosine(token,tokenId_2_embed[0])
 		
-		for id, embed in self.id_2_embeds.items():
+		for id, embed in tokenId_2_embed.items():
 			pdb.set_trace()
 			dist = cosine(token,embed)
 
 
 		return token
 	
-	def find_nearest_seq(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None):
+	def find_nearest_seq(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None,tokenId_2_embed=None):
 
 		"""
 			for training
@@ -465,7 +465,7 @@ class Seq2seq(nn.Module):
 			
 			for b in new_embeds:
 				for embeds in b:
-					nearest_token = self.find_nearest_token(embeds)
+					nearest_token = self.find_nearest_token(embeds,tokenId_2_embed)
 		
 			
 

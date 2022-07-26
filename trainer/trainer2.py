@@ -20,6 +20,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 import pdb
 from tqdm import tqdm
+import pickle
 
 class Trainer(object):
 
@@ -112,6 +113,9 @@ class Trainer(object):
 			self.noise = torch.tensor(self.noise).to(device=self.device)
 			self.noise.requires_grad = True
 		self.weight = weight
+
+		with open('/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl', 'rb') as f:
+			self.tokenId_2_embed = pickle.load(f)
 
 
 	def _print_hyp(self, out_count, tgt_seqs, preds):
@@ -251,7 +255,7 @@ class Trainer(object):
 				incre_noise = self.weight * norm_grad * torch.full([self.minibatch_size, self.seq_length, self.embedding_dim],1).to(device=self.device)
 				self.noise += self.noise + incre_noise
 
-			outputs = model.find_nearest_seq(src_ids, src_att_mask, tgt_ids, noise_configs, self.noise)
+			outputs = model.find_nearest_seq(src_ids, src_att_mask, tgt_ids, noise_configs, self.noise,self.tokenId_2_embed)
 		return resloss
 
 
