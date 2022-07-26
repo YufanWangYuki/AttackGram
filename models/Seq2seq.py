@@ -65,7 +65,7 @@ class Seq2seq(nn.Module):
 		# 	pickle.dump(self.id_2_embeds,tf)
 		# pdb.set_trace()
 		with open('/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl', 'rb') as f:
-			tokenId_2_embed = pickle.load(f)
+			self.tokenId_2_embed = pickle.load(f)
 
 
 	def forward_train(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None):
@@ -325,18 +325,7 @@ class Seq2seq(nn.Module):
 
 			elif gen_mode == 'sample':
 				scores = [0] * len(outseqs)
-		# pdb.set_trace()
 		
-
-
-		# if sent != outseqs[0]:
-		# 	pdb.set_trace()
-		# if 'invented' in outseqs[0]:
-		# 	pdb.set_trace()
-		# 	correction_model_tag = "zuu/grammar-error-correcter"
-		# 	tokenizer = AutoTokenizer.from_pretrained(correction_model_tag)
-		# 	test_model = AutoModelForSeq2SeqLM.from_pretrained(correction_model_tag)
-		# 	test_model.to(device)
 		return outseqs, scores
 
 
