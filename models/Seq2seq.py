@@ -53,12 +53,11 @@ class Seq2seq(nn.Module):
 		
 		id_list = []
 		self.id_2_embeds = {}
-		for id in tqdm(self.voc_ids):
+		for id in tqdm(self.voc_ids[:10]):
 			for pos in id:
 				if pos not in id_list:
 					id_list.append(pos)
 					self.id_2_embeds[pos] = self.model.encoder.embed_tokens(pos)
-					pdb.set_trace()
 				else:
 					continue
 		
