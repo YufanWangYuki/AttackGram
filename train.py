@@ -106,7 +106,7 @@ def main():
 	save_config(config, config_save_dir)
 
 	# contruct trainer
-	pdb.set_trace()
+	# pdb.set_trace()
 	t = Trainer(expt_dir=config['save'],
 					load_dir=config['load'],
 					load_mode=config['load_mode'],
