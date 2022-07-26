@@ -66,6 +66,7 @@ class Seq2seq(nn.Module):
 		# pdb.set_trace()
 		with open('/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl', 'rb') as f:
 			self.tokenId_2_embed = pickle.load(f)
+			pdb.set_trace()
 
 
 	def forward_train(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None):
