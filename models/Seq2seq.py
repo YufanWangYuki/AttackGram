@@ -10,7 +10,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
 from utils.misc import set_global_seeds, save_config, validate_config, check_device
-
+import json
 # huggingface api
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
@@ -35,7 +35,32 @@ class Seq2seq(nn.Module):
 		# model_name = "prithivida/grammar_error_correcter_v1"
 		model_name = "zuu/grammar-error-correcter"
 		self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-		self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name) #T5ForConditionalGeneration
+		self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+		
+		vocab_file="/home/alta/BLTSpeaking/grd-graphemic-vr313/speech_processing/adversarial_attack/word2vec/test_words.txt"
+		with open(vocab_file, 'r') as f:
+			test_words = json.loads(f.read())
+		self.word_vocab = [str(word).lower() for word in test_words]
+
+		voc_encoding = self.tokenizer(
+		[word for word in self.word_vocab], # tuple to list
+		padding='longest',
+		max_length=self.max_tgt_len,
+		truncation=True,
+		return_tensors="pt")
+		self.voc_ids = voc_encoding.input_ids # b x len
+		pdb.set_trace()
+		id_list = set()
+		for id in self.voc_ids:
+			for pos in id:
+				id_list = id_list.add(pos)
+		self.id_2_token = {}
+		for id in id_list:
+			self.id_2_token[id] = self.model.encoder.embed_tokens(id)
+		pdb.set_trace()
+
+
+
 
 
 	def forward_train(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None):
@@ -392,8 +417,13 @@ class Seq2seq(nn.Module):
 		
 		corrected = list(corrected)
 		return corrected
+
+	def find_nearest_token(self,token):
+		
+
+		return token
 	
-	def find_nearest_seq(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None,word_vocab=None,word_ids=None):
+	def find_nearest_seq(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None):
 
 		"""
 			for training
@@ -429,17 +459,12 @@ class Seq2seq(nn.Module):
 				new_embeds = inputs_embeds * noise[:len(inputs_embeds),:len(inputs_embeds[0]),:]
 			elif noise_config['noise_way'] == 'add':
 				new_embeds = inputs_embeds + noise[:len(inputs_embeds),:len(inputs_embeds[0]),:]
-
-			w_embeddings=[]
-			min_id = min(word_ids[0][0])
-			max_id = max(word_ids[0][0])
-			for w_id in word_ids[0]:
-				inputs_embeds=self.model.encoder.embed_tokens(w_id)
-				w_embeddings.append(inputs_embeds)
-				min_id = min(min(w_id),min_id)
-				max_id = max(max(w_id),max_id)
-			pdb.set_trace()
-			outputs=None
+			
+			for b in new_embeds:
+				for token in b:
+					nearest_token = self.find_nearest_token(token)
+		
+			
 
 
 		else:

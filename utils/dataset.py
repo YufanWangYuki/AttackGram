@@ -49,14 +49,14 @@ class IterDataset(torch.utils.data.Dataset):
 		self.word_way = word_way
 		self.word_vocab = word_vocab
 
-		if self.word_way == "nearest":
-			voc_encoding = self.tokenizer(
-			[word for word in self.word_vocab], # tuple to list
-			padding='longest',
-			max_length=self.max_tgt_len,
-			truncation=True,
-			return_tensors="pt")
-			self.voc_ids = voc_encoding.input_ids # b x len
+		# if self.word_way == "nearest":
+		# 	voc_encoding = self.tokenizer(
+		# 	[word for word in self.word_vocab], # tuple to list
+		# 	padding='longest',
+		# 	max_length=self.max_tgt_len,
+		# 	truncation=True,
+		# 	return_tensors="pt")
+		# 	self.voc_ids = voc_encoding.input_ids # b x len
 			# pdb.set_trace()
 
 			# voc_encoding = self.tokenizer(
@@ -110,9 +110,9 @@ class IterDataset(torch.utils.data.Dataset):
 				'src_ids': src_ids.to(device=self.device), # tensor
 				'src_att_mask': src_attention_mask.to(device=self.device), # tensor
 				'tgt_ids': tgt_ids.to(device=self.device), # tensor
-				'tgt_seqs': tgt_seqs, # lis - for bleu calculation,
-				'word_vocab': self.word_vocab,
-				'word_id': self.voc_ids.to(device=self.device)
+				'tgt_seqs': tgt_seqs # lis - for bleu calculation,
+				# 'word_vocab': self.word_vocab,
+				# 'word_id': self.voc_ids.to(device=self.device)
 			}
 		else:
 			batch = {
