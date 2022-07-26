@@ -376,7 +376,7 @@ class Seq2seq(nn.Module):
 		correction_prefix = "gec: "
 		input_sentence = correction_prefix + input_sentence
 		input_ids = self.tokenizer.encode(input_sentence, return_tensors='pt')
-		
+		pdb.set_trace()
 		preds = self.model.generate(
             input_ids,
             do_sample=True, 
