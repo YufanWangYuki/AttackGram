@@ -473,15 +473,10 @@ class Seq2seq(nn.Module):
 					nearest_id = self.find_nearest_token(embeds,tokenId_2_embed)
 					res.append(nearest_id)
 				result.append(res)
-			pdb.set_trace()
-		
-			
-
-
 		else:
 			inputs_embeds = self.model.encoder.embed_tokens(src_ids)
 			embedding_dim = inputs_embeds.shape[2]
 			device = inputs_embeds.device
 
 
-		return outputs
+		return result

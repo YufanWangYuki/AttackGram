@@ -98,7 +98,7 @@ minibatch_split=2
 batch_size=4
 checkpoint_every=100
 print_every=2
-num_epochs=2
+num_epochs=1
 
 # ----------------------- [noise] ---------------------------
 # ntype=Gaussian-adversarial #Gaussian, Bernoulli, Gaussian-adversarial, Adversarial
