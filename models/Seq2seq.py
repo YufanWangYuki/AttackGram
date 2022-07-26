@@ -469,7 +469,7 @@ class Seq2seq(nn.Module):
 			result = []
 			for b in tqdm(new_embeds):
 				res = []
-				for embeds in b[3:]:
+				for embeds in b:
 					nearest_id = self.find_nearest_token(embeds,tokenId_2_embed)
 					res.append(nearest_id)
 				result.append(res)
