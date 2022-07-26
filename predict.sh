@@ -34,20 +34,20 @@ seed=1
 #         --use_attack 0
 # done
 
-exp=orig
-model=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/models/v001/checkpoints-combine/
-for exp in old_256_8_v2_full
-do
-    model=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/$exp/checkpoints-combine/combine
-    output=$outdir/$exp
-    mkdir output
-    $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 0
-done
+# exp=orig
+# model=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/models/v001/checkpoints-combine/
+# for exp in old_256_8_v2_full
+# do
+#     model=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/$exp/checkpoints-combine/combine
+#     output=$outdir/$exp
+#     mkdir output
+#     $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/predict.py \
+#         --IN $input \
+#         --MODEL $model \
+#         --OUT_BASE $output \
+#         --seed $seed \
+#         --use_attack 0
+# done
 
 # exp=Gaussian_mul_1.0_0.1_256_2_002
 # model=/home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/models/v002/$exp/checkpoints
