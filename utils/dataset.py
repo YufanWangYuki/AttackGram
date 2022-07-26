@@ -168,6 +168,8 @@ class Dataset(object):
 		if is_train:
 			# _x = sorted(_x, key=lambda l:l[1])
 			random.shuffle(_x)
+		else:
+			print("Not shuffle")
 		src_seqs, tgt_seqs = zip(*_x)
 
 		# manual batching to allow shuffling by pt dataloader
