@@ -421,13 +421,15 @@ class Seq2seq(nn.Module):
 	def find_nearest_token(self,token,tokenId_2_embed):
 		token_np = token.cpu().detach().numpy()
 		min_distance = cosine(token_np,tokenId_2_embed[0])
-		pdb.set_trace()
+		min_id = 0
 		for id, embed in tokenId_2_embed.items():
 			dist = cosine(token_np,embed)
-			pdb.set_trace()
+			if dist < min_distance:
+				min_id = id 
+				min_distance = dist
+		pdb.set_trace()
 
-
-		return token
+		return min_id
 	
 	def find_nearest_seq(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None,tokenId_2_embed=None):
 
