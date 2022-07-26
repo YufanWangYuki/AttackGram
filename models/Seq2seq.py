@@ -56,7 +56,8 @@ class Seq2seq(nn.Module):
 				if pos not in id_list:
 					id_list.append(pos)
 				else:
-					pdb.set_trace()
+					continue
+
 		self.id_2_embeds = {}
 		for id in id_list:
 			self.id_2_embeds[id] = self.model.encoder.embed_tokens(id)
@@ -410,7 +411,6 @@ class Seq2seq(nn.Module):
             num_return_sequences=max_candidates)
 		
 		corrected = set()
-		pdb.set_trace()
 		for pred in preds:  
 			corrected.add(self.tokenizer.decode(pred, skip_special_tokens=True).strip())
 		
