@@ -58,9 +58,6 @@ class IterDataset(torch.utils.data.Dataset):
 		src_seqs = self.batches[index]['src_seqs'] # lis
 		tgt_seqs = self.batches[index]['tgt_seqs'] # lis
 
-		# add noisy words
-		
-		pdb.set_trace()
 		# src id + mask
 		src_encoding = self.tokenizer(
 			[self.task_prefix + seq for seq in src_seqs],
@@ -69,6 +66,7 @@ class IterDataset(torch.utils.data.Dataset):
 			truncation=True,
 			return_tensors="pt")
 		src_ids = src_encoding.input_ids # b x len
+		pdb.set_trace()
 		src_attention_mask = src_encoding.attention_mask # b x len
 
 		# tgt id
