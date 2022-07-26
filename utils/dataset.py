@@ -179,7 +179,7 @@ class Dataset(object):
 		self.src_seqs = [sentence.strip() for sentence in self.src_sentences]
 		self.tgt_seqs = [sentence.strip() for sentence in self.tgt_sentences]
 		self.word_vocab = []
-
+		pdb.set_trace()
 		if self.word_way == "nearest":
 			vocab_file="/home/alta/BLTSpeaking/grd-graphemic-vr313/speech_processing/adversarial_attack/word2vec/test_words.txt"
 			with open(vocab_file, 'r') as f:
