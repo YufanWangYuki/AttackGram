@@ -49,11 +49,12 @@ class Seq2seq(nn.Module):
 		truncation=True,
 		return_tensors="pt")
 		self.voc_ids = voc_encoding.input_ids # b x len
-		pdb.set_trace()
+		# pdb.set_trace()
 		id_list = set()
+		pdb.set_trace()
 		for id in self.voc_ids:
 			for pos in id:
-				id_list = id_list.add(pos)
+				id_list.add(pos)
 		self.id_2_token = {}
 		for id in id_list:
 			self.id_2_token[id] = self.model.encoder.embed_tokens(id)
