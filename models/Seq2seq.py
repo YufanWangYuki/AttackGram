@@ -20,6 +20,7 @@ warnings.filterwarnings("ignore")
 from tqdm import tqdm
 import pdb
 import data_helpers
+import pickle
 
 from translate_gramformer import correct
 torch.cuda.empty_cache()
@@ -51,16 +52,18 @@ class Seq2seq(nn.Module):
 		self.voc_ids = voc_encoding.input_ids # b x len
 		
 		id_list = []
+		self.id_2_embeds = {}
 		for id in tqdm(self.voc_ids):
 			for pos in id:
 				if pos not in id_list:
 					id_list.append(pos)
+					self.id_2_embeds[id] = self.model.encoder.embed_tokens(id)
+					pdb.set_trace()
 				else:
 					continue
-		pdb.set_trace()
-		self.id_2_embeds = {}
-		for id in id_list:
-			self.id_2_embeds[id] = self.model.encoder.embed_tokens(id)
+		
+		with open("myDictionary.pkl", "wb") as tf:
+			pickle.dump(self.id_2_embeds,tf)
 		pdb.set_trace()
 
 
