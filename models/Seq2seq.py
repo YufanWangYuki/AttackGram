@@ -427,8 +427,6 @@ class Seq2seq(nn.Module):
 			if dist < min_distance:
 				min_id = id 
 				min_distance = dist
-		pdb.set_trace()
-
 		return min_id
 	
 	def find_nearest_seq(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None,tokenId_2_embed=None):
