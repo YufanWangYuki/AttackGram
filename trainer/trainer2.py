@@ -257,15 +257,9 @@ class Trainer(object):
 			
 			model.eval()
 			outputs = model.find_nearest_seq(src_ids, src_att_mask, tgt_ids, noise_configs, self.noise,self.tokenId_2_embed)
-			preds = self.model.generate(
-            outputs,
-            do_sample=True, 
-            max_length=128, 
-            top_k=50, 
-            top_p=0.95, 
-            early_stopping=True,
-            num_return_sequences=1)
 			pdb.set_trace()
+			preds = model.generate(outputs,do_sample=True, max_length=128, top_k=50, top_p=0.95, early_stopping=True,num_return_sequences=1)
+			
 		return resloss
 
 
