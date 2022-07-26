@@ -387,8 +387,8 @@ class Seq2seq(nn.Module):
             num_return_sequences=max_candidates)
 		
 		corrected = set()
+		pdb.set_trace()
 		for pred in preds:  
-			pdb.set_trace()
 			corrected.add(self.tokenizer.decode(pred, skip_special_tokens=True).strip())
 		
 		corrected = list(corrected)

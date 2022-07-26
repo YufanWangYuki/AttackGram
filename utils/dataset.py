@@ -218,8 +218,6 @@ class Dataset(object):
 		params = {'batch_size': 1,
 					'shuffle': is_train,
 					'num_workers': 0}
-		pdb.set_trace()
-		
 		if self.word_way == "nearest":
 			self.iter_set = IterDataset(batches,
 			self.max_src_len, self.max_tgt_len, self.device,self.word_way,self.word_vocab)
