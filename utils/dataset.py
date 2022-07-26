@@ -57,6 +57,7 @@ class IterDataset(torch.utils.data.Dataset):
 			truncation=True,
 			return_tensors="pt")
 			self.voc_ids = voc_encoding.input_ids # b x len
+			pdb.set_trace()
 
 			# voc_encoding = self.tokenizer(
 			# [self.task_prefix + word for word in self.word_vocab], # tuple to list
@@ -120,8 +121,8 @@ class IterDataset(torch.utils.data.Dataset):
 				'tgt_ids': tgt_ids.to(device=self.device), # tensor
 				'tgt_seqs': tgt_seqs # lis - for bleu calculation
 			}
-		print("final"*10)
-		pdb.set_trace()
+		# print("final"*10)
+		# pdb.set_trace()
 		return batch
 
 
