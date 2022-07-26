@@ -60,7 +60,6 @@ class Seq2seq(nn.Module):
 				pos_num = pos.item()
 				if pos_num not in id_list:
 					id_list.append(pos_num)
-					pdb.set_trace()
 					self.id_2_embeds[pos_num] = self.model.encoder.embed_tokens(pos).detach().numpy()
 				else:
 					continue
