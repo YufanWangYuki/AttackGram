@@ -431,10 +431,13 @@ class Seq2seq(nn.Module):
 				new_embeds = inputs_embeds + noise[:len(inputs_embeds),:len(inputs_embeds[0]),:]
 			# for word in word_vocab:
 			w_embeddings=[]
-			# pdb.set_trace()
+			min_id = min(word_ids[0][0])
+			max_id = max(word_ids[0][0])
 			for w_id in word_ids[0]:
 				inputs_embeds=self.model.encoder.embed_tokens(w_id)
 				w_embeddings.append(inputs_embeds)
+				min_id = min(min(word_ids[0][0]),min_id)
+				max_id = max(max(word_ids[0][0]),max_id)
 			pdb.set_trace()
 			outputs=None
 
