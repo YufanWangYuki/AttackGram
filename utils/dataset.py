@@ -51,6 +51,15 @@ class IterDataset(torch.utils.data.Dataset):
 
 		if self.word_way == "nearest":
 			voc_encoding = self.tokenizer(
+			[self.task_prefix + word for word in self.word_vocab], # tuple to list
+			padding='longest',
+			max_length=self.max_tgt_len,
+			truncation=True,
+			return_tensors="pt")
+			self.voc_ids = voc_encoding.input_ids # b x len
+			pdb.set_trace()
+
+			voc_encoding = self.tokenizer(
 			[word for word in self.word_vocab], # tuple to list
 			padding='longest',
 			max_length=self.max_tgt_len,
