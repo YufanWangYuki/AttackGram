@@ -60,8 +60,8 @@ class Seq2seq(nn.Module):
 					self.id_2_embeds[pos] = self.model.encoder.embed_tokens(pos)
 				else:
 					continue
-		
-		with open("myDictionary.pkl", "wb") as tf:
+		pdb.set_trace()
+		with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl", "wb") as tf:
 			pickle.dump(self.id_2_embeds,tf)
 		pdb.set_trace()
 
