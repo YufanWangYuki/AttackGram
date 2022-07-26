@@ -61,6 +61,7 @@ class Seq2seq(nn.Module):
 		self.id_2_embeds = {}
 		for id in id_list:
 			self.id_2_embeds[id] = self.model.encoder.embed_tokens(id)
+		pdb.set_trace()
 
 
 	def forward_train(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None):
