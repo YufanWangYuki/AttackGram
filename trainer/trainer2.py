@@ -259,10 +259,13 @@ class Trainer(object):
 			model.eval()
 			outputs = model.find_nearest_seq(src_ids, src_att_mask, tgt_ids, noise_configs, self.noise,self.tokenId_2_embed)
 			preds = []
-			
-			for sentence in outputs:
+			srcs = []
+			tgts = []
+			for i, sentence in enumerate(outputs):
 				pred = model.tokenizer.decode(torch.tensor(sentence, dtype=torch.int).to(self.device), skip_special_tokens=True).strip()
 				preds.append(pred)
+				srcs.append(model.tokenizer.decode(src_ids[i], skip_special_tokens=True).strip())
+				tgts.append(model.tokenizer.decode(tgt_ids[i], skip_special_tokens=True).strip())
 			pdb.set_trace()
 		return resloss
 
