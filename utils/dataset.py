@@ -66,8 +66,19 @@ class IterDataset(torch.utils.data.Dataset):
 			truncation=True,
 			return_tensors="pt")
 		src_ids = src_encoding.input_ids # b x len
-		pdb.set_trace()
 		src_attention_mask = src_encoding.attention_mask # b x len
+
+
+		# test word id + mask
+		test_encoding = self.tokenizer(
+			[self.task_prefix + "test"],
+			padding='longest',
+			max_length=self.max_src_len,
+			truncation=True,
+			return_tensors="pt")
+		test_ids = test_encoding.input_ids # b x len
+		test_attention_mask = test_encoding.attention_mask # b x len
+		pdb.set_trace()
 
 		# tgt id
 		tgt_encoding = self.tokenizer(
