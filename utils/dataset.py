@@ -60,7 +60,7 @@ class IterDataset(torch.utils.data.Dataset):
 
 		# add noisy words
 		
-		# pdb.set_trace()
+		pdb.set_trace()
 		# src id + mask
 		src_encoding = self.tokenizer(
 			[self.task_prefix + seq for seq in src_seqs],

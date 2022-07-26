@@ -170,3 +170,5 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 # qsub -cwd -j yes -o 'LOGs/random_valid_new.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
 
 # qsub -cwd -j yes -o 'LOGs/test_cosine.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' train.sh 1 1
+
+# qsub -cwd -j yes -o 'LOGs/test_cosine.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' sleep.sh 1 1

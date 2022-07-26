@@ -392,3 +392,50 @@ class Seq2seq(nn.Module):
 		
 		corrected = list(corrected)
 		return corrected
+	
+	def find_nearest_seq(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None,word_vocab=None):
+
+		"""
+			for training
+
+			args:
+				src: [src1, src2, ..]
+					e.g. src1 = "Welcome to NYC"
+				tgt: [tgt1, tgt2, ..]
+					e.g. tgt1 = "Bienvenue à NYC"
+
+			outputs: (listed in order)
+				loss, logits, past_key_values, decoder_hidden_states,
+				decoder_attentions, cross_attentions,
+				encoder_last_hidden_states, encoder_hidden_states,
+				encoder_attentions
+			use as:
+				loss = outputs.loss
+
+		"""
+		if noise_config['noise'] == 1:
+			inputs_embeds = self.model.encoder.embed_tokens(src_ids)
+			embedding_dim = inputs_embeds.shape[2]
+			device = inputs_embeds.device
+			noise = data_helpers.add_noise(src_ids, embedding_dim, random_type=noise_config['noise_type'], 
+						word_keep=noise_config['word_keep'], weight=noise_config['weight'], mean=noise_config['mean'],
+						replace_map=noise_config['replace_map'],grad_noise=grad_noise)
+			if not torch.is_tensor(noise):
+				noise = noise.astype(np.float32)
+				noise = torch.tensor(noise).to(device=device)
+			else:
+				noise = noise.float()
+			if noise_config['noise_way'] == 'mul':
+				new_embeds = inputs_embeds * noise[:len(inputs_embeds),:len(inputs_embeds[0]),:]
+			elif noise_config['noise_way'] == 'add':
+				new_embeds = inputs_embeds + noise[:len(inputs_embeds),:len(inputs_embeds[0]),:]
+			# for word in word_vocab:
+			outputs = None
+
+		else:
+			inputs_embeds = self.model.encoder.embed_tokens(src_ids)
+			embedding_dim = inputs_embeds.shape[2]
+			device = inputs_embeds.device
+
+
+		return outputs
