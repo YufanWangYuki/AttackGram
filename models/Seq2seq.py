@@ -17,7 +17,7 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from scipy.spatial.distance import cosine
 import warnings
 warnings.filterwarnings("ignore")
-
+from tqdm import tqdm
 import pdb
 import data_helpers
 
@@ -49,9 +49,9 @@ class Seq2seq(nn.Module):
 		truncation=True,
 		return_tensors="pt")
 		self.voc_ids = voc_encoding.input_ids # b x len
-
+		
 		id_list = []
-		for id in self.voc_ids:
+		for id in tqdm(self.voc_ids):
 			for pos in id:
 				if pos not in id_list:
 					id_list.append(pos)
