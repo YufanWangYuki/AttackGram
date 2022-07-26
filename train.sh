@@ -109,7 +109,7 @@ mean=1.0
 weight=0.1
 word_way=orig
 savedir=models/$word_way/${set}_${batch_size}_${minibatch_split}/
-loaddir=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/old_256_8_v2_full/checkpoints/2022_07_15_11_08_11
+loaddir=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/models/v001/checkpoints-combine/combine
 load_mode='resume' # 'resume' | 'restart' | 'null'
 # ===================================================================================
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
@@ -143,7 +143,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 	--use_gpu True \
 	--gpu_id $CUDA_VISIBLE_DEVICES \
 	--noise $noise \
-	--word_way $word_way
+	--word_way $word_way \
 	--ntype $ntype \
 	--nway $nway \
 	--mean $mean \
