@@ -38,35 +38,35 @@ class Seq2seq(nn.Module):
 		self.tokenizer = AutoTokenizer.from_pretrained(model_name)
 		self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
-		self.temp = 0
+		# self.temp = 0
 		
-		vocab_file="/home/alta/BLTSpeaking/grd-graphemic-vr313/speech_processing/adversarial_attack/word2vec/test_words.txt"
-		with open(vocab_file, 'r') as f:
-			test_words = json.loads(f.read())
-		self.word_vocab = [str(word).lower() for word in test_words]
+		# vocab_file="/home/alta/BLTSpeaking/grd-graphemic-vr313/speech_processing/adversarial_attack/word2vec/test_words.txt"
+		# with open(vocab_file, 'r') as f:
+		# 	test_words = json.loads(f.read())
+		# self.word_vocab = [str(word).lower() for word in test_words]
 
-		voc_encoding = self.tokenizer(
-		[word for word in self.word_vocab], # tuple to list
-		padding='longest',
-		max_length=64,
-		truncation=True,
-		return_tensors="pt")
-		self.voc_ids = voc_encoding.input_ids # b x len
+		# voc_encoding = self.tokenizer(
+		# [word for word in self.word_vocab], # tuple to list
+		# padding='longest',
+		# max_length=64,
+		# truncation=True,
+		# return_tensors="pt")
+		# self.voc_ids = voc_encoding.input_ids # b x len
 		
-		id_list = []
-		self.id_2_embeds = {}
-		for id in tqdm(self.voc_ids):
-			for pos in id:
-				pos_num = pos.item()
-				if pos_num not in id_list:
-					id_list.append(pos_num)
-					self.id_2_embeds[pos_num] = self.model.encoder.embed_tokens(pos)
-				else:
-					continue
+		# id_list = []
+		# self.id_2_embeds = {}
+		# for id in tqdm(self.voc_ids):
+		# 	for pos in id:
+		# 		pos_num = pos.item()
+		# 		if pos_num not in id_list:
+		# 			id_list.append(pos_num)
+		# 			self.id_2_embeds[pos_num] = self.model.encoder.embed_tokens(pos)
+		# 		else:
+		# 			continue
 
-		with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl", "wb") as tf:
-			pickle.dump(self.id_2_embeds,tf)
-		pdb.set_trace()
+		# with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl", "wb") as tf:
+		# 	pickle.dump(self.id_2_embeds,tf)
+		# pdb.set_trace()
 		# with open('/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl', 'rb') as f:
 		# 	self.tokenId_2_embed = pickle.load(f)
 		# 	pdb.set_trace()
