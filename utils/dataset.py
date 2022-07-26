@@ -72,7 +72,7 @@ class IterDataset(torch.utils.data.Dataset):
 		# test word id + mask
 		test_words = ["",".","Hello world","Hello ","test",self.task_prefix]
 		test_encoding = self.tokenizer(
-			[self.task_prefix + seq for seq in test_words],
+			[seq for seq in test_words],
 			padding='longest',
 			max_length=self.max_src_len,
 			truncation=True,
