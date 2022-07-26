@@ -42,7 +42,7 @@ class Trainer(object):
 		max_count_num_rollback=2,
 		keep_num=1,
 		minibatch_split=1,
-		noise=1,
+		noise=0,
 		noise_type='Gaussian',
 		weight=0.0,
 		mean=1.0,
