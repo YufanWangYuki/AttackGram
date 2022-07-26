@@ -55,6 +55,7 @@ class Seq2seq(nn.Module):
 		
 		id_list = []
 		self.id_2_embeds = {}
+		output = {}
 		for id in tqdm(self.voc_ids):
 			for pos in id:
 				pos_num = pos.item()
@@ -63,10 +64,11 @@ class Seq2seq(nn.Module):
 					self.id_2_embeds[pos_num] = self.model.encoder.embed_tokens(pos).detach().numpy()
 				else:
 					continue
-		self.id_2_embeds = sorted(self.id_2_embeds.items())
+		for id in sorted(id_list):
+			output[id] = self.id_2_embeds[id]
 		pdb.set_trace()
 		with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl", "wb") as tf:
-			pickle.dump(self.id_2_embeds,tf)
+			pickle.dump(output,tf)
 		# pdb.set_trace()
 		# with open('/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl', 'rb') as f:
 		# 	self.tokenId_2_embed = pickle.load(f)
