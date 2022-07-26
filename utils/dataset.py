@@ -179,7 +179,7 @@ class Dataset(object):
 		self.src_seqs = [sentence.strip() for sentence in self.src_sentences]
 		self.tgt_seqs = [sentence.strip() for sentence in self.tgt_sentences]
 		self.word_vocab = []
-		pdb.set_trace()
+
 		if self.word_way == "nearest":
 			vocab_file="/home/alta/BLTSpeaking/grd-graphemic-vr313/speech_processing/adversarial_attack/word2vec/test_words.txt"
 			with open(vocab_file, 'r') as f:
@@ -218,12 +218,14 @@ class Dataset(object):
 		params = {'batch_size': 1,
 					'shuffle': is_train,
 					'num_workers': 0}
-
-		self.iter_set = IterDataset(batches,
-			self.max_src_len, self.max_tgt_len, self.device,self.word_way)
+		pdb.set_trace()
+		
 		if self.word_way == "nearest":
 			self.iter_set = IterDataset(batches,
 			self.max_src_len, self.max_tgt_len, self.device,self.word_way,self.word_vocab)
-			pdb.set_trace()
+		else:
+			self.iter_set = IterDataset(batches,
+			self.max_src_len, self.max_tgt_len, self.device,self.word_way)
+			
 		self.iter_loader = torch.utils.data.DataLoader(self.iter_set, **params)
 		
