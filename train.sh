@@ -20,7 +20,7 @@ export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/p
 
 # ===================================================================================
 # ------------------------ DIR --------------------------
-set=old
+set=new
 # generate
 # orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
 # train_path_src=$orig_path/${set}_len5_final_src.txt
@@ -32,9 +32,13 @@ set=old
 # train_path_tgt=$orig_path/words0_tgt.txt
 
 # random valid attack
+# orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid
+# train_path_src=$orig_path/train_src.txt
+# train_path_tgt=$orig_path/train_tgt.txt
+
 orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid
-train_path_src=$orig_path/train_src.txt
-train_path_tgt=$orig_path/train_tgt.txt
+train_path_src=$orig_path/new_train_src.txt
+train_path_tgt=$orig_path/new_train_tgt.txt
 
 dev_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
 dev_path_src=$dev_path/lib/gec-train-bpe-written/prep/dev.src
@@ -161,3 +165,4 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 
 # qsub -cwd -j yes -o 'LOGs/random_valid.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
 # qsub -cwd -j yes -o 'LOGs/random_valid_2.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
+# qsub -cwd -j yes -o 'LOGs/random_valid_new.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
