@@ -57,7 +57,7 @@ class Seq2seq(nn.Module):
 					id_list.append(pos)
 				else:
 					continue
-
+		pdb.set_trace()
 		self.id_2_embeds = {}
 		for id in id_list:
 			self.id_2_embeds[id] = self.model.encoder.embed_tokens(id)
