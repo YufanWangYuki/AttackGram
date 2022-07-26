@@ -37,6 +37,8 @@ class Seq2seq(nn.Module):
 		model_name = "zuu/grammar-error-correcter"
 		self.tokenizer = AutoTokenizer.from_pretrained(model_name)
 		self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+
+		self.temp = 0
 		
 		vocab_file="/home/alta/BLTSpeaking/grd-graphemic-vr313/speech_processing/adversarial_attack/word2vec/test_words.txt"
 		with open(vocab_file, 'r') as f:
@@ -55,12 +57,10 @@ class Seq2seq(nn.Module):
 		self.id_2_embeds = {}
 		for id in tqdm(self.voc_ids):
 			for pos in id:
-				pos = pos.item()
-				pdb.set_trace()
-				if pos not in id_list:
-					id_list.append(pos)
-
-					self.id_2_embeds[pos] = self.model.encoder.embed_tokens(pos)
+				pos_num = pos.item()
+				if pos_num not in id_list:
+					id_list.append(pos_num)
+					self.id_2_embeds[pos_num] = self.model.encoder.embed_tokens(pos)
 				else:
 					continue
 
