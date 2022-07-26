@@ -34,20 +34,20 @@ seed=1
 #         --use_attack 0
 # done
 
-# exp=orig
-# model=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/models/v001/checkpoints-combine/
-# for exp in new_256_8_v2_full old_256_8_v2_full
-# do
-#     model=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/$exp/checkpoints-combine/combine
-#     output=$outdir/$exp
-#     mkdir output
-#     $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-#         --IN $input \
-#         --MODEL $model \
-#         --OUT_BASE $output \
-#         --seed $seed \
-#         --use_attack 0
-# done
+exp=orig
+model=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/models/v001/checkpoints-combine/
+for exp in old_256_8_v2_full
+do
+    model=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/$exp/checkpoints-combine/combine
+    output=$outdir/$exp
+    mkdir output
+    $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+        --IN $input \
+        --MODEL $model \
+        --OUT_BASE $output \
+        --seed $seed \
+        --use_attack 0
+done
 
 # exp=Gaussian_mul_1.0_0.1_256_2_002
 # model=/home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/models/v002/$exp/checkpoints
@@ -229,87 +229,87 @@ seed=1
 # qsub -cwd -j yes -o 'LOGs/combine.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' predict.sh 1 1
 
 # ------------------------------------Perp Attack
-for exp in old_256_8_v2_full
-do
-model=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/$exp/checkpoints-combine/combine
-mkdir prediction_files/generate/$exp
-mkdir prediction_files/generate/$exp/perp_old
-output=$outdir/full_N1
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 1 \
-        --phrase 'trifecta' \
-        --delim '.'
+# for exp in old_256_8_v2_full
+# do
+# model=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/generate/$exp/checkpoints-combine/combine
+# mkdir prediction_files/generate/$exp
+# mkdir prediction_files/generate/$exp/perp_old
+# output=$outdir/full_N1
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+#         --IN $input \
+#         --MODEL $model \
+#         --OUT_BASE $output \
+#         --seed $seed \
+#         --use_attack 1 \
+#         --phrase 'trifecta' \
+#         --delim '.'
 
-output=$outdir/full_N2
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 1 \
-        --phrase 'trifecta haiku' \
-        --delim '.'
-output=$outdir/full_N3
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 1 \
-        --phrase 'trifecta haiku utah' \
-        --delim '.'
+# output=$outdir/full_N2
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+#         --IN $input \
+#         --MODEL $model \
+#         --OUT_BASE $output \
+#         --seed $seed \
+#         --use_attack 1 \
+#         --phrase 'trifecta haiku' \
+#         --delim '.'
+# output=$outdir/full_N3
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+#         --IN $input \
+#         --MODEL $model \
+#         --OUT_BASE $output \
+#         --seed $seed \
+#         --use_attack 1 \
+#         --phrase 'trifecta haiku utah' \
+#         --delim '.'
 
-output=$outdir/full_N4
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 1 \
-        --phrase 'trifecta haiku utah intransigent' \
-        --delim '.'   
+# output=$outdir/full_N4
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+#         --IN $input \
+#         --MODEL $model \
+#         --OUT_BASE $output \
+#         --seed $seed \
+#         --use_attack 1 \
+#         --phrase 'trifecta haiku utah intransigent' \
+#         --delim '.'   
 
-output=$outdir/full_N5
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 1 \
-        --phrase 'trifecta haiku utah intransigent penicillin' \
-        --delim '.'    
+# output=$outdir/full_N5
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+#         --IN $input \
+#         --MODEL $model \
+#         --OUT_BASE $output \
+#         --seed $seed \
+#         --use_attack 1 \
+#         --phrase 'trifecta haiku utah intransigent penicillin' \
+#         --delim '.'    
 
-output=$outdir/full_N6
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 1 \
-        --phrase 'trifecta haiku utah intransigent penicillin baseline' \
-        --delim '.'    
+# output=$outdir/full_N6
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+#         --IN $input \
+#         --MODEL $model \
+#         --OUT_BASE $output \
+#         --seed $seed \
+#         --use_attack 1 \
+#         --phrase 'trifecta haiku utah intransigent penicillin baseline' \
+#         --delim '.'    
 
-output=$outdir/full_N7
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 1 \
-        --phrase 'trifecta haiku utah intransigent penicillin baseline exploratory' \
-        --delim '.'   
+# output=$outdir/full_N7
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+#         --IN $input \
+#         --MODEL $model \
+#         --OUT_BASE $output \
+#         --seed $seed \
+#         --use_attack 1 \
+#         --phrase 'trifecta haiku utah intransigent penicillin baseline exploratory' \
+#         --delim '.'   
 
-output=$outdir/full_N8
-$PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
-        --IN $input \
-        --MODEL $model \
-        --OUT_BASE $output \
-        --seed $seed \
-        --use_attack 1 \
-        --phrase 'trifecta haiku utah intransigent penicillin baseline exploratory bioengineering' \
-        --delim '.'       
-done
+# output=$outdir/full_N8
+# $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
+#         --IN $input \
+#         --MODEL $model \
+#         --OUT_BASE $output \
+#         --seed $seed \
+#         --use_attack 1 \
+#         --phrase 'trifecta haiku utah intransigent penicillin baseline exploratory bioengineering' \
+#         --delim '.'       
+# done
