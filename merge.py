@@ -115,10 +115,10 @@ def merge_and_new(file1, file2, sample_size,file3):
     print(f1_lines_src[:5])
     print(f1_lines_tgt[:5])
     pdb.set_trace()
-    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/words0_src.txt", 'r', encoding='utf-8') as f2:
+    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/new_words0_src.txt", 'r', encoding='utf-8') as f2:
         f2_lines_src = f2.readlines()[1:]
     f2.close()
-    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/words0_tgt.txt", 'r', encoding='utf-8') as f2:
+    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/new_words0_tgt.txt", 'r', encoding='utf-8') as f2:
         f2_lines_tgt = f2.readlines()[1:]
     f2.close()
     print(len(f2_lines_src))
@@ -143,11 +143,11 @@ def merge_and_new(file1, file2, sample_size,file3):
     print(len(f1_lines_tgt))
     pdb.set_trace()
 
-    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/train_src.txt",'w+',encoding='utf-8') as f3:
+    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/new_train_src.txt",'w+',encoding='utf-8') as f3:
         for item in f1_lines_src:
             f3.write(item)
     f3.close()
-    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/train_tgt.txt",'w+',encoding='utf-8') as f3:
+    with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/new_train_tgt.txt",'w+',encoding='utf-8') as f3:
         for item in f1_lines_tgt:
             f3.write(item)
     f3.close()
