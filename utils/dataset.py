@@ -9,6 +9,7 @@ import numpy as np
 import random
 import os
 import time
+import json 
 
 # huggingface api
 from transformers import T5Tokenizer
@@ -33,7 +34,7 @@ class IterDataset(torch.utils.data.Dataset):
 		'tgt_seqs':tgt_seqs[i_start:i_end],
 	"""
 
-	def __init__(self, batches, max_src_len, max_tgt_len, device,word_way):
+	def __init__(self, batches, max_src_len, max_tgt_len, device,word_way,word_vocab=None):
 
 		super(Dataset).__init__()
 
@@ -46,6 +47,19 @@ class IterDataset(torch.utils.data.Dataset):
 		self.device = device
 		self.batches = batches
 		self.word_way = word_way
+		self.word_vocab = word_vocab
+
+		if self.word_way == "nearest":
+			voc_encoding = self.tokenizer(
+			[word for word in self.word_vocab], # tuple to list
+			padding='longest',
+			max_length=self.max_tgt_len,
+			truncation=True,
+			return_tensors="pt")
+			self.voc_ids = voc_encoding.input_ids # b x len
+			pdb.set_trace()
+
+
 
 	def __len__(self):
 
@@ -68,19 +82,6 @@ class IterDataset(torch.utils.data.Dataset):
 		src_ids = src_encoding.input_ids # b x len
 		src_attention_mask = src_encoding.attention_mask # b x len
 
-
-		# test word id + mask
-		test_words = ["",".","Hello world","Hello ","test",self.task_prefix]
-		test_encoding = self.tokenizer(
-			[seq for seq in test_words],
-			padding='longest',
-			max_length=self.max_src_len,
-			truncation=True,
-			return_tensors="pt")
-		test_ids = test_encoding.input_ids # b x len
-		test_attention_mask = test_encoding.attention_mask # b x len
-		pdb.set_trace()
-
 		# tgt id
 		tgt_encoding = self.tokenizer(
 			[seq for seq in tgt_seqs], # tuple to list
@@ -95,13 +96,23 @@ class IterDataset(torch.utils.data.Dataset):
 			for tgt_id in tgt_ids_example] for tgt_ids_example in tgt_ids]
 		tgt_ids = torch.tensor(tgt_ids) # b x len
 
-		batch = {
-			'src_ids': src_ids.to(device=self.device), # tensor
-			'src_att_mask': src_attention_mask.to(device=self.device), # tensor
-			'tgt_ids': tgt_ids.to(device=self.device), # tensor
-			'tgt_seqs': tgt_seqs # lis - for bleu calculation
-		}
-
+		if self.word_way == "nearest":
+			batch = {
+				'src_ids': src_ids.to(device=self.device), # tensor
+				'src_att_mask': src_attention_mask.to(device=self.device), # tensor
+				'tgt_ids': tgt_ids.to(device=self.device), # tensor
+				'tgt_seqs': tgt_seqs, # lis - for bleu calculation,
+				'word_vocab': self.voc_ids.to(device=self.device)
+			}
+		else:
+			batch = {
+				'src_ids': src_ids.to(device=self.device), # tensor
+				'src_att_mask': src_attention_mask.to(device=self.device), # tensor
+				'tgt_ids': tgt_ids.to(device=self.device), # tensor
+				'tgt_seqs': tgt_seqs # lis - for bleu calculation
+			}
+		print("final"*10)
+		pdb.set_trace()
 		return batch
 
 
@@ -137,6 +148,7 @@ class Dataset(object):
 			self.logger = logging.getLogger(__name__)
 		self.word_way = word_way
 		self.load_sentences()
+		
 
 
 	def load_sentences(self):
@@ -166,6 +178,13 @@ class Dataset(object):
 		print(self.num_sentences)
 		self.src_seqs = [sentence.strip() for sentence in self.src_sentences]
 		self.tgt_seqs = [sentence.strip() for sentence in self.tgt_sentences]
+		self.word_vocab = []
+
+		if self.word_way == "nearest":
+			vocab_file="/home/alta/BLTSpeaking/grd-graphemic-vr313/speech_processing/adversarial_attack/word2vec/test_words.txt"
+			with open(vocab_file, 'r') as f:
+				test_words = json.loads(f.read())
+			self.word_vocab = [str(word).lower() for word in test_words]
 
 
 	def construct_batches(self, is_train=False):
@@ -202,4 +221,9 @@ class Dataset(object):
 
 		self.iter_set = IterDataset(batches,
 			self.max_src_len, self.max_tgt_len, self.device,self.word_way)
+		if self.word_way == "nearest":
+			self.iter_set = IterDataset(batches,
+			self.max_src_len, self.max_tgt_len, self.device,self.word_way,self.word_vocab)
+			pdb.set_trace()
 		self.iter_loader = torch.utils.data.DataLoader(self.iter_set, **params)
+		
