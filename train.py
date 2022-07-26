@@ -141,7 +141,8 @@ def main():
 		max_tgt_len=config['max_tgt_len'],
 		batch_size=config['batch_size'],
 		use_gpu=config['use_gpu'],
-		logger=t.logger)
+		logger=t.logger,
+		word_way=config['word_way'])
 
 	# load dev set
 	if config['dev_path_src'] and config['dev_path_tgt']:
