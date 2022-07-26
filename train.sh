@@ -144,10 +144,10 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 	--gpu_id $CUDA_VISIBLE_DEVICES \
 	--noise $noise \
 	--word_way $word_way
-	# --ntype $ntype \
-	# --nway $nway \
-	# --mean $mean \
-	# --weight $weight \
+	--ntype $ntype \
+	--nway $nway \
+	--mean $mean \
+	--weight $weight
 	# --alpha $alpha
 
 # qsub -cwd -j yes -o 'LOGs/generate_v1.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1

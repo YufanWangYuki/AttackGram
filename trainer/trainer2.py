@@ -42,6 +42,7 @@ class Trainer(object):
 		max_count_num_rollback=2,
 		keep_num=1,
 		minibatch_split=1,
+		noise=0,
 		noise_type='Gaussian',
 		weight=0.0,
 		mean=1.0,
@@ -92,12 +93,14 @@ class Trainer(object):
 		self.embedding_dim = embedding_dim
 
 		self.noise_configs = {
+			'noise':noise,
 			'noise_type':noise_type,
 			'weight':weight,
 			'mean':mean,
 			'word_keep':word_keep,
 			'replace_map':replace_map,
-			'noise_way':noise_way
+			'noise_way':noise_way,
+			'word_way':word_way
 		}
 
 		self.noise = None
