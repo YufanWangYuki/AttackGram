@@ -18,13 +18,13 @@ export CUDA_VISIBLE_DEVICES=0
 echo $CUDA_VISIBLE_DEVICES
 
 # ------------------------ DIR --------------------------
-orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
-train_path_src=$orig_path/lib/gec-train-bpe-written/prep/train.src #3101262
-train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
+# orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
+# train_path_src=$orig_path/lib/gec-train-bpe-written/prep/train.src #3101262
+# train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/train.tgt
 
-# orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/lib/gec-train-bpe-written/prep-v2
-# train_path_src=$orig_path/train.src #2115141
-# train_path_tgt=$orig_path/train.tgt
+orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/lib/gec-train-bpe-written/prep-v2
+train_path_src=$orig_path/train.src #2115141
+train_path_tgt=$orig_path/train.tgt
 
 
 # ----------------------- [debug] ---------------------------
@@ -37,9 +37,9 @@ word_way=random_valid
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/utils/dataset_generate.py \
     --train_path_src $train_path_src \
 	--train_path_tgt $train_path_tgt \
-    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/words$SGE_TASK_ID \
+    --log /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/$word_way/new_words$SGE_TASK_ID \
     --start 0 \
-    --search_size 3101270 \
+    --search_size 2115150 \
     --word_way $word_way
 
 # Run below command to submit this script as an array job

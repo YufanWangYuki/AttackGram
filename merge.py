@@ -103,10 +103,10 @@ def merge(file1, file2):
         f1.write(lines[-1])
 
 def merge_and_new(file1, file2, sample_size,file3):
-    with open("/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/lib/gec-train-bpe-written/prep/train.src", 'r', encoding='utf-8') as f1:
+    with open("/home/alta/BLTSpeaking/exp-ytl28/projects/lib/gec-train-bpe-written/prep-v2/train.src", 'r', encoding='utf-8') as f1:
         f1_lines_src = f1.readlines()[1:]
     f1.close()
-    with open("/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/lib/gec-train-bpe-written/prep/train.tgt", 'r', encoding='utf-8') as f1:
+    with open("/home/alta/BLTSpeaking/exp-ytl28/projects/lib/gec-train-bpe-written/prep-v2/train.tgt", 'r', encoding='utf-8') as f1:
         f1_lines_tgt = f1.readlines()[1:]
     f1.close()
 
@@ -142,7 +142,7 @@ def merge_and_new(file1, file2, sample_size,file3):
     print(len(f1_lines_src))
     print(len(f1_lines_tgt))
     pdb.set_trace()
-	
+
     with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid/train_src.txt",'w+',encoding='utf-8') as f3:
         for item in f1_lines_src:
             f3.write(item)
