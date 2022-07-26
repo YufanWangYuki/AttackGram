@@ -14,7 +14,7 @@ import json
 # huggingface api
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
-
+from scipy.spatial.distance import cosine
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -49,19 +49,17 @@ class Seq2seq(nn.Module):
 		truncation=True,
 		return_tensors="pt")
 		self.voc_ids = voc_encoding.input_ids # b x len
-		# pdb.set_trace()
-		id_list = set()
-		pdb.set_trace()
+
+		id_list = []
 		for id in self.voc_ids:
 			for pos in id:
-				id_list.add(pos)
-		self.id_2_token = {}
+				if pos not in id_list:
+					id_list.append(pos)
+				else:
+					pdb.set_trace()
+		self.id_2_embeds = {}
 		for id in id_list:
-			self.id_2_token[id] = self.model.encoder.embed_tokens(id)
-		pdb.set_trace()
-
-
-
+			self.id_2_embeds[id] = self.model.encoder.embed_tokens(id)
 
 
 	def forward_train(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None):
@@ -420,7 +418,10 @@ class Seq2seq(nn.Module):
 		return corrected
 
 	def find_nearest_token(self,token):
-		
+		min_distance = cosine(token,self.id_2_embeds[0])
+		for id, embed in self.id_2_embeds.items():
+			dist = cosine(token,embed)
+
 
 		return token
 	
@@ -462,8 +463,8 @@ class Seq2seq(nn.Module):
 				new_embeds = inputs_embeds + noise[:len(inputs_embeds),:len(inputs_embeds[0]),:]
 			
 			for b in new_embeds:
-				for token in b:
-					nearest_token = self.find_nearest_token(token)
+				for embeds in b:
+					nearest_token = self.find_nearest_token(embeds)
 		
 			
 
