@@ -219,6 +219,8 @@ class Trainer(object):
 		batch_src_ids = batch_items['src_ids'][0]
 		batch_src_att_mask = batch_items['src_att_mask'][0]
 		batch_tgt_ids = batch_items['tgt_ids'][0]
+		word_vocab=batch_items['word_vocab']
+		word_ids=batch_items['word_id']
 
 		# separate into minibatch
 		batch_size = batch_src_ids.size(0)
@@ -248,8 +250,8 @@ class Trainer(object):
 			with torch.no_grad():
 				incre_noise = self.weight * norm_grad * torch.full([self.minibatch_size, self.seq_length, self.embedding_dim],1).to(device=self.device)
 				self.noise += self.noise + incre_noise
-			word_vocab=None
-			outputs = model.find_nearest_seq(src_ids, src_att_mask, tgt_ids, noise_configs, self.noise,word_vocab)
+			# word_vocab=None
+			outputs = model.find_nearest_seq(src_ids, src_att_mask, tgt_ids, noise_configs, self.noise,word_vocab,word_ids)
 		return resloss
 
 

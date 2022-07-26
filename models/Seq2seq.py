@@ -393,7 +393,7 @@ class Seq2seq(nn.Module):
 		corrected = list(corrected)
 		return corrected
 	
-	def find_nearest_seq(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None,word_vocab=None):
+	def find_nearest_seq(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None,word_vocab=None,word_ids=None):
 
 		"""
 			for training
@@ -430,7 +430,13 @@ class Seq2seq(nn.Module):
 			elif noise_config['noise_way'] == 'add':
 				new_embeds = inputs_embeds + noise[:len(inputs_embeds),:len(inputs_embeds[0]),:]
 			# for word in word_vocab:
-			outputs = None
+			w_embeddings=[]
+			for w_id in word_ids:
+				inputs_embeds=self.model.encoder.embed_tokens(w_id)
+				w_embeddings.append(inputs_embeds)
+			pdb.set_trace()
+			outputs=None
+
 
 		else:
 			inputs_embeds = self.model.encoder.embed_tokens(src_ids)
