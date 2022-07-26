@@ -63,7 +63,7 @@ class Seq2seq(nn.Module):
 					self.id_2_embeds[pos_num] = self.model.encoder.embed_tokens(pos).detach().numpy()
 				else:
 					continue
-		self.id_2_embeds = sorted(self.id_2_embeds)
+		self.id_2_embeds = sorted(self.id_2_embeds.items())
 		pdb.set_trace()
 		with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl", "wb") as tf:
 			pickle.dump(self.id_2_embeds,tf)
