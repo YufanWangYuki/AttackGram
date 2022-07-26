@@ -418,8 +418,11 @@ class Seq2seq(nn.Module):
 		return corrected
 
 	def find_nearest_token(self,token):
+		pdb.set_trace()
 		min_distance = cosine(token,self.id_2_embeds[0])
+		
 		for id, embed in self.id_2_embeds.items():
+			pdb.set_trace()
 			dist = cosine(token,embed)
 
 
