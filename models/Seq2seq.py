@@ -422,7 +422,7 @@ class Seq2seq(nn.Module):
 		token_np = token.cpu().detach().numpy()
 		min_distance = cosine(token_np,tokenId_2_embed[0])
 		min_id = 0
-		for id, embed in tqdm(tokenId_2_embed.items()):
+		for id, embed in tokenId_2_embed.items():
 			dist = cosine(token_np,embed)
 			if dist < min_distance:
 				min_id = id 
@@ -467,7 +467,7 @@ class Seq2seq(nn.Module):
 				new_embeds = inputs_embeds + noise[:len(inputs_embeds),:len(inputs_embeds[0]),:]
 			
 			result = []
-			for b in new_embeds:
+			for b in tqdm(new_embeds):
 				res = []
 				for embeds in b:
 					nearest_id = self.find_nearest_token(embeds,tokenId_2_embed)
