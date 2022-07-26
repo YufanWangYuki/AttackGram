@@ -99,7 +99,7 @@ class Trainer(object):
 			'noise_way':noise_way,
 			'word_way':word_way
 		}
-
+		pdb.set_trace()
 		if noise == 0:
 			self.noise_flag = False
 			self.noise = None
