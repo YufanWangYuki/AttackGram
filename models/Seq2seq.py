@@ -53,7 +53,8 @@ class Seq2seq(nn.Module):
 
 		vocab_file="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/test_words.txt"
 		with open(vocab_file, 'r') as f:
-			test_words = json.loads(f.read(),cls=LazyDecoder)
+			test_words = json.loads(f.read())
+			# test_words = json.loads(f.read(),cls=LazyDecoder)
 		self.word_vocab = [str(word).lower() for word in test_words]
 
 		voc_encoding = self.tokenizer(
