@@ -40,7 +40,7 @@ class Seq2seq(nn.Module):
 
 		# self.temp = 0
 		
-		vocab_file="/home/alta/BLTSpeaking/grd-graphemic-vr313/speech_processing/adversarial_attack/word2vec/test_words.txt"
+		vocab_file="/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/test_words.txt"
 		with open(vocab_file, 'r') as f:
 			test_words = json.loads(f.read())
 		self.word_vocab = [str(word).lower() for word in test_words]
@@ -53,26 +53,26 @@ class Seq2seq(nn.Module):
 		return_tensors="pt")
 		self.voc_ids = voc_encoding.input_ids # b x len
 		
-		# id_list = []
-		# self.id_2_embeds = {}
-		# output = {}
-		# for id in tqdm(self.voc_ids):
-		# 	for pos in id:
-		# 		pos_num = pos.item()
-		# 		if pos_num not in id_list:
-		# 			id_list.append(pos_num)
-		# 			self.id_2_embeds[pos_num] = self.model.encoder.embed_tokens(pos).detach().numpy()
-		# 		else:
-		# 			continue
-		# for id in sorted(id_list):
-		# 	output[id] = self.id_2_embeds[id]
+		id_list = []
+		self.id_2_embeds = {}
+		output = {}
+		for id in tqdm(self.voc_ids):
+			for pos in id:
+				pos_num = pos.item()
+				if pos_num not in id_list:
+					id_list.append(pos_num)
+					self.id_2_embeds[pos_num] = self.model.encoder.embed_tokens(pos).detach().numpy()
+				else:
+					continue
+		for id in sorted(id_list):
+			output[id] = self.id_2_embeds[id]
 		# pdb.set_trace()
-		# with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl", "wb") as tf:
-		# 	pickle.dump(output,tf)
+		with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl", "wb") as tf:
+			pickle.dump(output,tf)
 		# pdb.set_trace()
-		# with open('/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl', 'rb') as f:
-		# 	self.tokenId_2_embed = pickle.load(f)
-		# 	pdb.set_trace()
+		with open('/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/tokenId_2_embed.pkl', 'rb') as f:
+			self.tokenId_2_embed = pickle.load(f)
+			pdb.set_trace()
 
 
 	def forward_train(self, src_ids, src_att_mask, tgt_ids, noise_config, grad_noise=None):
