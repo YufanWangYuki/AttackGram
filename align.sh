@@ -150,7 +150,7 @@ seed=1
 
 
 # mkdir $outdir/orig
-for exp in new_256_8
+for exp in million_old_256_8
 do  
     preddir=prediction_files/random_valid/$exp/perp_old
     mkdir $outdir/perp_valid

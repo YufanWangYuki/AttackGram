@@ -147,7 +147,7 @@ seed=1
 
 outdir=prediction_files/m2/perp_valid
 mkdir prediction_files/m2/perp_valid
-for exp in new_256_8
+for exp in million_old_256_8
 do
     checkpoint=combine
     dir=prediction_files/for_errant/perp_valid/$exp
