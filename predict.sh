@@ -230,7 +230,7 @@ seed=1
 
 # ------------------------------------Perp Attack
 # /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/random_valid/new_256_8/
-for exp in new_256_8
+for exp in million_old_256_8
 do
 model=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/random_valid/$exp/checkpoints-combine/combine
 mkdir prediction_files/random_valid/$exp
