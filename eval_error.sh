@@ -145,11 +145,12 @@ do
 mkdir edit_dist_files/random_valid/$exp
 mkdir edit_dist_files/random_valid/$exp/perp_old
 name=full_N1
+type=random_valid
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/generate/$exp/perp_old/${name}_with_adv_not_removed.pred \
-    --OUT edit_dist_files/generate/$exp/perp_old/${name}_with_adv_not_removed.txt \
+    --PRED prediction_files/$type/$exp/perp_old/${name}_with_adv_not_removed.pred \
+    --OUT edit_dist_files/$type/$exp/perp_old/${name}_with_adv_not_removed.txt \
     --phrase 'trifecta' \
     --delim '.'
 
@@ -157,8 +158,8 @@ name=full_N2
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/generate/$exp/perp_old/${name}_with_adv_not_removed.pred \
-    --OUT edit_dist_files/generate/$exp/perp_old/${name}_with_adv_not_removed.txt \
+    --PRED prediction_files/$type/$exp/perp_old/${name}_with_adv_not_removed.pred \
+    --OUT edit_dist_files/$type/$exp/perp_old/${name}_with_adv_not_removed.txt \
     --phrase 'trifecta haiku' \
     --delim '.'
 
@@ -166,8 +167,8 @@ name=full_N3
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/generate/$exp/perp_old/${name}_with_adv_not_removed.pred \
-    --OUT edit_dist_files/generate/$exp/perp_old/${name}_with_adv_not_removed.txt \
+    --PRED prediction_files/$type/$exp/perp_old/${name}_with_adv_not_removed.pred \
+    --OUT edit_dist_files/$type/$exp/perp_old/${name}_with_adv_not_removed.txt \
     --phrase 'trifecta haiku utah' \
     --delim '.'
 
@@ -175,8 +176,8 @@ name=full_N4
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/generate/$exp/perp_old/${name}_with_adv_not_removed.pred \
-    --OUT edit_dist_files/generate/$exp/perp_old/${name}_with_adv_not_removed.txt \
+    --PRED prediction_files/$type/$exp/perp_old/${name}_with_adv_not_removed.pred \
+    --OUT edit_dist_files/$type/$exp/perp_old/${name}_with_adv_not_removed.txt \
     --phrase 'trifecta haiku utah intransigent' \
     --delim '.'
 
@@ -184,8 +185,8 @@ name=full_N5
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/generate/$exp/perp_old/${name}_with_adv_not_removed.pred \
-    --OUT edit_dist_files/generate/$exp/perp_old/${name}_with_adv_not_removed.txt \
+    --PRED prediction_files/$type/$exp/perp_old/${name}_with_adv_not_removed.pred \
+    --OUT edit_dist_files/$type/$exp/perp_old/${name}_with_adv_not_removed.txt \
     --phrase 'trifecta haiku utah intransigent penicillin' \
     --delim '.'
 
@@ -193,8 +194,8 @@ name=full_N6
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/generate/$exp/perp_old/${name}_with_adv_not_removed.pred \
-    --OUT edit_dist_files/generate/$exp/perp_old/${name}_with_adv_not_removed.txt \
+    --PRED prediction_files/$type/$exp/perp_old/${name}_with_adv_not_removed.pred \
+    --OUT edit_dist_files/$type/$exp/perp_old/${name}_with_adv_not_removed.txt \
     --phrase 'trifecta haiku utah intransigent penicillin baseline' \
     --delim '.'
 
@@ -202,8 +203,8 @@ name=full_N7
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/generate/$exp/perp_old/${name}_with_adv_not_removed.pred \
-    --OUT edit_dist_files/generate/$exp/perp_old/${name}_with_adv_not_removed.txt \
+    --PRED prediction_files/$type/$exp/perp_old/${name}_with_adv_not_removed.pred \
+    --OUT edit_dist_files/$type/$exp/perp_old/${name}_with_adv_not_removed.txt \
     --phrase 'trifecta haiku utah intransigent penicillin baseline exploratory' \
     --delim '.'
 
@@ -211,8 +212,8 @@ name=full_N8
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
     --REF /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.corr \
-    --PRED prediction_files/generate/$exp/perp_old/${name}_with_adv_not_removed.pred \
-    --OUT edit_dist_files/generate/$exp/perp_old/${name}_with_adv_not_removed.txt \
+    --PRED prediction_files/$type/$exp/perp_old/${name}_with_adv_not_removed.pred \
+    --OUT edit_dist_files/$type/$exp/perp_old/${name}_with_adv_not_removed.txt \
     --phrase 'trifecta haiku utah intransigent penicillin baseline exploratory bioengineering' \
     --delim '.'
 done
