@@ -94,7 +94,7 @@ class IterDataset(torch.utils.data.Dataset):
 
 		# tgt id
 		tgt_encoding = self.tokenizer(
-			[seq for seq in tgt_seqs], # tuple to list
+			[self.task_prefix + seq for seq in tgt_seqs], # tuple to list
 			padding='longest',
 			max_length=self.max_tgt_len,
 			truncation=True,
