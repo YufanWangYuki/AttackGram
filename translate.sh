@@ -5,8 +5,8 @@ echo $HOSTNAME
 unset LD_PRELOAD
 echo export PATH=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/bin/:$PATH
 
-# export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
+# export CUDA_VISIBLE_DEVICES=0
 echo $CUDA_VISIBLE_DEVICES
 
 # python 3.7
@@ -15,7 +15,7 @@ source activate /home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37
 export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/python3
 
 # ===================================================================================
-model=models/generate/old_256_8_v2_full
+model=models/random_valid/new_256_8
 # ckpt=2022_02_01_15_37_10
 ckpt=combine
 
@@ -152,10 +152,10 @@ word_keep=1.0
 
 # ------- Combine ---------------
 eval_mode=1
-model=models/generate
+model=models/random_valid
 fname=checkpoints
 mode='combine'
-for exp in new_256_8_v2_full old_256_8_v2_full
+for exp in new_256_8
 do
 combine_path=$model/$exp/checkpoints/
 outdir=$model/$exp/checkpoints-combine/combine/
