@@ -140,10 +140,10 @@ export PYTHONPATH="${PYTHONPATH}:/home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/
 
 
 
-for exp in old_256_8_v2_full
+for exp in million_old_256_8
 do
-mkdir edit_dist_files/generate/$exp
-mkdir edit_dist_files/generate/$exp/perp_old
+mkdir edit_dist_files/random_valid/$exp
+mkdir edit_dist_files/random_valid/$exp/perp_old
 name=full_N1
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/eval_error.py \
     --SOURCE /home/alta/CLC/LNRC/exams/FCEsplit-public/v3/fce-public.test.inc \
