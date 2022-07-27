@@ -264,7 +264,7 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
         --use_attack 1 \
         --phrase 'trifecta haiku' \
         --delim '.'
-        
+
 output=$outdir/full_N3
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
         --IN $input \
@@ -325,3 +325,5 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
         --phrase 'trifecta haiku utah intransigent penicillin baseline exploratory bioengineering' \
         --delim '.'       
 done
+
+# qsub -cwd -j yes -o 'LOGs/predict.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' -l not_host='air209' predict.sh 1 1

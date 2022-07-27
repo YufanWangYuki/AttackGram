@@ -155,7 +155,7 @@ eval_mode=1
 model=models/random_valid
 fname=checkpoints
 mode='combine'
-for exp in new_256_8
+for exp in million_old_256_8
 do
 combine_path=$model/$exp/checkpoints/
 outdir=$model/$exp/checkpoints-combine/combine/
