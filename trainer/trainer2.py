@@ -254,7 +254,7 @@ class Trainer(object):
 
 			with torch.no_grad():
 				incre_noise = self.weight * norm_grad * torch.full([self.minibatch_size, self.seq_length, self.embedding_dim],1).to(device=self.device)
-				self.noise += self.noise + incre_noise
+				self.noise = self.noise + incre_noise
 			
 			model.eval()
 			outputs = model.find_nearest_seq(src_ids, src_att_mask, tgt_ids, noise_configs, self.noise,self.tokenId_2_embed)
