@@ -7,8 +7,8 @@ unset LD_PRELOAD
 echo export PATH=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/bin/:$PATH
 
 
-# export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
-export CUDA_VISIBLE_DEVICES=2
+export CUDA_VISIBLE_DEVICES=$X_SGE_CUDA_DEVICE
+# export CUDA_VISIBLE_DEVICES=2
 echo $CUDA_VISIBLE_DEVICES
 
 # python 3.7
@@ -44,7 +44,7 @@ set=new
 # dev_path_src=$dev_path/lib/gec-train-bpe-written/prep/dev.src
 # dev_path_tgt=$dev_path/lib/gec-train-bpe-written/prep/dev.tgt
 
-max_src_len=67
+max_src_len=64
 max_tgt_len=64
 
 # ------------------------ TRAIN --------------------------
