@@ -150,14 +150,14 @@ seed=1
 
 
 # mkdir $outdir/orig
-for exp in new_256_8_v2_full old_256_8_v2_full
-do
-    preddir=prediction_files
-    mkdir $outdir/v001
-    mkdir $outdir/v001/${exp}
+for exp in new_256_8
+do  
+    preddir=prediction_files/random_valid/$exp/perp_old
+    mkdir $outdir/perp_valid
+    mkdir $outdir/perp_valid/${exp}
     checkpoint=combine
-    pred=$preddir/$exp.pred
-    output=$outdir/v001/${exp}/${checkpoint}_seed_${seed}
+    pred=$preddir/orig.pred
+    output=$outdir/perp_valid/${exp}/${checkpoint}_seed_${seed}
     echo $pred
     $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/utils/align_preds.py \
         --INC $input \

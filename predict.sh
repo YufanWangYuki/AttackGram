@@ -326,4 +326,4 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/NoiseGram/predict.py \
         --delim '.'       
 done
 
-# qsub -cwd -j yes -o 'LOGs/predict.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' -l not_host='air209' predict.sh 1 1
+# qsub -cwd -j yes -o 'LOGs/predict_million.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' -l not_host='air209' predict.sh 1 1
