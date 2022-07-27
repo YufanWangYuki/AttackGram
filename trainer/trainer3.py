@@ -105,13 +105,13 @@ class Trainer(object):
 
 		self.noise = None
 		self.word_way = word_way
+		self.alpha = alpha
 
 		if noise_type == 'Adversarial':
 			self.noise = np.ones([self.minibatch_size, seq_length, embedding_dim])
-		elif noise_type == 'Gaussian-adversarial':
-			self.noise = np.random.normal(1, weight, [self.minibatch_size, seq_length, embedding_dim])
-		if 'dversarial'in noise_type:
-			self.noise = torch.tensor(self.noise).to(device=self.device)
+		elif noise_type == 'Gaussian-adversarial' or noise_type == 'Gaussian-adversarial-norm':
+			self.noise = np.random.normal(mean, weight, [1, 1, embedding_dim])
+			self.noise = torch.tensor(self.noise).to(device=self.device).expand([self.minibatch_size,seq_length,embedding_dim])
 			self.noise.requires_grad = True
 		self.weight = weight
 
@@ -234,6 +234,7 @@ class Trainer(object):
 
 		# loss
 		resloss = 0
+
 		for bidx in range(n_minibatch):
 			# load data
 			i_start = bidx * self.minibatch_size
@@ -248,16 +249,24 @@ class Trainer(object):
 			loss = outputs.loss
 			loss /= self.minibatch_size
             
-			grad = torch.autograd.grad(loss, self.noise, retain_graph=True, create_graph=True)[0]
-			norm_grad = grad.clone()
-			norm_grad = torch.sum(grad)/(torch.norm(grad) + 1e-10)
+			# Update the noise
+			grad = torch.autograd.grad(loss, self.noise, retain_graph=True, create_graph=False)[0]
+			if 'norm' in noise_configs['noise_type']:
+				with torch.no_grad():
+					for i in range(len(src_ids)):
+						grad[i] /= (torch.norm(grad[i]) + 1e-10)
+			new_noise = self.noise + self.alpha * grad
 
 			with torch.no_grad():
-				incre_noise = self.weight * norm_grad * torch.full([self.minibatch_size, self.seq_length, self.embedding_dim],1).to(device=self.device)
-				new_noise = self.noise + incre_noise
+				for b in range(len(src_ids)):
+					for i in range(len(new_noise[0])):
+						new_noise[b][i] /= (torch.norm(new_noise[b][i]) + 1e-10)
+			new_noise *= self.weight
+			if self.noise_configs['noise_way'] == 'mul':
+				new_noise += 1
 			
 			model.eval()
-			outputs = model.find_nearest_seq(src_ids, src_att_mask, tgt_ids, noise_configs, new_noise,self.tokenId_2_embed)
+			outputs = model.find_nearest_seq(src_ids, src_att_mask, tgt_ids, noise_configs, self.noise,self.tokenId_2_embed)
 			preds = []
 			srcs = []
 			tgts = []
@@ -268,15 +277,15 @@ class Trainer(object):
 				tgt_ids = [[(tgt_id if tgt_id != -100 else torch.tensor(0).to(torch.device('cuda'))) for tgt_id in tgt_ids_example] for tgt_ids_example in tgt_ids]
 				tgts.append(model.tokenizer.decode(tgt_ids[i], skip_special_tokens=True).strip())
 			
-			with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/dev_pred.txt","a+") as f:
+			with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/dev_pred_v2.txt","a+") as f:
 				for i in range(len(preds)):
 					f.write(preds[i]+"\n")
 				f.close()
-			with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/dev_src.txt","a") as f:
+			with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/dev_src_v2.txt","a+") as f:
 				for i in range(len(srcs)):
 					f.write(srcs[i]+"\n")
 				f.close()
-			with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/dev_tgt.txt","a") as f:
+			with open("/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/nearest/dev_tgt_v2.txt","a+") as f:
 				for i in range(len(tgts)):
 					f.write(tgts[i]+"\n")
 				f.close()		
