@@ -36,15 +36,15 @@ set=new
 # train_path_src=$orig_path/train_src.txt
 # train_path_tgt=$orig_path/train_tgt.txt
 
-orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid
-train_path_src=$orig_path/new_train_src.txt
-train_path_tgt=$orig_path/new_train_tgt.txt
+# orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid
+# train_path_src=$orig_path/new_train_src.txt
+# train_path_tgt=$orig_path/new_train_tgt.txt
 
-dev_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
-dev_path_src=$dev_path/lib/gec-train-bpe-written/prep/dev.src
-dev_path_tgt=$dev_path/lib/gec-train-bpe-written/prep/dev.tgt
+# dev_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
+# dev_path_src=$dev_path/lib/gec-train-bpe-written/prep/dev.src
+# dev_path_tgt=$dev_path/lib/gec-train-bpe-written/prep/dev.tgt
 
-max_src_len=64
+max_src_len=67
 max_tgt_len=64
 
 # ------------------------ TRAIN --------------------------
@@ -177,4 +177,4 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 
 # qsub -cwd -j yes -o 'LOGs/test_cosine.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' train.sh 1 1
 
-# qsub -cwd -j yes -o 'LOGs/test_cosine.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' sleep.sh 1 1
+# qsub -cwd -j yes -o 'LOGs/test_cosine.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' train.sh 1 1
