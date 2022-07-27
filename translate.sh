@@ -260,4 +260,4 @@ done
 #         --load $load_dir
 
 
-# qsub -cwd -j yes -o 'LOGs/combine.log' -P esol -l hostname='air206|air210|air211|air212' -l qp=cuda-low -l gpuclass='*' -l osrel='*' translate.sh 1 1
+# qsub -cwd -j yes -o 'LOGs/combine.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' -l not_host='air209' translate.sh 1 1
