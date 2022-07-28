@@ -150,11 +150,11 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 	--use_gpu True \
 	--gpu_id $CUDA_VISIBLE_DEVICES \
 	--noise $noise \
-	--word_way $word_way \
-	--ntype $ntype \
-	--nway $nway \
-	--mean $mean \
-	--weight $weight
+	--word_way $word_way
+	# --ntype $ntype \
+	# --nway $nway \
+	# --mean $mean \
+	# --weight $weight
 	# --alpha $alpha
 
 # qsub -cwd -j yes -o 'LOGs/generate_v1.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
@@ -175,6 +175,8 @@ $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
 # qsub -cwd -j yes -o 'LOGs/random_valid.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
 # qsub -cwd -j yes -o 'LOGs/random_valid_2.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
 # qsub -cwd -j yes -o 'LOGs/random_valid_new.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
+
+# qsub -cwd -j yes -o 'LOGs/random_valid_con.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='volta' -l osrel='*' train.sh 1 1
 
 # qsub -cwd -j yes -o 'LOGs/test_cosine.log' -P esol -l hostname='*' -l qp=cuda-low -l gpuclass='*' -l osrel='*' train.sh 1 1
 
