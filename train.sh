@@ -20,7 +20,7 @@ export PYTHONBIN=/home/alta/BLTSpeaking/exp-yw575/env/anaconda3/envs/gec37/bin/p
 
 # ===================================================================================
 # ------------------------ DIR --------------------------
-set=new
+set=old
 # generate
 # orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/generate/merge
 # train_path_src=$orig_path/${set}_len5_final_src.txt
@@ -32,17 +32,17 @@ set=new
 # train_path_tgt=$orig_path/words0_tgt.txt
 
 # random valid attack
-# orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid
-# train_path_src=$orig_path/train_src.txt
-# train_path_tgt=$orig_path/train_tgt.txt
+orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid
+train_path_src=$orig_path/train_src.txt
+train_path_tgt=$orig_path/train_tgt.txt
 
 # orig_path=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/dataset/random_valid
 # train_path_src=$orig_path/new_train_src.txt
 # train_path_tgt=$orig_path/new_train_tgt.txt
 
-# dev_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
-# dev_path_src=$dev_path/lib/gec-train-bpe-written/prep/dev.src
-# dev_path_tgt=$dev_path/lib/gec-train-bpe-written/prep/dev.tgt
+dev_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written 
+dev_path_src=$dev_path/lib/gec-train-bpe-written/prep/dev.src
+dev_path_tgt=$dev_path/lib/gec-train-bpe-written/prep/dev.tgt
 
 max_src_len=64
 max_tgt_len=64
@@ -71,7 +71,7 @@ keep_num=5
 batch_size=256
 # minibatch_split=2 #8 for million
 # minibatch_split=8 #8 for million
-minibatch_split=8 #8 for million
+minibatch_split=2 #8 for million
 num_epochs=100
 
 checkpoint_every=5000 # ~10k if 2M, batch - 256
@@ -89,16 +89,16 @@ load_mode='null' # 'resume' | 'restart' | 'null'
 # dev_path_src=$orig_path/lib/gec-train-bpe-written/prep/toy.src
 # dev_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/toy.tgt
 
-orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written
-train_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src
-train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
-dev_path_src=$orig_path/lib/gec-train-bpe-written/prep/toy.src
-dev_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/toy.tgt
-minibatch_split=2
-batch_size=4
-checkpoint_every=100
-print_every=2
-num_epochs=1
+# orig_path=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written
+# train_path_src=$orig_path/lib/gec-train-bpe-written/prep/dev.src
+# train_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/dev.tgt
+# dev_path_src=$orig_path/lib/gec-train-bpe-written/prep/toy.src
+# dev_path_tgt=$orig_path/lib/gec-train-bpe-written/prep/toy.tgt
+# minibatch_split=2
+# batch_size=4
+# checkpoint_every=100
+# print_every=2
+# num_epochs=1
 
 # ----------------------- [noise] ---------------------------
 # ntype=Gaussian-adversarial #Gaussian, Bernoulli, Gaussian-adversarial, Adversarial
@@ -108,14 +108,15 @@ num_epochs=1
 # alpha=100000000
 # decay=0.1
 # savedir=models/v005/volta_${ntype}_${nway}_${mean}_${weight}_${alpha}_${decay}_${batch_size}_${minibatch_split}/
-noise=1
-ntype=Gaussian-adversarial #Gaussian, Bernoulli, Gaussian-adversarial, Adversarial
-nway=mul
-mean=1.0
-weight=0.1
-word_way=nearest
+noise=0
+# ntype=Gaussian-adversarial #Gaussian, Bernoulli, Gaussian-adversarial, Adversarial
+# nway=mul
+# mean=1.0
+# weight=0.1
+
+word_way=random_valid
 savedir=models/$word_way/${set}_${batch_size}_${minibatch_split}/
-loaddir=/home/alta/BLTSpeaking/exp-ytl28/projects/gec-pretrained/exp-t5-written/models/v001/checkpoints-combine/combine
+loaddir=/home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/models/random_valid/old_256_8/checkpoints/2022_07_26_20_18_39
 load_mode='resume' # 'resume' | 'restart' | 'null'
 # ===================================================================================
 $PYTHONBIN /home/alta/BLTSpeaking/exp-yw575/GEC/AttackGram/train.py \
